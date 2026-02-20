@@ -1,7 +1,7 @@
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
-import ContentArea from './components/ContentArea.tsx';
-import Header from './components/Header.tsx';
-import Hero from './components/Hero.tsx';
+import ContentArea from './components/ContentArea';
+import Header from './components/Header';
+import Hero from './components/Hero';
 import { createTheme, CssBaseline, GlobalStyles, ThemeProvider } from '@mui/material';
 const theme = createTheme({
     palette: {
