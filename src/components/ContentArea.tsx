@@ -203,7 +203,7 @@ export default function ContentArea() {
       <Section id="section-education" alt>
         <Typography variant="h2" sx={{ fontSize: { xs: '2rem', md: '2.8rem' }, mb: 1.5 }}>Education</Typography>
         <Typography color="text.secondary" sx={{ maxWidth: 900, fontSize: '1.05rem', lineHeight: 1.85 }}>
-          Public Policy Institute offers diverse programmes designed to equip participants with the knowledge and skills to analyse complex policy challenges and contribute to evidence-based policy decisions.
+          Our Gender Lens offers diverse programmes designed to equip participants with the knowledge and skills to analyse complex policy challenges and contribute to evidence-based policy decisions.
         </Typography>
 
         <Grid container spacing={3} sx={{ mt: 1 }}>

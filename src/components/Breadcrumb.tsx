@@ -8,7 +8,7 @@ export default function Breadcrumb() {
         </li>
         <li className="text-[#9ca3af]" aria-hidden="true">&gt;</li>
         <li>
-          <span className="font-semibold text-[#123f75]" aria-current="page">Public Policy Institute</span>
+          <span className="font-semibold text-[#123f75]" aria-current="page">Our Gender Lens</span>
         </li>
       </ol>
     </nav>

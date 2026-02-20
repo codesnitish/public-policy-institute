@@ -30,7 +30,7 @@ export default function Hero() {
               mb: 2,
             }}
           >
-            Public Policy Institute
+            Our Gender Lens
           </Typography>
           <Typography sx={{ fontSize: { xs: '1.1rem', md: '1.28rem' }, opacity: 0.95, maxWidth: 760 }}>
             Shaping Policy. Advancing Knowledge. Building Leaders.

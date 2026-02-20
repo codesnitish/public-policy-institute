@@ -19,7 +19,7 @@ export default function Hero() {
                             lineHeight: 1.06,
                             color: '#fff',
                             mb: 2,
-                        }, children: "Public Policy Institute" }), _jsx(Typography, { sx: { fontSize: { xs: '1.1rem', md: '1.28rem' }, opacity: 0.95, maxWidth: 760 }, children: "Shaping Policy. Advancing Knowledge. Building Leaders." }), _jsxs(Stack, { direction: { xs: 'column', sm: 'row' }, spacing: 1.5, mt: 4.5, children: [_jsx(Button, { href: "#section-education", variant: "contained", color: "secondary", sx: {
+                        }, children: "Our Gender Lens" }), _jsx(Typography, { sx: { fontSize: { xs: '1.1rem', md: '1.28rem' }, opacity: 0.95, maxWidth: 760 }, children: "Shaping Policy. Advancing Knowledge. Building Leaders." }), _jsxs(Stack, { direction: { xs: 'column', sm: 'row' }, spacing: 1.5, mt: 4.5, children: [_jsx(Button, { href: "#section-education", variant: "contained", color: "secondary", sx: {
                                     minHeight: 46,
                                     px: 3,
                                     fontWeight: 700,

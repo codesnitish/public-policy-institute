@@ -25,7 +25,7 @@ export default function Header() {
                                 fontSize: { xs: 24, md: 28 },
                                 letterSpacing: '-0.02em',
                                 flexShrink: 0,
-                            }, children: "Public Policy Institute" }), _jsxs(Box, { sx: { display: { xs: 'none', md: 'flex' }, ml: 'auto', alignItems: 'center', gap: 1.5 }, children: [navItems.map((item) => (_jsx(Button, { href: item.href, sx: {
+                            }, children: "Our Gender Lens" }), _jsxs(Box, { sx: { display: { xs: 'none', md: 'flex' }, ml: 'auto', alignItems: 'center', gap: 1.5 }, children: [navItems.map((item) => (_jsx(Button, { href: item.href, sx: {
                                         minHeight: 44,
                                         px: 1.75,
                                         color: 'text.primary',

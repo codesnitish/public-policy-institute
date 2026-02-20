@@ -53,7 +53,7 @@ export default function Header() {
               flexShrink: 0,
             }}
           >
-            Public Policy Institute
+            Our Gender Lens
           </Typography>
 
           <Box sx={{ display: { xs: 'none', md: 'flex' }, ml: 'auto', alignItems: 'center', gap: 1.5 }}>
