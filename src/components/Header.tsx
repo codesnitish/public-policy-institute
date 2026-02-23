@@ -17,14 +17,19 @@ import SearchIcon from '@mui/icons-material/Search';
 import CloseIcon from '@mui/icons-material/Close';
 
 const navItems = [
-  { label: 'Programmes', href: '#section-education' },
-  { label: 'Research', href: '#section-research' },
-  { label: 'Data Hub', href: '#section-datahub' },
-  { label: 'News', href: '#section-news' },
-  { label: 'People', href: '#section-people' },
+  { label: 'Home', href: '/' },
+  { label: 'About Us', href: '/about-us' },
+  { label: 'People & Blogs', href: '/people-and-blogs' },
+  { label: 'Book Reviews', href: '/book-reviews' },
+  { label: 'Media Reviews', href: '/media-reviews' },
 ];
 
-export default function Header() {
+type HeaderProps = {
+  currentPath: string;
+  onNavigate: (path: string) => void;
+};
+
+export default function Header({ currentPath, onNavigate }: HeaderProps) {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   return (
@@ -60,13 +65,16 @@ export default function Header() {
             {navItems.map((item) => (
               <Button
                 key={item.label}
-                href={item.href}
+                onClick={() => onNavigate(item.href)}
                 sx={{
                   minHeight: 44,
                   px: 1.75,
                   color: 'text.primary',
                   fontWeight: 600,
                   textTransform: 'none',
+                  borderBottom: currentPath === item.href ? '2px solid' : '2px solid transparent',
+                  borderColor: currentPath === item.href ? 'primary.main' : 'transparent',
+                  borderRadius: 0,
                   '&:hover': { color: 'primary.main', bgcolor: 'transparent' },
                 }}
               >
@@ -106,12 +114,18 @@ export default function Header() {
             {navItems.map((item) => (
               <ListItemButton
                 key={item.label}
-                component="a"
-                href={item.href}
-                onClick={() => setMobileOpen(false)}
-                sx={{ borderRadius: 2, minHeight: 48 }}
+                onClick={() => {
+                  onNavigate(item.href);
+                  setMobileOpen(false);
+                }}
+                sx={{
+                  borderRadius: 2,
+                  minHeight: 48,
+                  mb: 0.5,
+                  bgcolor: currentPath === item.href ? 'rgba(169,75,201,0.15)' : 'transparent',
+                }}
               >
-                <ListItemText primary={item.label} primaryTypographyProps={{ fontWeight: 600 }} />
+                <ListItemText primary={item.label} primaryTypographyProps={{ fontWeight: currentPath === item.href ? 700 : 600 }} />
               </ListItemButton>
             ))}
           </List>

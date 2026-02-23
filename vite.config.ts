@@ -8,5 +8,7 @@ export default defineConfig({
     alias: {
       '@': path.resolve(__dirname, './src'),
     },
+    // Prefer .tsx/.ts over .js so the new app (App.tsx) and components load instead of old .js versions
+    extensions: ['.tsx', '.ts', '.jsx', '.js', '.mjs', '.json'],
   },
 })

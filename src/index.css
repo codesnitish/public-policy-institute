@@ -1,33 +1,38 @@
 @import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap');
 
 @theme {
-  --color-primary: #1B2E6E;
-  --color-secondary: #F4F5F8;
-  --color-accent: #2563EB;
-  --color-link-underline: #2563EB;
+  --font-sans: "Montserrat", "Inter", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  --color-primary: #a94bc9;
+  --color-secondary: #6b7280;
+  --color-accent: #a94bc9;
+  --color-link-underline: #a94bc9;
+  --color-text: #a94bc9;
 }
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: "Montserrat", "Inter", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
 }
 
 body {
-  font-family: "DM Sans", "Inter", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  font-family: "Montserrat", "Inter", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: #ffffff;
-  color: #1f2937;
+  color: #5c5c5c;
   overflow-x: hidden;
 }
 
-/* Hero headline - serif */
+/* Legacy utility */
 .font-serif {
-  font-family: "Merriweather", "Playfair Display", Georgia, "Times New Roman", serif;
+  font-family: "Montserrat", "Inter", "Segoe UI", sans-serif;
 }
 
 html {
+  font-family: "Montserrat", "Inter", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
   scroll-behavior: smooth;
 }
 
@@ -65,4 +70,26 @@ html {
 
 .no-scrollbar::-webkit-scrollbar {
   display: none;
+}
+
+@keyframes blink {
+  50% { opacity: 0; }
+}
+
+/* Force Montserrat everywhere – overrides any other font (MUI, Tailwind, inline) */
+html, body, #root,
+input, button, textarea, select, optgroup, option,
+a, span, p, div, label, legend,
+h1, h2, h3, h4, h5, h6,
+[class*="Mui"],
+.MuiTypography-root,
+.MuiButton-root,
+.MuiChip-label,
+.MuiListItemText-primary,
+.MuiListItemText-secondary,
+.MuiInputBase-input,
+.MuiLink-root,
+.MuiCardHeader-title,
+.MuiCardHeader-subheader {
+  font-family: "Montserrat", "Inter", "Segoe UI", "Helvetica Neue", Arial, sans-serif !important;
 }

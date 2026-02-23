@@ -6,10 +6,13 @@ export default {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        sans: ['Montserrat', 'Inter', 'Segoe UI', 'Helvetica Neue', 'Arial', 'sans-serif'],
+      },
       colors: {
-        primary: '#1e3a8a', // Navy blue
-        secondary: '#f0f4f8', // Light gray
-        accent: '#4f46e5', // Indigo
+        primary: '#a94bc9',
+        secondary: '#6b7280',
+        accent: '#a94bc9',
       },
     },
   },
