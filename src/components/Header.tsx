@@ -46,20 +46,34 @@ export default function Header({ currentPath, onNavigate }: HeaderProps) {
     >
       <Container maxWidth="lg">
         <Toolbar sx={{ minHeight: { xs: 68, md: 78 }, px: { xs: 0, md: 1 } }}>
-          <Typography
+          <Box
             component="a"
             href="/"
             sx={{
+              display: 'flex',
+              alignItems: 'center',
+              gap: 1.5,
               textDecoration: 'none',
               color: '#fff !important',
-              fontWeight: 700,
-              fontSize: { xs: 24, md: 28 },
-              letterSpacing: '-0.02em',
               flexShrink: 0,
             }}
           >
-            Our Gender Lens
-          </Typography>
+            <Box
+              component="img"
+              src="/logo.jpeg"
+              alt="Logo"
+              sx={{ height: { xs: 40, md: 46 }, width: { xs: 40, md: 46 }, objectFit: 'cover', display: 'block', borderRadius: '50%' }}
+            />
+            <Typography
+              sx={{
+                fontWeight: 700,
+                fontSize: { xs: 24, md: 28 },
+                letterSpacing: '-0.02em',
+              }}
+            >
+              Our Gender Lens
+            </Typography>
+          </Box>
 
           <Box sx={{ display: { xs: 'none', md: 'flex' }, ml: 'auto', alignItems: 'center', gap: 1.5 }}>
             {navItems.map((item) => (
