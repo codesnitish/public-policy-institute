@@ -1,4 +1,5 @@
 import { Box, Card, CardContent, Chip, Container, Divider, Grid, Stack, Typography } from '@mui/material';
+import Beta from './Beta';
 
 type SitePagesProps = {
   currentPath: string;
@@ -231,5 +232,6 @@ export default function SitePages({ currentPath }: SitePagesProps) {
   if (currentPath === '/people-and-blogs') return <PeopleAndBlogsPage />;
   if (currentPath === '/book-reviews') return <BookReviewsPage />;
   if (currentPath === '/media-reviews') return <MediaReviewsPage />;
+  if (currentPath === '/beta') return <Beta />;
   return <HomePage />;
 }

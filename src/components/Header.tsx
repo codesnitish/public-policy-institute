@@ -22,6 +22,7 @@ const navItems = [
   { label: 'People & Blogs', href: '/people-and-blogs' },
   { label: 'Book Reviews', href: '/book-reviews' },
   { label: 'Media Reviews', href: '/media-reviews' },
+  { label: 'Beta', href: '/beta' },
 ];
 
 type HeaderProps = {
