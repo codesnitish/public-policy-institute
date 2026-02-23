@@ -36,12 +36,12 @@ export default function Header({ currentPath, onNavigate }: HeaderProps) {
     <AppBar
       position="sticky"
       elevation={0}
-      color="inherit"
       sx={{
-        borderBottom: '1px solid',
-        borderColor: 'divider',
-        bgcolor: 'rgba(255,255,255,0.96)',
-        backdropFilter: 'blur(10px)',
+        bgcolor: '#9c27b0',
+        '& .MuiTypography-root': { color: '#fff' },
+        '& .MuiButton-root': { color: '#fff' },
+        '& .MuiIconButton-root': { color: '#fff' },
+        '& .MuiSvgIcon-root': { color: '#fff' },
       }}
     >
       <Container maxWidth="lg">
@@ -51,7 +51,7 @@ export default function Header({ currentPath, onNavigate }: HeaderProps) {
             href="/"
             sx={{
               textDecoration: 'none',
-              color: 'text.primary',
+              color: '#fff !important',
               fontWeight: 700,
               fontSize: { xs: 24, md: 28 },
               letterSpacing: '-0.02em',
@@ -69,28 +69,28 @@ export default function Header({ currentPath, onNavigate }: HeaderProps) {
                 sx={{
                   minHeight: 44,
                   px: 1.75,
-                  color: 'text.primary',
+                  color: '#fff !important',
                   fontWeight: 600,
                   textTransform: 'none',
                   borderBottom: currentPath === item.href ? '2px solid' : '2px solid transparent',
-                  borderColor: currentPath === item.href ? 'primary.main' : 'transparent',
+                  borderColor: currentPath === item.href ? '#fff' : 'transparent',
                   borderRadius: 0,
-                  '&:hover': { color: 'primary.main', bgcolor: 'transparent' },
+                  '&:hover': { color: '#fff', bgcolor: 'rgba(255,255,255,0.1)' },
                 }}
               >
                 {item.label}
               </Button>
             ))}
-            <IconButton aria-label="Search" sx={{ ml: 0.5 }}>
+            <IconButton aria-label="Search" sx={{ ml: 0.5, color: '#fff' }}>
               <SearchIcon />
             </IconButton>
           </Box>
 
           <Box sx={{ ml: 'auto', display: { xs: 'flex', md: 'none' }, alignItems: 'center', gap: 0.5 }}>
-            <IconButton aria-label="Search">
+            <IconButton aria-label="Search" sx={{ color: '#fff' }}>
               <SearchIcon />
             </IconButton>
-            <IconButton aria-label="Open navigation" onClick={() => setMobileOpen(true)}>
+            <IconButton aria-label="Open navigation" onClick={() => setMobileOpen(true)} sx={{ color: '#fff' }}>
               <MenuIcon />
             </IconButton>
           </Box>
@@ -101,12 +101,21 @@ export default function Header({ currentPath, onNavigate }: HeaderProps) {
         anchor="right"
         open={mobileOpen}
         onClose={() => setMobileOpen(false)}
-        PaperProps={{ sx: { width: '84%', maxWidth: 360 } }}
+        PaperProps={{
+          sx: {
+            width: '84%',
+            maxWidth: 360,
+            bgcolor: '#9c27b0',
+            '& .MuiTypography-root': { color: '#fff' },
+            '& .MuiListItemText-primary': { color: '#fff' },
+            '& .MuiIconButton-root': { color: '#fff' },
+            '& .MuiSvgIcon-root': { color: '#fff' },
+          },
+        }}
       >
         <Box sx={{ p: 2.5 }}>
-          <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', mb: 1.5 }}>
-            <Typography fontWeight={700} fontSize={20}>Navigation</Typography>
-            <IconButton aria-label="Close navigation" onClick={() => setMobileOpen(false)}>
+          <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'flex-end', mb: 1.5 }}>
+            <IconButton aria-label="Close navigation" onClick={() => setMobileOpen(false)} sx={{ color: '#fff' }}>
               <CloseIcon />
             </IconButton>
           </Box>
@@ -122,10 +131,10 @@ export default function Header({ currentPath, onNavigate }: HeaderProps) {
                   borderRadius: 2,
                   minHeight: 48,
                   mb: 0.5,
-                  bgcolor: currentPath === item.href ? 'rgba(169,75,201,0.15)' : 'transparent',
+                  bgcolor: currentPath === item.href ? 'rgba(255,255,255,0.15)' : 'transparent',
                 }}
               >
-                <ListItemText primary={item.label} primaryTypographyProps={{ fontWeight: currentPath === item.href ? 700 : 600 }} />
+                <ListItemText primary={item.label} primaryTypographyProps={{ fontWeight: currentPath === item.href ? 700 : 600, color: '#fff' }} />
               </ListItemButton>
             ))}
           </List>
