@@ -4,6 +4,46 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Admin | Our Gender Lens</title>
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+    <script>
+      // Handle password reset / invite / confirmation links that land on /admin/#...token=...
+      (function () {
+        var initialHash = window.location.hash || '';
+
+        function hasIdentityToken() {
+          return (
+            initialHash.indexOf('recovery_token=') !== -1 ||
+            initialHash.indexOf('invite_token=') !== -1 ||
+            initialHash.indexOf('confirmation_token=') !== -1
+          );
+        }
+
+        function initIdentity() {
+          var nid = window.netlifyIdentity;
+          if (!nid) return;
+
+          nid.on('init', function () {
+            if (hasIdentityToken()) {
+              setTimeout(function () { nid.open(); }, 50);
+            }
+          });
+
+          nid.init();
+
+          if (hasIdentityToken()) {
+            setTimeout(function () { nid.open(); }, 300);
+          }
+        }
+
+        if (window.netlifyIdentity) {
+          initIdentity();
+        } else if (document.readyState === 'loading') {
+          document.addEventListener('DOMContentLoaded', initIdentity);
+        } else {
+          initIdentity();
+        }
+      })();
+    </script>
   </head>
   <body>
     <!-- Decap CMS mounts itself into the body -->
