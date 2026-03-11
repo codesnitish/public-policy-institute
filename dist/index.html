@@ -10,31 +10,51 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
     <title>Our Gender Lens</title>
     <style>
       html, body, #root, #root * { font-family: "Montserrat", "Inter", "Segoe UI", "Helvetica Neue", Arial, sans-serif !important; }
     </style>
-    <script type="module" crossorigin src="/assets/index-BEZHENyT.js"></script>
-    <link rel="stylesheet" crossorigin href="/assets/index-r7tiOLtV.css">
-  </head>
-  <body style="font-family: Montserrat, Inter, Segoe UI, Helvetica Neue, Arial, sans-serif;">
-    <div id="root"></div>
-    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
     <script>
-      // Auto-open the Identity widget for invite/recovery links.
-      if (window.netlifyIdentity) {
-        window.netlifyIdentity.on('init', function () {
+      // Netlify Identity recovery/invite links land on `/#...token=...`.
+      // Make the widget reliably open, and send users to Decap CMS after login.
+      (function () {
+        function hasIdentityToken() {
           var hash = window.location.hash || '';
-          if (
+          return (
             hash.indexOf('recovery_token=') !== -1 ||
             hash.indexOf('invite_token=') !== -1 ||
             hash.indexOf('confirmation_token=') !== -1
-          ) {
-            window.netlifyIdentity.open();
-          }
-        });
-        window.netlifyIdentity.init();
-      }
+          );
+        }
+
+        function initIdentity() {
+          if (!window.netlifyIdentity) return;
+
+          window.netlifyIdentity.on('init', function () {
+            if (hasIdentityToken()) {
+              // Delay a tick so the widget has time to attach its DOM.
+              setTimeout(function () { window.netlifyIdentity.open(); }, 0);
+            }
+          });
+
+          window.netlifyIdentity.on('login', function () {
+            if (window.location.pathname !== '/admin/' && window.location.pathname !== '/admin') {
+              window.location.href = '/admin/';
+            }
+          });
+
+          window.netlifyIdentity.init();
+        }
+
+        if (document.readyState === 'complete') initIdentity();
+        else window.addEventListener('load', initIdentity);
+      })();
     </script>
+    <script type="module" crossorigin src="/assets/index-B2yPVR3J.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-DF218x9T.css">
+  </head>
+  <body style="font-family: Montserrat, Inter, Segoe UI, Helvetica Neue, Arial, sans-serif;">
+    <div id="root"></div>
   </body>
 </html>
