@@ -61,9 +61,14 @@ export default function Header({ currentPath, onNavigate }: HeaderProps) {
           >
             <Box
               component="img"
-              src="/logo.jpeg"
+              src="/newlogo.png"
               alt="Logo"
-              sx={{ height: { xs: 40, md: 46 }, width: { xs: 40, md: 46 }, objectFit: 'cover', display: 'block', borderRadius: '50%' }}
+              sx={{
+                height: { xs: 36, md: 42 },
+                width: { xs: 64, md: 78 },
+                objectFit: 'contain',
+                display: 'block',
+              }}
             />
             <Typography
               sx={{
