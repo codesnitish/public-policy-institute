@@ -82,7 +82,7 @@ function HomePage() {
                 Women and Equity in AI Technology
               </Typography>
               <Typography variant="body2" sx={{ color: 'text.secondary', mb: 1.2 }}>
-                By Anish Ravid Noroha and Pinaki Gakhar · March 11, 2026
+                By Anish Ravid Noroha and Pinaki Gakhar · February 23, 2026
               </Typography>
               <Typography sx={{ color: 'text.secondary', lineHeight: 1.8 }}>
                 The Fourth Industrial Revolution is reshaping economies and societies. This piece examines equity in AI, the gendered digital divide,
@@ -232,7 +232,7 @@ function BlogsPage() {
               Women and Equity in AI Technology
             </Typography>
             <Typography variant="body2" sx={{ color: 'text.secondary', mb: 1.2 }}>
-              By Anish Ravid Noroha and Pinaki Gakhar · March 11, 2026
+              By Anish Ravid Noroha and Pinaki Gakhar · February 23, 2026
             </Typography>
             <Typography sx={{ color: 'text.secondary', lineHeight: 1.8 }}>
               The Fourth Industrial Revolution is reshaping economies and societies. This piece examines equity in AI, the gendered digital divide,
@@ -254,13 +254,12 @@ function BlogPostWomenEquityAI() {
             Women and Equity in AI Technology
           </Typography>
           <Typography variant="body2" sx={{ color: 'text.secondary' }}>
-            By Anish Ravid Noroha and Pinaki Gakhar · March 11, 2026
+            By Anish Ravid Noroha and Pinaki Gakhar · February 23, 2026
           </Typography>
         </Box>
 
-        <Card elevation={0} sx={{ border: '1px solid', borderColor: 'divider', borderRadius: 3 }}>
-          <CardContent sx={{ p: { xs: 3, md: 4 } }}>
-            <Stack spacing={1.6}>
+        <Box sx={{ maxWidth: 920 }}>
+          <Stack spacing={2}>
               <Typography sx={{ color: 'text.secondary', lineHeight: 1.85 }}>
                 The world finds itself at the threshold of the Fourth Industrial Revolution characterised by velocity, scope, and systems impact.
                 Technological innovations are changing the world faster than ever before. Emerging technologies like artificial intelligence, robotics,
@@ -304,9 +303,8 @@ function BlogPostWomenEquityAI() {
                 Awareness campaigns can be run to illustrate the importance of access to technology to women. With these changes there can be significant
                 progress in achieving equity in the AI workforce.
               </Typography>
-            </Stack>
-          </CardContent>
-        </Card>
+          </Stack>
+        </Box>
       </Container>
     </Box>
   );
