@@ -1,5 +1,5 @@
 import { Box, Card, CardContent, Chip, Container, Divider, Grid, Stack, Typography } from '@mui/material';
-import { fetchBlogStore, findBlogBySlug, getLatestBlog } from '../blog/blogClient';
+import { fetchBlogStore, findBlogBySlug } from '../blog/blogClient';
 import type { Blog } from '../blog/blogTypes';
 import { useEffect, useMemo, useState } from 'react';
 import { MarkdownView } from '../blog/markdownView';
@@ -35,7 +35,9 @@ function BlogCard({ blog, height = 240 }: { blog: Blog; height?: number }) {
       sx={{
         textDecoration: 'none',
         color: 'inherit',
-        display: 'block',
+        display: 'flex',
+        flexDirection: 'column',
+        height: '100%',
         border: '1px solid',
         borderColor: 'divider',
         borderRadius: 3,
@@ -52,17 +54,43 @@ function BlogCard({ blog, height = 240 }: { blog: Blog; height?: number }) {
           backgroundPosition: 'center',
         }}
       />
-      <CardContent sx={{ p: 3.2 }}>
-        <Chip label="Featured" size="small" sx={{ mb: 1.2, fontWeight: 700, bgcolor: 'rgba(95,76,128,0.18)', color: 'text.primary' }} />
-        <Typography variant="h5" sx={{ mb: 0.6, fontWeight: 700 }}>
+      <CardContent sx={{ p: 3.2, flex: 1, display: 'flex', flexDirection: 'column' }}>
+        <Typography
+          variant="h5"
+          sx={{
+            mb: 0.6,
+            fontWeight: 700,
+            overflow: 'hidden',
+            textOverflow: 'ellipsis',
+            display: '-webkit-box',
+            WebkitLineClamp: 2,
+            WebkitBoxOrient: 'vertical',
+            minHeight: '2.6em',
+          }}
+        >
           {blog.title}
         </Typography>
         {(authorLine || dateLine) && (
-          <Typography variant="body2" sx={{ color: 'text.secondary', mb: 1.2 }}>
+          <Typography
+            variant="body2"
+            noWrap
+            sx={{ color: 'text.secondary', mb: 1.2 }}
+            title={[authorLine, dateLine].filter(Boolean).join(' · ')}
+          >
             {authorLine}{authorLine && dateLine ? ' · ' : ''}{dateLine}
           </Typography>
         )}
-        <Typography sx={{ color: 'text.secondary', lineHeight: 1.8 }}>
+        <Typography
+          sx={{
+            color: 'text.secondary',
+            lineHeight: 1.8,
+            overflow: 'hidden',
+            textOverflow: 'ellipsis',
+            display: '-webkit-box',
+            WebkitLineClamp: 3,
+            WebkitBoxOrient: 'vertical',
+          }}
+        >
           {blog.excerpt}
         </Typography>
       </CardContent>
@@ -79,7 +107,10 @@ function HomePage() {
       .catch(() => setBlogs([]));
   }, []);
 
-  const latestBlog = useMemo(() => getLatestBlog(blogs), [blogs]);
+  const sortedBlogs = useMemo(() => {
+    return [...blogs].sort((a, b) => (b.publishedAt || '').localeCompare(a.publishedAt || ''));
+  }, [blogs]);
+  const visibleBlogs = useMemo(() => sortedBlogs.slice(0, 2), [sortedBlogs]);
 
   return (
     <>
@@ -123,7 +154,13 @@ function HomePage() {
           <Typography sx={{ color: 'text.secondary', maxWidth: 900, lineHeight: 1.85 }}>
             Weekly topic-based blogs and monthly policy briefs developed through a structured, collaborative, and peer-reviewed research process.
           </Typography>
-          {latestBlog && <Box sx={{ mt: 3 }}><BlogCard blog={latestBlog} height={220} /></Box>}
+          <Grid container spacing={2.5} sx={{ mt: 2.5 }}>
+            {visibleBlogs.map((b) => (
+              <Grid key={b.slug} size={{ xs: 12, md: 6 }} sx={{ display: 'flex' }}>
+                <BlogCard blog={b} height={220} />
+              </Grid>
+            ))}
+          </Grid>
         </Container>
       </Box>
     </>
@@ -233,7 +270,10 @@ function BlogsPage() {
       .catch(() => setBlogs([]));
   }, []);
 
-  const latestBlog = useMemo(() => getLatestBlog(blogs), [blogs]);
+  const sortedBlogs = useMemo(() => {
+    return [...blogs].sort((a, b) => (b.publishedAt || '').localeCompare(a.publishedAt || ''));
+  }, [blogs]);
+  const visibleBlogs = useMemo(() => sortedBlogs.slice(0, 2), [sortedBlogs]);
 
   return (
     <Box sx={{ ...sectionSx, bgcolor: '#fff' }}>
@@ -245,7 +285,13 @@ function BlogsPage() {
           </Typography>
         </Box>
 
-        {latestBlog && <BlogCard blog={latestBlog} height={240} />}
+        <Grid container spacing={2.5} sx={{ mt: 1 }}>
+          {visibleBlogs.map((b) => (
+            <Grid key={b.slug} size={{ xs: 12, md: 6 }} sx={{ display: 'flex' }}>
+              <BlogCard blog={b} height={240} />
+            </Grid>
+          ))}
+        </Grid>
       </Container>
     </Box>
   );
