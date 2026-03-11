@@ -1,5 +1,13 @@
 import { jsx as _jsx, Fragment as _Fragment } from "react/jsx-runtime";
 import { Box, Link, Typography } from '@mui/material';
+function navigateSpa(path) {
+    window.history.pushState({}, '', path);
+    window.dispatchEvent(new PopStateEvent('popstate'));
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+function isInternalHref(href) {
+    return href.startsWith('/') || href.startsWith('#');
+}
 function parseInline(text) {
     // Minimal inline parser:
     // - Links: [text](url)
@@ -40,6 +48,12 @@ function Inline({ text }) {
                 return _jsx("span", { children: p }, idx);
             if (p.type === 'strong')
                 return _jsx("strong", { children: p.text }, idx);
+            if (isInternalHref(p.href)) {
+                return (_jsx(Link, { href: p.href, onClick: (e) => {
+                        e.preventDefault();
+                        navigateSpa(p.href);
+                    }, sx: { fontWeight: 600, textDecorationThickness: '2px', textUnderlineOffset: '4px' }, children: p.text }, idx));
+            }
             return (_jsx(Link, { href: p.href, target: "_blank", rel: "noreferrer", sx: { fontWeight: 600, textDecorationThickness: '2px', textUnderlineOffset: '4px' }, children: p.text }, idx));
         }) }));
 }

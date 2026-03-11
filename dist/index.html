@@ -14,10 +14,27 @@
     <style>
       html, body, #root, #root * { font-family: "Montserrat", "Inter", "Segoe UI", "Helvetica Neue", Arial, sans-serif !important; }
     </style>
-    <script type="module" crossorigin src="/assets/index-DK7aDjvq.js"></script>
-    <link rel="stylesheet" crossorigin href="/assets/index-Di6AmVqq.css">
+    <script type="module" crossorigin src="/assets/index-BEZHENyT.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-r7tiOLtV.css">
   </head>
   <body style="font-family: Montserrat, Inter, Segoe UI, Helvetica Neue, Arial, sans-serif;">
     <div id="root"></div>
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+    <script>
+      // Auto-open the Identity widget for invite/recovery links.
+      if (window.netlifyIdentity) {
+        window.netlifyIdentity.on('init', function () {
+          var hash = window.location.hash || '';
+          if (
+            hash.indexOf('recovery_token=') !== -1 ||
+            hash.indexOf('invite_token=') !== -1 ||
+            hash.indexOf('confirmation_token=') !== -1
+          ) {
+            window.netlifyIdentity.open();
+          }
+        });
+        window.netlifyIdentity.init();
+      }
+    </script>
   </body>
 </html>

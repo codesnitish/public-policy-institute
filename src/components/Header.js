@@ -11,7 +11,6 @@ const navItems = [
     { label: 'Blogs', href: '/blogs' },
     { label: 'Book Reviews', href: '/book-reviews' },
     { label: 'Media Reviews', href: '/media-reviews' },
-    { label: 'Beta', href: '/beta' },
 ];
 export default function Header({ currentPath, onNavigate }) {
     const [mobileOpen, setMobileOpen] = useState(false);

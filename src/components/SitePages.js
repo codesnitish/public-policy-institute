@@ -1,10 +1,8 @@
 import { jsx as _jsx, jsxs as _jsxs, Fragment as _Fragment } from "react/jsx-runtime";
 import { Box, Card, CardContent, Chip, Container, Divider, Grid, Stack, Typography } from '@mui/material';
-import Beta from './Beta';
 import { fetchBlogStore, findBlogBySlug, getLatestBlog } from '../blog/blogClient';
 import { useEffect, useMemo, useState } from 'react';
 import { MarkdownView } from '../blog/markdownView';
-import AdminPage from './AdminPage';
 const sectionSx = { py: { xs: 6, md: 9 } };
 function formatDate(yyyyMmDd) {
     // Keep it simple: YYYY-MM-DD -> Month DD, YYYY (en-US)
@@ -85,9 +83,6 @@ function MediaReviewsPage() {
     return (_jsx(Box, { sx: { ...sectionSx, bgcolor: '#F4F5F8' }, children: _jsxs(Container, { maxWidth: "lg", children: [_jsx(Typography, { variant: "h3", sx: { color: 'text.primary', mb: 2 }, children: "Media Reviews" }), _jsx(Typography, { sx: { color: 'text.secondary', lineHeight: 1.9, mb: 3 }, children: "Media narratives and public discourse examined through evidence, context, and inclusivity to support informed policy conversations." })] }) }));
 }
 export default function SitePages({ currentPath }) {
-    // Decap CMS uses `/admin/` (served from `public/admin`). Keep this internal tool on a different path.
-    if (currentPath === '/internal-admin')
-        return _jsx(AdminPage, {});
     if (currentPath === '/about-us')
         return _jsx(AboutPage, {});
     if (currentPath === '/people')
@@ -102,7 +97,5 @@ export default function SitePages({ currentPath }) {
         return _jsx(BookReviewsPage, {});
     if (currentPath === '/media-reviews')
         return _jsx(MediaReviewsPage, {});
-    if (currentPath === '/beta')
-        return _jsx(Beta, {});
     return _jsx(HomePage, {});
 }

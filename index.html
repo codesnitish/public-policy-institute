@@ -18,5 +18,22 @@
   <body style="font-family: Montserrat, Inter, Segoe UI, Helvetica Neue, Arial, sans-serif;">
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+    <script>
+      // Auto-open the Identity widget for invite/recovery links.
+      if (window.netlifyIdentity) {
+        window.netlifyIdentity.on('init', function () {
+          var hash = window.location.hash || '';
+          if (
+            hash.indexOf('recovery_token=') !== -1 ||
+            hash.indexOf('invite_token=') !== -1 ||
+            hash.indexOf('confirmation_token=') !== -1
+          ) {
+            window.netlifyIdentity.open();
+          }
+        });
+        window.netlifyIdentity.init();
+      }
+    </script>
   </body>
 </html>

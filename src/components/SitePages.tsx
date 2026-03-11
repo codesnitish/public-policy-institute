@@ -1,5 +1,4 @@
 import { Box, Card, CardContent, Chip, Container, Divider, Grid, Stack, Typography } from '@mui/material';
-import Beta from './Beta';
 import { fetchBlogStore, findBlogBySlug, getLatestBlog } from '../blog/blogClient';
 import type { Blog } from '../blog/blogTypes';
 import { useEffect, useMemo, useState } from 'react';
@@ -361,6 +360,5 @@ export default function SitePages({ currentPath }: SitePagesProps) {
   if (currentPath === '/blogs') return <BlogsPage />;
   if (currentPath === '/book-reviews') return <BookReviewsPage />;
   if (currentPath === '/media-reviews') return <MediaReviewsPage />;
-  if (currentPath === '/beta') return <Beta />;
   return <HomePage />;
 }
