@@ -19,7 +19,8 @@ import CloseIcon from '@mui/icons-material/Close';
 const navItems = [
   { label: 'Home', href: '/' },
   { label: 'About Us', href: '/about-us' },
-  { label: 'People & Blogs', href: '/people-and-blogs' },
+  { label: 'Our Team', href: '/people' },
+  { label: 'Blogs', href: '/blogs' },
   { label: 'Book Reviews', href: '/book-reviews' },
   { label: 'Media Reviews', href: '/media-reviews' },
   { label: 'Beta', href: '/beta' },
@@ -46,17 +47,18 @@ export default function Header({ currentPath, onNavigate }: HeaderProps) {
       }}
     >
       <Container maxWidth="lg">
-        <Toolbar sx={{ minHeight: { xs: 68, md: 78 }, px: { xs: 0, md: 1 } }}>
+        <Toolbar sx={{ minHeight: { xs: 64, md: 72 }, px: { xs: 0, md: 1 } }}>
           <Box
             component="a"
             href="/"
             sx={{
               display: 'flex',
               alignItems: 'center',
-              gap: 1.5,
+              gap: 1,
               textDecoration: 'none',
               color: '#fff !important',
-              flexShrink: 0,
+              flexShrink: 1,
+              minWidth: 0,
             }}
           >
             <Box
@@ -64,8 +66,8 @@ export default function Header({ currentPath, onNavigate }: HeaderProps) {
               src="/newlogo.png"
               alt="Logo"
               sx={{
-                height: { xs: 36, md: 42 },
-                width: { xs: 64, md: 78 },
+                height: { xs: 46, md: 54 },
+                width: { xs: 110, md: 140 },
                 objectFit: 'contain',
                 display: 'block',
               }}
@@ -73,24 +75,28 @@ export default function Header({ currentPath, onNavigate }: HeaderProps) {
             <Typography
               sx={{
                 fontWeight: 700,
-                fontSize: { xs: 24, md: 28 },
+                fontSize: { xs: 20, md: 24 },
                 letterSpacing: '-0.02em',
+                whiteSpace: 'nowrap',
+                overflow: 'hidden',
+                textOverflow: 'ellipsis',
               }}
             >
               Our Gender Lens
             </Typography>
           </Box>
 
-          <Box sx={{ display: { xs: 'none', md: 'flex' }, ml: 'auto', alignItems: 'center', gap: 1.5 }}>
+          <Box sx={{ display: { xs: 'none', md: 'flex' }, ml: 'auto', alignItems: 'center', gap: 0.5 }}>
             {navItems.map((item) => (
               <Button
                 key={item.label}
                 onClick={() => onNavigate(item.href)}
                 sx={{
-                  minHeight: 44,
-                  px: 1.75,
+                  minHeight: 40,
+                  px: 1,
                   color: '#fff !important',
                   fontWeight: 600,
+                  fontSize: '0.92rem',
                   textTransform: 'none',
                   borderBottom: currentPath === item.href ? '2px solid' : '2px solid transparent',
                   borderColor: currentPath === item.href ? '#fff' : 'transparent',
