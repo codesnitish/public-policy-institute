@@ -13,7 +13,7 @@ import {
   Typography,
 } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
-import SearchIcon from '@mui/icons-material/Search';
+// import SearchIcon from '@mui/icons-material/Search';
 import CloseIcon from '@mui/icons-material/Close';
 
 const navItems = [
@@ -75,11 +75,12 @@ export default function Header({ currentPath, onNavigate }: HeaderProps) {
             <Typography
               sx={{
                 fontWeight: 700,
-                fontSize: { xs: 20, md: 24 },
+                fontSize: { xs: 16, sm: 18, md: 24 },
                 letterSpacing: '-0.02em',
                 whiteSpace: 'nowrap',
                 overflow: 'hidden',
                 textOverflow: 'ellipsis',
+                maxWidth: { xs: 120, sm: 160, md: 'none' },
               }}
             >
               Our Gender Lens
@@ -107,15 +108,11 @@ export default function Header({ currentPath, onNavigate }: HeaderProps) {
                 {item.label}
               </Button>
             ))}
-            <IconButton aria-label="Search" sx={{ ml: 0.5, color: '#fff' }}>
-              <SearchIcon />
-            </IconButton>
+            {/* Search icon hidden for now */}
           </Box>
 
           <Box sx={{ ml: 'auto', display: { xs: 'flex', md: 'none' }, alignItems: 'center', gap: 0.5 }}>
-            <IconButton aria-label="Search" sx={{ color: '#fff' }}>
-              <SearchIcon />
-            </IconButton>
+            {/* Search icon hidden for now */}
             <IconButton aria-label="Open navigation" onClick={() => setMobileOpen(true)} sx={{ color: '#fff' }}>
               <MenuIcon />
             </IconButton>
