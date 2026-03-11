@@ -7,12 +7,12 @@ import { useEffect, useMemo, useState } from 'react';
 const fontStack = '"Montserrat", "Inter", "Segoe UI", "Helvetica Neue", Arial, sans-serif';
 const theme = createTheme({
     palette: {
-        primary: { main: '#D39FD4' },
-        secondary: { main: '#D39FD4' },
+        primary: { main: '#5F4C80' },
+        secondary: { main: '#5F4C80' },
         background: { default: '#FFFFFF', paper: '#FFFFFF' },
         text: {
-            primary: '#D39FD4',
-            secondary: '#D39FD4',
+            primary: '#5F4C80',
+            secondary: '#5F4C80',
         },
     },
     shape: { borderRadius: 12 },
@@ -48,19 +48,19 @@ const theme = createTheme({
             styleOverrides: {
                 root: { fontFamily: fontStack },
                 contained: {
-                    backgroundColor: '#D39FD4',
+                    backgroundColor: '#5F4C80',
                     color: '#fff',
-                    '&:hover': { backgroundColor: '#c08fc4' },
+                    '&:hover': { backgroundColor: '#4E3C6A' },
                 },
                 containedSecondary: {
-                    backgroundColor: '#D39FD4',
+                    backgroundColor: '#5F4C80',
                     color: '#fff',
-                    '&:hover': { backgroundColor: '#c08fc4' },
+                    '&:hover': { backgroundColor: '#4E3C6A' },
                 },
                 containedPrimary: {
-                    backgroundColor: '#D39FD4',
+                    backgroundColor: '#5F4C80',
                     color: '#fff',
-                    '&:hover': { backgroundColor: '#c08fc4' },
+                    '&:hover': { backgroundColor: '#4E3C6A' },
                 },
             },
         },

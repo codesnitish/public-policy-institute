@@ -1,5 +1,9 @@
 import { Box, Card, CardContent, Chip, Container, Divider, Grid, Stack, Typography } from '@mui/material';
 import Beta from './Beta';
+import { fetchBlogStore, findBlogBySlug, getLatestBlog } from '../blog/blogClient';
+import type { Blog } from '../blog/blogTypes';
+import { useEffect, useMemo, useState } from 'react';
+import { MarkdownView } from '../blog/markdownView';
 
 type SitePagesProps = {
   currentPath: string;
@@ -7,7 +11,77 @@ type SitePagesProps = {
 
 const sectionSx = { py: { xs: 6, md: 9 } };
 
+function formatDate(yyyyMmDd: string) {
+  // Keep it simple: YYYY-MM-DD -> Month DD, YYYY (en-US)
+  // Falls back to raw string if parsing fails.
+  const [y, m, d] = yyyyMmDd.split('-').map((v) => Number(v));
+  if (!y || !m || !d) return yyyyMmDd;
+  const date = new Date(Date.UTC(y, m - 1, d));
+  return date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: '2-digit' });
+}
+
+function BlogCard({ blog, height = 240 }: { blog: Blog; height?: number }) {
+  const authorLine = blog.authors?.length ? blog.authors.join(' and ') : '';
+  const dateLine = blog.publishedAt ? formatDate(blog.publishedAt) : '';
+  const cover = blog.coverImageUrl || '';
+  const bgImage = cover
+    ? `linear-gradient(120deg, rgba(95,76,128,0.35), rgba(95,76,128,0.05)), url('${cover}')`
+    : "linear-gradient(120deg, rgba(95,76,128,0.35), rgba(95,76,128,0.05))";
+
+  return (
+    <Card
+      component="a"
+      href={`/blogs/${blog.slug}`}
+      elevation={0}
+      sx={{
+        textDecoration: 'none',
+        color: 'inherit',
+        display: 'block',
+        border: '1px solid',
+        borderColor: 'divider',
+        borderRadius: 3,
+        overflow: 'hidden',
+        transition: 'transform .2s ease, box-shadow .2s ease',
+        '&:hover': { transform: 'translateY(-2px)', boxShadow: 3 },
+      }}
+    >
+      <Box
+        sx={{
+          height,
+          backgroundImage: bgImage,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+        }}
+      />
+      <CardContent sx={{ p: 3.2 }}>
+        <Chip label="Featured" size="small" sx={{ mb: 1.2, fontWeight: 700, bgcolor: 'rgba(95,76,128,0.18)', color: 'text.primary' }} />
+        <Typography variant="h5" sx={{ mb: 0.6, fontWeight: 700 }}>
+          {blog.title}
+        </Typography>
+        {(authorLine || dateLine) && (
+          <Typography variant="body2" sx={{ color: 'text.secondary', mb: 1.2 }}>
+            {authorLine}{authorLine && dateLine ? ' · ' : ''}{dateLine}
+          </Typography>
+        )}
+        <Typography sx={{ color: 'text.secondary', lineHeight: 1.8 }}>
+          {blog.excerpt}
+        </Typography>
+      </CardContent>
+    </Card>
+  );
+}
+
 function HomePage() {
+  const [blogs, setBlogs] = useState<Blog[]>([]);
+
+  useEffect(() => {
+    fetchBlogStore()
+      .then((store) => setBlogs(store.blogs || []))
+      .catch(() => setBlogs([]));
+  }, []);
+
+  const latestBlog = useMemo(() => getLatestBlog(blogs), [blogs]);
+
   return (
     <>
       <Box sx={{ ...sectionSx, bgcolor: '#fff' }}>
@@ -50,46 +124,7 @@ function HomePage() {
           <Typography sx={{ color: 'text.secondary', maxWidth: 900, lineHeight: 1.85 }}>
             Weekly topic-based blogs and monthly policy briefs developed through a structured, collaborative, and peer-reviewed research process.
           </Typography>
-          <Card
-            component="a"
-            href="/blogs/women-and-equity-in-ai-technology"
-            elevation={0}
-            sx={{
-              mt: 3,
-              textDecoration: 'none',
-              color: 'inherit',
-              display: 'block',
-              border: '1px solid',
-              borderColor: 'divider',
-              borderRadius: 3,
-              overflow: 'hidden',
-              transition: 'transform .2s ease, box-shadow .2s ease',
-              '&:hover': { transform: 'translateY(-2px)', boxShadow: 3 },
-            }}
-          >
-            <Box
-              sx={{
-                height: 220,
-                backgroundImage:
-                  "linear-gradient(120deg, rgba(95,76,128,0.35), rgba(95,76,128,0.05)), url('https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1400&q=80')",
-                backgroundSize: 'cover',
-                backgroundPosition: 'center',
-              }}
-            />
-            <CardContent sx={{ p: 3.2 }}>
-              <Chip label="Featured" size="small" sx={{ mb: 1.2, fontWeight: 700, bgcolor: 'rgba(95,76,128,0.18)', color: 'text.primary' }} />
-              <Typography variant="h5" sx={{ mb: 0.6, fontWeight: 700 }}>
-                Women and Equity in AI Technology
-              </Typography>
-              <Typography variant="body2" sx={{ color: 'text.secondary', mb: 1.2 }}>
-                By Anish Ravid Noroha and Pinaki Gakhar · February 23, 2026
-              </Typography>
-              <Typography sx={{ color: 'text.secondary', lineHeight: 1.8 }}>
-                The Fourth Industrial Revolution is reshaping economies and societies. This piece examines equity in AI, the gendered digital divide,
-                and the steps needed to build inclusive, safe, and fair technology systems.
-              </Typography>
-            </CardContent>
-          </Card>
+          {latestBlog && <Box sx={{ mt: 3 }}><BlogCard blog={latestBlog} height={220} /></Box>}
         </Container>
       </Box>
     </>
@@ -191,6 +226,16 @@ function PeoplePage() {
 }
 
 function BlogsPage() {
+  const [blogs, setBlogs] = useState<Blog[]>([]);
+
+  useEffect(() => {
+    fetchBlogStore()
+      .then((store) => setBlogs(store.blogs || []))
+      .catch(() => setBlogs([]));
+  }, []);
+
+  const latestBlog = useMemo(() => getLatestBlog(blogs), [blogs]);
+
   return (
     <Box sx={{ ...sectionSx, bgcolor: '#fff' }}>
       <Container maxWidth="lg">
@@ -201,109 +246,47 @@ function BlogsPage() {
           </Typography>
         </Box>
 
-        <Card
-          component="a"
-          href="/blogs/women-and-equity-in-ai-technology"
-          elevation={0}
-          sx={{
-            textDecoration: 'none',
-            color: 'inherit',
-            display: 'block',
-            border: '1px solid',
-            borderColor: 'divider',
-            borderRadius: 3,
-            overflow: 'hidden',
-            transition: 'transform .2s ease, box-shadow .2s ease',
-            '&:hover': { transform: 'translateY(-2px)', boxShadow: 3 },
-          }}
-        >
-          <Box
-            sx={{
-              height: 240,
-              backgroundImage:
-                "linear-gradient(120deg, rgba(95,76,128,0.35), rgba(95,76,128,0.05)), url('https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1600&q=80')",
-              backgroundSize: 'cover',
-              backgroundPosition: 'center',
-            }}
-          />
-          <CardContent sx={{ p: 3.2 }}>
-            <Chip label="Featured" size="small" sx={{ mb: 1.2, fontWeight: 700, bgcolor: 'rgba(95,76,128,0.18)', color: 'text.primary' }} />
-            <Typography variant="h5" sx={{ mb: 0.6, fontWeight: 700 }}>
-              Women and Equity in AI Technology
-            </Typography>
-            <Typography variant="body2" sx={{ color: 'text.secondary', mb: 1.2 }}>
-              By Anish Ravid Noroha and Pinaki Gakhar · February 23, 2026
-            </Typography>
-            <Typography sx={{ color: 'text.secondary', lineHeight: 1.8 }}>
-              The Fourth Industrial Revolution is reshaping economies and societies. This piece examines equity in AI, the gendered digital divide,
-              and the steps needed to build inclusive, safe, and fair technology systems.
-            </Typography>
-          </CardContent>
-        </Card>
+        {latestBlog && <BlogCard blog={latestBlog} height={240} />}
       </Container>
     </Box>
   );
 }
 
-function BlogPostWomenEquityAI() {
+function BlogPostPage({ slug }: { slug: string }) {
+  const [blogs, setBlogs] = useState<Blog[]>([]);
+
+  useEffect(() => {
+    fetchBlogStore()
+      .then((store) => setBlogs(store.blogs || []))
+      .catch(() => setBlogs([]));
+  }, []);
+
+  const blog = useMemo(() => findBlogBySlug(blogs, slug), [blogs, slug]);
+
+  if (!blog) {
+    return (
+      <Box sx={{ ...sectionSx, bgcolor: '#fff' }}>
+        <Container maxWidth="lg">
+          <Typography variant="h4" sx={{ color: 'text.primary' }}>Blog not found</Typography>
+        </Container>
+      </Box>
+    );
+  }
+
   return (
     <Box sx={{ ...sectionSx, bgcolor: '#fff' }}>
       <Container maxWidth="lg">
         <Box sx={{ mb: 3 }}>
           <Typography variant="h3" sx={{ color: 'text.primary', mb: 1 }}>
-            Women and Equity in AI Technology
+            {blog.title}
           </Typography>
           <Typography variant="body2" sx={{ color: 'text.secondary' }}>
-            By Anish Ravid Noroha and Pinaki Gakhar · February 23, 2026
+            {blog.authors.join(' and ')} · {formatDate(blog.publishedAt)}
           </Typography>
         </Box>
 
         <Box sx={{ maxWidth: 920 }}>
-          <Stack spacing={2}>
-              <Typography sx={{ color: 'text.secondary', lineHeight: 1.85 }}>
-                The world finds itself at the threshold of the Fourth Industrial Revolution characterised by velocity, scope, and systems impact.
-                Technological innovations are changing the world faster than ever before. Emerging technologies like artificial intelligence, robotics,
-                3-D printing, nanotechnology, biotechnology and quantum computing are changing the rules of businesses and societies. What does it mean
-                for the women in those businesses and societies?
-              </Typography>
-              <Typography sx={{ color: 'text.primary', fontWeight: 700 }}>Equity in Technological Solutions</Typography>
-              <Typography sx={{ color: 'text.secondary', lineHeight: 1.85 }}>
-                Equity in technology can be defined as intentional design, development, deployment, and governance of technology systems to ensure values
-                such as justice, fairness and inclusion for all.
-              </Typography>
-              <Typography sx={{ color: 'text.secondary', lineHeight: 1.85 }}>
-                The percentage of women in STEM is a matter of concern. Women have far less access and digital literacy as compared to men. There are only
-                35 per cent of students in STEM education. There are only 22 per cent of jobs in the artificial intelligence (AI) arena. During conception,
-                when a technology is shaped under a narrow perspective, it negatively affects inclusiveness. OECD found that, male bias in ICT reduces the
-                inclusiveness in digital transformation. It also found that while the exposure to AI remains the same for both males and females in their
-                occupations, women are significantly under-represented in occupations that have the highest exposure to AI technology.
-              </Typography>
-              <Typography sx={{ color: 'text.primary', fontWeight: 700 }}>Barriers — Gatekeeping of Technology?</Typography>
-              <Typography sx={{ color: 'text.secondary', lineHeight: 1.85 }}>
-                A major barrier to inclusion of women in technology related fields are gender based digital divide, early age discouragement and
-                stereotyping of job roles, limited role models in STEM, lack of mentorship, gender bias and discrimination in hiring and an unwelcoming
-                and hostile environment for women in technology spaces. These factors inhibit women from being part of the workforce in technology related
-                fields.
-              </Typography>
-              <Typography sx={{ color: 'text.primary', fontWeight: 700 }}>What Next?</Typography>
-              <Typography sx={{ color: 'text.secondary', lineHeight: 1.85 }}>
-                Attention must be redirected to the consequences of the Fourth Industrial Revolution on people and more specifically on women. A major
-                dissuader of the usage of technology is the possible abuse and harassment on digital platforms; therefore, it is imperative to ensure
-                safety on these platforms. Enforcing strict laws to ensure privacy and timely action against harassment along with providing digital
-                literacy to women can foster a safer digital environment for women.
-              </Typography>
-              <Typography sx={{ color: 'text.secondary', lineHeight: 1.85 }}>
-                Focus needs to be drawn upon the unequal access to technology due to barriers such as income, education, region, social status, etc.
-                Addressing these differences is key to bringing change. One way to address this is by reexamining existing knowledge about technology as a
-                government provided public good. Governments must ensure an inclusive approach in skilling women in artificial intelligence technology.
-              </Typography>
-              <Typography sx={{ color: 'text.secondary', lineHeight: 1.85 }}>
-                It is also the need of the hour to promote inclusion of women in the field of STEM and in workplaces with high AI exposure. Mandating
-                diversity in hiring and promoting skills-first approach in hiring and other targeted approaches can address discrimination in hiring.
-                Awareness campaigns can be run to illustrate the importance of access to technology to women. With these changes there can be significant
-                progress in achieving equity in the AI workforce.
-              </Typography>
-          </Stack>
+          <MarkdownView markdown={blog.contentMarkdown} />
         </Box>
       </Container>
     </Box>
@@ -371,7 +354,10 @@ function MediaReviewsPage() {
 export default function SitePages({ currentPath }: SitePagesProps) {
   if (currentPath === '/about-us') return <AboutPage />;
   if (currentPath === '/people') return <PeoplePage />;
-  if (currentPath === '/blogs/women-and-equity-in-ai-technology') return <BlogPostWomenEquityAI />;
+  if (currentPath.startsWith('/blogs/') && currentPath !== '/blogs') {
+    const slug = currentPath.replace(/^\/blogs\//, '');
+    return <BlogPostPage slug={slug} />;
+  }
   if (currentPath === '/blogs') return <BlogsPage />;
   if (currentPath === '/book-reviews') return <BookReviewsPage />;
   if (currentPath === '/media-reviews') return <MediaReviewsPage />;
