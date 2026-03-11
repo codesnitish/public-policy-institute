@@ -66,8 +66,8 @@ export default function Header({ currentPath, onNavigate }: HeaderProps) {
               src="/newlogo.png"
               alt="Logo"
               sx={{
-                height: { xs: 46, md: 54 },
-                width: { xs: 110, md: 140 },
+                height: { xs: 38, md: 54 },
+                width: { xs: 92, md: 140 },
                 objectFit: 'contain',
                 display: 'block',
               }}
@@ -75,12 +75,12 @@ export default function Header({ currentPath, onNavigate }: HeaderProps) {
             <Typography
               sx={{
                 fontWeight: 700,
-                fontSize: { xs: 16, sm: 18, md: 24 },
+                fontSize: { xs: 15, sm: 18, md: 24 },
                 letterSpacing: '-0.02em',
-                whiteSpace: 'nowrap',
-                overflow: 'hidden',
-                textOverflow: 'ellipsis',
-                maxWidth: { xs: 120, sm: 160, md: 'none' },
+                whiteSpace: { xs: 'normal', sm: 'nowrap' },
+                lineHeight: { xs: 1.1, sm: 'normal' },
+                maxWidth: { xs: 170, sm: 220, md: 'none' },
+                wordBreak: 'keep-all',
               }}
             >
               Our Gender Lens
