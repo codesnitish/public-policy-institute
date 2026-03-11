@@ -8,12 +8,12 @@ const fontStack = '"Montserrat", "Inter", "Segoe UI", "Helvetica Neue", Arial, s
 
 const theme = createTheme({
   palette: {
-    primary: { main: '#a94bc9' },
-    secondary: { main: '#6b7280' },
+    primary: { main: '#5F4C80' },
+    secondary: { main: '#5F4C80' },
     background: { default: '#FFFFFF', paper: '#FFFFFF' },
     text: {
-      primary: '#a94bc9',
-      secondary: '#5c5c5c',
+      primary: '#5F4C80',
+      secondary: '#5F4C80',
     },
   },
   shape: { borderRadius: 12 },
@@ -49,19 +49,19 @@ const theme = createTheme({
       styleOverrides: {
         root: { fontFamily: fontStack },
         contained: {
-          backgroundColor: '#a94bc9',
+          backgroundColor: '#5F4C80',
           color: '#fff',
-          '&:hover': { backgroundColor: '#9540b0' },
+          '&:hover': { backgroundColor: '#4E3C6A' },
         },
         containedSecondary: {
-          backgroundColor: '#6b7280',
+          backgroundColor: '#5F4C80',
           color: '#fff',
-          '&:hover': { backgroundColor: '#4b5563' },
+          '&:hover': { backgroundColor: '#4E3C6A' },
         },
         containedPrimary: {
-          backgroundColor: '#a94bc9',
+          backgroundColor: '#5F4C80',
           color: '#fff',
-          '&:hover': { backgroundColor: '#9540b0' },
+          '&:hover': { backgroundColor: '#4E3C6A' },
         },
       },
     },

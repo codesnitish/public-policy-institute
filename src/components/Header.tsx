@@ -38,7 +38,7 @@ export default function Header({ currentPath, onNavigate }: HeaderProps) {
       position="sticky"
       elevation={0}
       sx={{
-        bgcolor: '#9c27b0',
+        bgcolor: 'primary.main',
         '& .MuiTypography-root': { color: '#fff' },
         '& .MuiButton-root': { color: '#fff' },
         '& .MuiIconButton-root': { color: '#fff' },
@@ -120,7 +120,7 @@ export default function Header({ currentPath, onNavigate }: HeaderProps) {
           sx: {
             width: '84%',
             maxWidth: 360,
-            bgcolor: '#9c27b0',
+            bgcolor: 'primary.main',
             '& .MuiTypography-root': { color: '#fff' },
             '& .MuiListItemText-primary': { color: '#fff' },
             '& .MuiIconButton-root': { color: '#fff' },
