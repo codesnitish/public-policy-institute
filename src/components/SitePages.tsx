@@ -273,7 +273,7 @@ function BlogsPage() {
   const sortedBlogs = useMemo(() => {
     return [...blogs].sort((a, b) => (b.publishedAt || '').localeCompare(a.publishedAt || ''));
   }, [blogs]);
-  const visibleBlogs = useMemo(() => sortedBlogs.slice(0, 2), [sortedBlogs]);
+  const visibleBlogs = sortedBlogs;
 
   return (
     <Box sx={{ ...sectionSx, bgcolor: '#fff' }}>
