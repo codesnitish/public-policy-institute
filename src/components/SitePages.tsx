@@ -119,9 +119,20 @@ function HomePage() {
           <Grid container spacing={3}>
             <Grid size={{ xs: 12, md: 6 }}>
               <Card elevation={0} sx={{ border: '1px solid', borderColor: 'divider', borderRadius: 3, height: '100%' }}>
-                <CardContent sx={{ p: 3.5 }}>
-                  <Typography variant="h4" sx={{ color: 'text.primary', mb: 2 }}>Vision Statement</Typography>
-                  <Typography sx={{ lineHeight: 1.9, color: 'text.secondary' }}>
+                <CardContent sx={{ p: { xs: 2.5, sm: 3.5 } }}>
+                  <Typography
+                    variant="h4"
+                    sx={{
+                      color: 'text.primary',
+                      mb: 1.6,
+                      fontSize: { xs: '1.4rem', sm: '2rem' },
+                      lineHeight: 1.15,
+                      wordBreak: 'break-word',
+                    }}
+                  >
+                    Vision Statement
+                  </Typography>
+                  <Typography sx={{ lineHeight: 1.85, color: 'text.secondary', fontSize: { xs: '0.95rem', sm: '1rem' } }}>
                     We imagine a world where decisions are guided by evidence, opportunities are shared fairly, and every person — across genders, communities, and backgrounds — has the chance to thrive.
                     A world where systems are inclusive, progress is sustainable, and innovation works for everyone.
                   </Typography>
@@ -130,9 +141,20 @@ function HomePage() {
             </Grid>
             <Grid size={{ xs: 12, md: 6 }}>
               <Card elevation={0} sx={{ border: '1px solid', borderColor: 'divider', borderRadius: 3, height: '100%' }}>
-                <CardContent sx={{ p: 3.5 }}>
-                  <Typography variant="h4" sx={{ color: 'text.primary', mb: 2 }}>Mission Statement</Typography>
-                  <Typography sx={{ lineHeight: 1.9, color: 'text.secondary', mb: 2 }}>
+                <CardContent sx={{ p: { xs: 2.5, sm: 3.5 } }}>
+                  <Typography
+                    variant="h4"
+                    sx={{
+                      color: 'text.primary',
+                      mb: 1.6,
+                      fontSize: { xs: '1.4rem', sm: '2rem' },
+                      lineHeight: 1.15,
+                      wordBreak: 'break-word',
+                    }}
+                  >
+                    Mission Statement
+                  </Typography>
+                  <Typography sx={{ lineHeight: 1.85, color: 'text.secondary', mb: 2, fontSize: { xs: '0.95rem', sm: '1rem' } }}>
                     We exist to turn rigorous research into real-world change. Our work advances gender equity and inclusive development across climate, technology, education, and health. We do this by:
                   </Typography>
                   <Stack spacing={1.2}>
@@ -322,7 +344,7 @@ function BlogPostPage({ slug }: { slug: string }) {
     <Box sx={{ ...sectionSx, bgcolor: '#fff' }}>
       <Container maxWidth="lg">
         <Box sx={{ mb: 3 }}>
-          <Typography variant="h3" sx={{ color: 'text.primary', mb: 1 }}>
+          <Typography variant="h3" sx={{ color: 'text.primary', mb: 1, wordBreak: 'break-word' }}>
             {blog.title}
           </Typography>
           <Typography variant="body2" sx={{ color: 'text.secondary' }}>
@@ -338,65 +360,42 @@ function BlogPostPage({ slug }: { slug: string }) {
   );
 }
 
-function BookReviewsPage() {
+function ExplainerPage() {
   return (
     <Box sx={{ ...sectionSx, bgcolor: '#fff' }}>
       <Container maxWidth="lg">
-        <Typography variant="h3" sx={{ color: 'text.primary', mb: 2 }}>Book Reviews</Typography>
-        <Typography sx={{ color: 'text.secondary', lineHeight: 1.9, mb: 3 }}>
-          Critical reviews of books relevant to gender equity, inclusive development, governance, and public policy practice.
+        <Typography variant="h3" sx={{ color: 'text.primary', mb: 1.2 }}>Explainers</Typography>
+        <Typography sx={{ color: 'text.secondary', lineHeight: 1.9, maxWidth: 920 }}>
+          Short, accessible explainers that break down concepts, terms, and frameworks used in gender-responsive research and policy work.
         </Typography>
-        {/* Placeholder cards – uncomment and replace with real book reviews when available */}
-        {/* <Grid container spacing={2.5}>
-          {['Gender and Development', 'Inclusive Policy Design', 'Evidence and Public Decision-Making'].map((title) => (
-            <Grid key={title} size={{ xs: 12, md: 4 }}>
-              <Card elevation={0} sx={{ border: '1px solid', borderColor: 'divider', borderRadius: 3 }}>
-                <CardContent sx={{ p: 3 }}>
-                  <Chip label="Book Review" size="small" sx={{ mb: 1.2, fontWeight: 700 }} />
-                  <Typography sx={{ fontWeight: 700, mb: 0.8 }}>{title}</Typography>
-                  <Typography variant="body2" sx={{ color: 'text.secondary' }}>
-                    In-depth analysis of themes, arguments, and policy relevance through a gender-responsive lens.
-                  </Typography>
-                </CardContent>
-              </Card>
-            </Grid>
-          ))}
-        </Grid> */}
+        <Card elevation={0} sx={{ mt: 3, border: '1px solid', borderColor: 'divider', borderRadius: 3 }}>
+          <CardContent sx={{ p: { xs: 2.5, sm: 3.2 } }}>
+            <Typography sx={{ fontWeight: 700, mb: 0.8 }}>Coming soon</Typography>
+            <Typography variant="body2" sx={{ color: 'text.secondary', lineHeight: 1.85 }}>
+              We are preparing a set of explainers to support readers with context and definitions. Check back shortly.
+            </Typography>
+          </CardContent>
+        </Card>
       </Container>
     </Box>
   );
 }
 
-function MediaReviewsPage() {
+function NotFoundPage() {
   return (
-    <Box sx={{ ...sectionSx, bgcolor: '#F4F5F8' }}>
+    <Box sx={{ ...sectionSx, bgcolor: '#fff' }}>
       <Container maxWidth="lg">
-        <Typography variant="h3" sx={{ color: 'text.primary', mb: 2 }}>Media Reviews</Typography>
-        <Typography sx={{ color: 'text.secondary', lineHeight: 1.9, mb: 3 }}>
-          Media narratives and public discourse examined through evidence, context, and inclusivity to support informed policy conversations.
+        <Typography variant="h3" sx={{ color: 'text.primary', mb: 1.2 }}>Page not found</Typography>
+        <Typography sx={{ color: 'text.secondary', lineHeight: 1.9, maxWidth: 720 }}>
+          The page you are looking for does not exist.
         </Typography>
-        {/* Placeholder cards – uncomment and replace with real media reviews when available */}
-        {/* <Grid container spacing={2.5}>
-          {['Policy Narratives in Climate Media', 'Representation in Public Health Reporting', 'Technology and Gender in Mainstream Coverage'].map((title) => (
-            <Grid key={title} size={{ xs: 12, md: 4 }}>
-              <Card elevation={0} sx={{ border: '1px solid', borderColor: 'divider', borderRadius: 3 }}>
-                <CardContent sx={{ p: 3 }}>
-                  <Chip label="Media Review" size="small" sx={{ mb: 1.2, fontWeight: 700 }} />
-                  <Typography sx={{ fontWeight: 700, mb: 0.8 }}>{title}</Typography>
-                  <Typography variant="body2" sx={{ color: 'text.secondary' }}>
-                    Structured commentary on how media framing influences public understanding and policy response.
-                  </Typography>
-                </CardContent>
-              </Card>
-            </Grid>
-          ))}
-        </Grid> */}
       </Container>
     </Box>
   );
 }
 
 export default function SitePages({ currentPath }: SitePagesProps) {
+  if (currentPath === '/') return <HomePage />;
   if (currentPath === '/about-us') return <AboutPage />;
   if (currentPath === '/people') return <PeoplePage />;
   if (currentPath.startsWith('/blogs/') && currentPath !== '/blogs') {
@@ -404,7 +403,6 @@ export default function SitePages({ currentPath }: SitePagesProps) {
     return <BlogPostPage slug={slug} />;
   }
   if (currentPath === '/blogs') return <BlogsPage />;
-  if (currentPath === '/book-reviews') return <BookReviewsPage />;
-  if (currentPath === '/media-reviews') return <MediaReviewsPage />;
-  return <HomePage />;
+  if (currentPath === '/explainer') return <ExplainerPage />;
+  return <NotFoundPage />;
 }
