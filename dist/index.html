@@ -10,62 +10,11 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
     <title>Our Gender Lens</title>
     <style>
       html, body, #root, #root * { font-family: "Montserrat", "Inter", "Segoe UI", "Helvetica Neue", Arial, sans-serif !important; }
     </style>
-    <script>
-      // Netlify Identity recovery/invite links land on `/#...token=...`.
-      // Make the widget reliably open, and send users to Decap CMS after login.
-      (function () {
-        // Capture the hash immediately – the widget may clear it during init.
-        var initialHash = window.location.hash || '';
-
-        function hasIdentityToken() {
-          return (
-            initialHash.indexOf('recovery_token=') !== -1 ||
-            initialHash.indexOf('invite_token=') !== -1 ||
-            initialHash.indexOf('confirmation_token=') !== -1
-          );
-        }
-
-        function initIdentity() {
-          var nid = window.netlifyIdentity;
-          if (!nid) return;
-
-          nid.on('init', function () {
-            if (hasIdentityToken()) {
-              setTimeout(function () { nid.open(); }, 50);
-            }
-          });
-
-          nid.on('login', function () {
-            if (window.location.pathname !== '/admin/' && window.location.pathname !== '/admin') {
-              window.location.href = '/admin/';
-            }
-          });
-
-          nid.init();
-
-          // Fallback: if the init event already fired before we registered the
-          // handler, force the widget open after a short delay.
-          if (hasIdentityToken()) {
-            setTimeout(function () { nid.open(); }, 300);
-          }
-        }
-
-        // Boot as early as possible instead of waiting for the full load event.
-        if (window.netlifyIdentity) {
-          initIdentity();
-        } else if (document.readyState === 'loading') {
-          document.addEventListener('DOMContentLoaded', initIdentity);
-        } else {
-          initIdentity();
-        }
-      })();
-    </script>
-    <script type="module" crossorigin src="/assets/index-B2yPVR3J.js"></script>
+    <script type="module" crossorigin src="/assets/index-aMpB0gQp.js"></script>
     <link rel="stylesheet" crossorigin href="/assets/index-DF218x9T.css">
   </head>
   <body style="font-family: Montserrat, Inter, Segoe UI, Helvetica Neue, Arial, sans-serif;">

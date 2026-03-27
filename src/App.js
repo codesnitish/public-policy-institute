@@ -133,6 +133,14 @@ function App() {
                     body: { overflowX: 'hidden', fontFamily: fontStack },
                     '#root': { fontFamily: fontStack },
                     '#root *': { fontFamily: fontStack },
+                    '@media (max-width:360px)': {
+                        '.MuiContainer-root': { paddingLeft: 12, paddingRight: 12 },
+                        '.MuiTypography-h3': { fontSize: '1.55rem' },
+                        '.MuiTypography-h4': { fontSize: '1.25rem' },
+                        '.MuiTypography-h5': { fontSize: '1.1rem' },
+                        '.MuiTypography-body1': { fontSize: '0.95rem' },
+                        '.MuiTypography-body2': { fontSize: '0.9rem' },
+                    },
                 } }), _jsx(Header, { currentPath: normalizedPath, onNavigate: navigate }), normalizedPath === '/' && _jsx(Hero, {}), _jsx(SitePages, { currentPath: normalizedPath })] }));
 }
 export default App;

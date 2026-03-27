@@ -9,11 +9,17 @@ const navItems = [
     { label: 'About Us', href: '/about-us' },
     { label: 'Our Team', href: '/people' },
     { label: 'Blogs', href: '/blogs' },
-    { label: 'Book Reviews', href: '/book-reviews' },
-    { label: 'Media Reviews', href: '/media-reviews' },
+    { label: 'Explainers', href: '/explainer' },
 ];
 export default function Header({ currentPath, onNavigate }) {
     const [mobileOpen, setMobileOpen] = useState(false);
+    const isActive = (href) => {
+        if (href === '/')
+            return currentPath === '/';
+        if (currentPath === href)
+            return true;
+        return currentPath.startsWith(`${href}/`);
+    };
     return (_jsxs(AppBar, { position: "sticky", elevation: 0, sx: {
             bgcolor: 'primary.main',
             '& .MuiTypography-root': { color: '#fff' },
@@ -29,17 +35,17 @@ export default function Header({ currentPath, onNavigate }) {
                                 flexShrink: 1,
                                 minWidth: 0,
                             }, children: [_jsx(Box, { component: "img", src: "/newlogo.png", alt: "Logo", sx: {
-                                        height: { xs: 38, md: 54 },
-                                        width: { xs: 92, md: 140 },
+                                        height: { xs: 32, sm: 38, md: 54 },
+                                        width: { xs: 74, sm: 92, md: 140 },
                                         objectFit: 'contain',
                                         display: 'block',
                                     } }), _jsx(Typography, { sx: {
                                         fontWeight: 700,
-                                        fontSize: { xs: 15, sm: 18, md: 24 },
+                                        fontSize: { xs: 14, sm: 18, md: 24 },
                                         letterSpacing: '-0.02em',
                                         whiteSpace: { xs: 'normal', sm: 'nowrap' },
                                         lineHeight: { xs: 1.1, sm: 'normal' },
-                                        maxWidth: { xs: 170, sm: 220, md: 'none' },
+                                        maxWidth: { xs: 132, sm: 220, md: 'none' },
                                         wordBreak: 'keep-all',
                                     }, children: "Our Gender Lens" })] }), _jsx(Box, { sx: { display: { xs: 'none', md: 'flex' }, ml: 'auto', alignItems: 'center', gap: 0.5 }, children: navItems.map((item) => (_jsx(Button, { onClick: () => onNavigate(item.href), sx: {
                                     minHeight: 40,
@@ -48,8 +54,8 @@ export default function Header({ currentPath, onNavigate }) {
                                     fontWeight: 600,
                                     fontSize: '0.92rem',
                                     textTransform: 'none',
-                                    borderBottom: currentPath === item.href ? '2px solid' : '2px solid transparent',
-                                    borderColor: currentPath === item.href ? '#fff' : 'transparent',
+                                    borderBottom: isActive(item.href) ? '2px solid' : '2px solid transparent',
+                                    borderColor: isActive(item.href) ? '#fff' : 'transparent',
                                     borderRadius: 0,
                                     '&:hover': { color: '#fff', bgcolor: 'rgba(255,255,255,0.1)' },
                                 }, children: item.label }, item.label))) }), _jsx(Box, { sx: { ml: 'auto', display: { xs: 'flex', md: 'none' }, alignItems: 'center', gap: 0.5 }, children: _jsx(IconButton, { "aria-label": "Open navigation", onClick: () => setMobileOpen(true), sx: { color: '#fff' }, children: _jsx(MenuIcon, {}) }) })] }) }), _jsx(Drawer, { anchor: "right", open: mobileOpen, onClose: () => setMobileOpen(false), PaperProps: {
@@ -69,6 +75,6 @@ export default function Header({ currentPath, onNavigate }) {
                                     borderRadius: 2,
                                     minHeight: 48,
                                     mb: 0.5,
-                                    bgcolor: currentPath === item.href ? 'rgba(255,255,255,0.15)' : 'transparent',
-                                }, children: _jsx(ListItemText, { primary: item.label, primaryTypographyProps: { fontWeight: currentPath === item.href ? 700 : 600, color: '#fff' } }) }, item.label))) })] }) })] }));
+                                    bgcolor: isActive(item.href) ? 'rgba(255,255,255,0.15)' : 'transparent',
+                                }, children: _jsx(ListItemText, { primary: item.label, primaryTypographyProps: { fontWeight: isActive(item.href) ? 700 : 600, color: '#fff' } }) }, item.label))) })] }) })] }));
 }

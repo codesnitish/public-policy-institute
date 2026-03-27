@@ -1,6 +1,6 @@
 import { jsx as _jsx, jsxs as _jsxs, Fragment as _Fragment } from "react/jsx-runtime";
 import { Box, Card, CardContent, Chip, Container, Divider, Grid, Stack, Typography } from '@mui/material';
-import { fetchBlogStore, findBlogBySlug, getLatestBlog } from '../blog/blogClient';
+import { fetchBlogStore, findBlogBySlug } from '../blog/blogClient';
 import { useEffect, useMemo, useState } from 'react';
 import { MarkdownView } from '../blog/markdownView';
 const sectionSx = { py: { xs: 6, md: 9 } };
@@ -23,7 +23,9 @@ function BlogCard({ blog, height = 240 }) {
     return (_jsxs(Card, { component: "a", href: `/blogs/${blog.slug}`, elevation: 0, sx: {
             textDecoration: 'none',
             color: 'inherit',
-            display: 'block',
+            display: 'flex',
+            flexDirection: 'column',
+            height: '100%',
             border: '1px solid',
             borderColor: 'divider',
             borderRadius: 3,
@@ -35,7 +37,24 @@ function BlogCard({ blog, height = 240 }) {
                     backgroundImage: bgImage,
                     backgroundSize: 'cover',
                     backgroundPosition: 'center',
-                } }), _jsxs(CardContent, { sx: { p: 3.2 }, children: [_jsx(Chip, { label: "Featured", size: "small", sx: { mb: 1.2, fontWeight: 700, bgcolor: 'rgba(95,76,128,0.18)', color: 'text.primary' } }), _jsx(Typography, { variant: "h5", sx: { mb: 0.6, fontWeight: 700 }, children: blog.title }), (authorLine || dateLine) && (_jsxs(Typography, { variant: "body2", sx: { color: 'text.secondary', mb: 1.2 }, children: [authorLine, authorLine && dateLine ? ' · ' : '', dateLine] })), _jsx(Typography, { sx: { color: 'text.secondary', lineHeight: 1.8 }, children: blog.excerpt })] })] }));
+                } }), _jsxs(CardContent, { sx: { p: 3.2, flex: 1, display: 'flex', flexDirection: 'column' }, children: [_jsx(Typography, { variant: "h5", sx: {
+                            mb: 0.6,
+                            fontWeight: 700,
+                            overflow: 'hidden',
+                            textOverflow: 'ellipsis',
+                            display: '-webkit-box',
+                            WebkitLineClamp: 2,
+                            WebkitBoxOrient: 'vertical',
+                            minHeight: '2.6em',
+                        }, children: blog.title }), (authorLine || dateLine) && (_jsxs(Typography, { variant: "body2", noWrap: true, sx: { color: 'text.secondary', mb: 1.2 }, title: [authorLine, dateLine].filter(Boolean).join(' · '), children: [authorLine, authorLine && dateLine ? ' · ' : '', dateLine] })), _jsx(Typography, { sx: {
+                            color: 'text.secondary',
+                            lineHeight: 1.8,
+                            overflow: 'hidden',
+                            textOverflow: 'ellipsis',
+                            display: '-webkit-box',
+                            WebkitLineClamp: 3,
+                            WebkitBoxOrient: 'vertical',
+                        }, children: blog.excerpt })] })] }));
 }
 function HomePage() {
     const [blogs, setBlogs] = useState([]);
@@ -44,8 +63,23 @@ function HomePage() {
             .then((store) => setBlogs(store.blogs || []))
             .catch(() => setBlogs([]));
     }, []);
-    const latestBlog = useMemo(() => getLatestBlog(blogs), [blogs]);
-    return (_jsxs(_Fragment, { children: [_jsx(Box, { sx: { ...sectionSx, bgcolor: '#fff' }, children: _jsx(Container, { maxWidth: "lg", children: _jsxs(Grid, { container: true, spacing: 3, children: [_jsx(Grid, { size: { xs: 12, md: 6 }, children: _jsx(Card, { elevation: 0, sx: { border: '1px solid', borderColor: 'divider', borderRadius: 3, height: '100%' }, children: _jsxs(CardContent, { sx: { p: 3.5 }, children: [_jsx(Typography, { variant: "h4", sx: { color: 'text.primary', mb: 2 }, children: "Vision Statement" }), _jsx(Typography, { sx: { lineHeight: 1.9, color: 'text.secondary' }, children: "We imagine a world where decisions are guided by evidence, opportunities are shared fairly, and every person \u2014 across genders, communities, and backgrounds \u2014 has the chance to thrive. A world where systems are inclusive, progress is sustainable, and innovation works for everyone." })] }) }) }), _jsx(Grid, { size: { xs: 12, md: 6 }, children: _jsx(Card, { elevation: 0, sx: { border: '1px solid', borderColor: 'divider', borderRadius: 3, height: '100%' }, children: _jsxs(CardContent, { sx: { p: 3.5 }, children: [_jsx(Typography, { variant: "h4", sx: { color: 'text.primary', mb: 2 }, children: "Mission Statement" }), _jsx(Typography, { sx: { lineHeight: 1.9, color: 'text.secondary', mb: 2 }, children: "We exist to turn rigorous research into real-world change. Our work advances gender equity and inclusive development across climate, technology, education, and health. We do this by:" }), _jsxs(Stack, { spacing: 1.2, children: [_jsx(Typography, { sx: { color: 'text.secondary' }, children: "Producing and applying evidence that shapes fair and effective policies and practices" }), _jsx(Typography, { sx: { color: 'text.secondary' }, children: "Centering people of all genders in the design of solutions and systems" }), _jsx(Typography, { sx: { color: 'text.secondary' }, children: "Collaborating across sectors to address structural inequalities together" }), _jsx(Typography, { sx: { color: 'text.secondary' }, children: "Promoting context-aware, sustainable approaches that create long-term impact" })] })] }) }) })] }) }) }), _jsx(Box, { sx: { ...sectionSx, bgcolor: '#F4F5F8' }, children: _jsxs(Container, { maxWidth: "lg", children: [_jsx(Typography, { variant: "h4", sx: { color: 'text.primary', mb: 1.5 }, children: "Blogs" }), _jsx(Typography, { sx: { color: 'text.secondary', maxWidth: 900, lineHeight: 1.85 }, children: "Weekly topic-based blogs and monthly policy briefs developed through a structured, collaborative, and peer-reviewed research process." }), latestBlog && _jsx(Box, { sx: { mt: 3 }, children: _jsx(BlogCard, { blog: latestBlog, height: 220 }) })] }) })] }));
+    const sortedBlogs = useMemo(() => {
+        return [...blogs].sort((a, b) => (b.publishedAt || '').localeCompare(a.publishedAt || ''));
+    }, [blogs]);
+    const visibleBlogs = useMemo(() => sortedBlogs.slice(0, 2), [sortedBlogs]);
+    return (_jsxs(_Fragment, { children: [_jsx(Box, { sx: { ...sectionSx, bgcolor: '#fff' }, children: _jsx(Container, { maxWidth: "lg", children: _jsxs(Grid, { container: true, spacing: 3, children: [_jsx(Grid, { size: { xs: 12, md: 6 }, children: _jsx(Card, { elevation: 0, sx: { border: '1px solid', borderColor: 'divider', borderRadius: 3, height: '100%' }, children: _jsxs(CardContent, { sx: { p: { xs: 2.5, sm: 3.5 } }, children: [_jsx(Typography, { variant: "h4", sx: {
+                                                    color: 'text.primary',
+                                                    mb: 1.6,
+                                                    fontSize: { xs: '1.4rem', sm: '2rem' },
+                                                    lineHeight: 1.15,
+                                                    wordBreak: 'break-word',
+                                                }, children: "Vision Statement" }), _jsx(Typography, { sx: { lineHeight: 1.85, color: 'text.secondary', fontSize: { xs: '0.95rem', sm: '1rem' } }, children: "We imagine a world where decisions are guided by evidence, opportunities are shared fairly, and every person \u2014 across genders, communities, and backgrounds \u2014 has the chance to thrive. A world where systems are inclusive, progress is sustainable, and innovation works for everyone." })] }) }) }), _jsx(Grid, { size: { xs: 12, md: 6 }, children: _jsx(Card, { elevation: 0, sx: { border: '1px solid', borderColor: 'divider', borderRadius: 3, height: '100%' }, children: _jsxs(CardContent, { sx: { p: { xs: 2.5, sm: 3.5 } }, children: [_jsx(Typography, { variant: "h4", sx: {
+                                                    color: 'text.primary',
+                                                    mb: 1.6,
+                                                    fontSize: { xs: '1.4rem', sm: '2rem' },
+                                                    lineHeight: 1.15,
+                                                    wordBreak: 'break-word',
+                                                }, children: "Mission Statement" }), _jsx(Typography, { sx: { lineHeight: 1.85, color: 'text.secondary', mb: 2, fontSize: { xs: '0.95rem', sm: '1rem' } }, children: "We exist to turn rigorous research into real-world change. Our work advances gender equity and inclusive development across climate, technology, education, and health. We do this by:" }), _jsxs(Stack, { spacing: 1.2, children: [_jsx(Typography, { sx: { color: 'text.secondary' }, children: "Producing and applying evidence that shapes fair and effective policies and practices" }), _jsx(Typography, { sx: { color: 'text.secondary' }, children: "Centering people of all genders in the design of solutions and systems" }), _jsx(Typography, { sx: { color: 'text.secondary' }, children: "Collaborating across sectors to address structural inequalities together" }), _jsx(Typography, { sx: { color: 'text.secondary' }, children: "Promoting context-aware, sustainable approaches that create long-term impact" })] })] }) }) })] }) }) }), _jsx(Box, { sx: { ...sectionSx, bgcolor: '#F4F5F8' }, children: _jsxs(Container, { maxWidth: "lg", children: [_jsx(Typography, { variant: "h4", sx: { color: 'text.primary', mb: 1.5 }, children: "Blogs" }), _jsx(Typography, { sx: { color: 'text.secondary', maxWidth: 900, lineHeight: 1.85 }, children: "Weekly topic-based blogs and monthly policy briefs developed through a structured, collaborative, and peer-reviewed research process." }), _jsx(Grid, { container: true, spacing: 2.5, sx: { mt: 2.5 }, children: visibleBlogs.map((b) => (_jsx(Grid, { size: { xs: 12, md: 6 }, sx: { display: 'flex' }, children: _jsx(BlogCard, { blog: b, height: 220 }) }, b.slug))) })] }) })] }));
 }
 function AboutPage() {
     return (_jsx(Box, { sx: { ...sectionSx, bgcolor: '#fff' }, children: _jsxs(Container, { maxWidth: "lg", children: [_jsx(Typography, { variant: "h3", sx: { color: 'text.primary', mb: 2 }, children: "About Us" }), _jsx(Typography, { sx: { color: 'text.secondary', lineHeight: 1.9, mb: 2 }, children: "Our Gender Lens is a gender-responsive research think tank focused on using evidence to inform more inclusive and equitable systems. We believe research should move beyond theory and directly contribute to better policies, stronger institutions, and meaningful social impact." }), _jsx(Typography, { sx: { color: 'text.secondary', lineHeight: 1.9, mb: 2 }, children: "We work across climate, technology, education, and health, examining how these sectors affect people in both rural and urban contexts. Our goal is to understand structural challenges, highlight gaps, and contribute to solutions that are practical, sustainable, and grounded in evidence." }), _jsx(Typography, { sx: { color: 'text.secondary', lineHeight: 1.9, mb: 2 }, children: "Our work is guided by three core values: Rigorous Research, Promoting Equity amongst Genders, and Inclusivity." }), _jsx(Typography, { sx: { color: 'text.secondary', lineHeight: 1.9, mb: 3 }, children: "We apply a gender lens as an analytical framework to ensure that policies, systems, and solutions are designed with fairness and context in mind. We recognize that gender intersects with geography, access, and structural inequality, and we aim to reflect these realities in our research." }), _jsx(Divider, { sx: { my: 3 } }), _jsx(Typography, { variant: "h4", sx: { color: 'text.primary', mb: 1.5 }, children: "What We Do" }), _jsx(Typography, { sx: { color: 'text.secondary', lineHeight: 1.9, mb: 2 }, children: "We produce a range of research and knowledge outputs, including:" }), _jsxs(Stack, { spacing: 1.2, children: [_jsx(Typography, { sx: { color: 'text.secondary' }, children: "Weekly topic-based blogs" }), _jsx(Typography, { sx: { color: 'text.secondary' }, children: "Monthly policy briefs" }), _jsx(Typography, { sx: { color: 'text.secondary' }, children: "Policy papers and research reports" }), _jsx(Typography, { sx: { color: 'text.secondary' }, children: "Primary research studies" }), _jsx(Typography, { sx: { color: 'text.secondary' }, children: "Presentations at conferences and academic forums" })] }), _jsx(Typography, { sx: { color: 'text.secondary', lineHeight: 1.9, mt: 3 }, children: "Our content is structured, focused, and peer-reviewed. We follow a collaborative editing process to ensure clarity, coherence, and quality in every publication." }), _jsx(Divider, { sx: { my: 3 } }), _jsx(Typography, { variant: "h4", sx: { color: 'text.primary', mb: 1.5 }, children: "Our Approach" }), _jsx(Typography, { sx: { color: 'text.secondary', lineHeight: 1.9 }, children: "We meet regularly to develop ideas, discuss research directions, and refine our work. Collaboration and continuous improvement are central to our model. Through consistent engagement and structured review, we aim to maintain high standards in both analysis and writing." }), _jsx(Typography, { sx: { color: 'text.secondary', lineHeight: 1.9, mt: 2 }, children: "At Our Gender Lens, we are committed to producing research that is evidence-based, context-aware, and designed to contribute to long-term, inclusive development." })] }) }));
@@ -60,8 +94,11 @@ function BlogsPage() {
             .then((store) => setBlogs(store.blogs || []))
             .catch(() => setBlogs([]));
     }, []);
-    const latestBlog = useMemo(() => getLatestBlog(blogs), [blogs]);
-    return (_jsx(Box, { sx: { ...sectionSx, bgcolor: '#fff' }, children: _jsxs(Container, { maxWidth: "lg", children: [_jsxs(Box, { sx: { mb: 4 }, children: [_jsx(Typography, { variant: "h3", sx: { color: 'text.primary', mb: 1.2 }, children: "Blogs" }), _jsx(Typography, { sx: { color: 'text.secondary', maxWidth: 900, lineHeight: 1.85 }, children: "Structured, evidence-led writing across climate, technology, education, and health with a gender lens. New posts are released weekly." })] }), latestBlog && _jsx(BlogCard, { blog: latestBlog, height: 240 })] }) }));
+    const sortedBlogs = useMemo(() => {
+        return [...blogs].sort((a, b) => (b.publishedAt || '').localeCompare(a.publishedAt || ''));
+    }, [blogs]);
+    const visibleBlogs = sortedBlogs;
+    return (_jsx(Box, { sx: { ...sectionSx, bgcolor: '#fff' }, children: _jsxs(Container, { maxWidth: "lg", children: [_jsxs(Box, { sx: { mb: 4 }, children: [_jsx(Typography, { variant: "h3", sx: { color: 'text.primary', mb: 1.2 }, children: "Blogs" }), _jsx(Typography, { sx: { color: 'text.secondary', maxWidth: 900, lineHeight: 1.85 }, children: "Structured, evidence-led writing across climate, technology, education, and health with a gender lens. New posts are released weekly." })] }), _jsx(Grid, { container: true, spacing: 2.5, sx: { mt: 1 }, children: visibleBlogs.map((b) => (_jsx(Grid, { size: { xs: 12, md: 6 }, sx: { display: 'flex' }, children: _jsx(BlogCard, { blog: b, height: 240 }) }, b.slug))) })] }) }));
 }
 function BlogPostPage({ slug }) {
     const [blogs, setBlogs] = useState([]);
@@ -74,15 +111,17 @@ function BlogPostPage({ slug }) {
     if (!blog) {
         return (_jsx(Box, { sx: { ...sectionSx, bgcolor: '#fff' }, children: _jsx(Container, { maxWidth: "lg", children: _jsx(Typography, { variant: "h4", sx: { color: 'text.primary' }, children: "Blog not found" }) }) }));
     }
-    return (_jsx(Box, { sx: { ...sectionSx, bgcolor: '#fff' }, children: _jsxs(Container, { maxWidth: "lg", children: [_jsxs(Box, { sx: { mb: 3 }, children: [_jsx(Typography, { variant: "h3", sx: { color: 'text.primary', mb: 1 }, children: blog.title }), _jsxs(Typography, { variant: "body2", sx: { color: 'text.secondary' }, children: [blog.authors.join(' and '), " \u00B7 ", formatDate(blog.publishedAt)] })] }), _jsx(Box, { sx: { maxWidth: 920 }, children: _jsx(MarkdownView, { markdown: blog.contentMarkdown }) })] }) }));
+    return (_jsx(Box, { sx: { ...sectionSx, bgcolor: '#fff' }, children: _jsxs(Container, { maxWidth: "lg", children: [_jsxs(Box, { sx: { mb: 3 }, children: [_jsx(Typography, { variant: "h3", sx: { color: 'text.primary', mb: 1, wordBreak: 'break-word' }, children: blog.title }), _jsxs(Typography, { variant: "body2", sx: { color: 'text.secondary' }, children: [blog.authors.join(' and '), " \u00B7 ", formatDate(blog.publishedAt)] })] }), _jsx(Box, { sx: { maxWidth: 920 }, children: _jsx(MarkdownView, { markdown: blog.contentMarkdown }) })] }) }));
 }
-function BookReviewsPage() {
-    return (_jsx(Box, { sx: { ...sectionSx, bgcolor: '#fff' }, children: _jsxs(Container, { maxWidth: "lg", children: [_jsx(Typography, { variant: "h3", sx: { color: 'text.primary', mb: 2 }, children: "Book Reviews" }), _jsx(Typography, { sx: { color: 'text.secondary', lineHeight: 1.9, mb: 3 }, children: "Critical reviews of books relevant to gender equity, inclusive development, governance, and public policy practice." })] }) }));
+function ExplainerPage() {
+    return (_jsx(Box, { sx: { ...sectionSx, bgcolor: '#fff' }, children: _jsxs(Container, { maxWidth: "lg", children: [_jsx(Typography, { variant: "h3", sx: { color: 'text.primary', mb: 1.2 }, children: "Explainers" }), _jsx(Typography, { sx: { color: 'text.secondary', lineHeight: 1.9, maxWidth: 920 }, children: "Short, accessible explainers that break down concepts, terms, and frameworks used in gender-responsive research and policy work." }), _jsx(Card, { elevation: 0, sx: { mt: 3, border: '1px solid', borderColor: 'divider', borderRadius: 3 }, children: _jsxs(CardContent, { sx: { p: { xs: 2.5, sm: 3.2 } }, children: [_jsx(Typography, { sx: { fontWeight: 700, mb: 0.8 }, children: "Coming soon" }), _jsx(Typography, { variant: "body2", sx: { color: 'text.secondary', lineHeight: 1.85 }, children: "We are preparing a set of explainers to support readers with context and definitions. Check back shortly." })] }) })] }) }));
 }
-function MediaReviewsPage() {
-    return (_jsx(Box, { sx: { ...sectionSx, bgcolor: '#F4F5F8' }, children: _jsxs(Container, { maxWidth: "lg", children: [_jsx(Typography, { variant: "h3", sx: { color: 'text.primary', mb: 2 }, children: "Media Reviews" }), _jsx(Typography, { sx: { color: 'text.secondary', lineHeight: 1.9, mb: 3 }, children: "Media narratives and public discourse examined through evidence, context, and inclusivity to support informed policy conversations." })] }) }));
+function NotFoundPage() {
+    return (_jsx(Box, { sx: { ...sectionSx, bgcolor: '#fff' }, children: _jsxs(Container, { maxWidth: "lg", children: [_jsx(Typography, { variant: "h3", sx: { color: 'text.primary', mb: 1.2 }, children: "Page not found" }), _jsx(Typography, { sx: { color: 'text.secondary', lineHeight: 1.9, maxWidth: 720 }, children: "The page you are looking for does not exist." })] }) }));
 }
 export default function SitePages({ currentPath }) {
+    if (currentPath === '/')
+        return _jsx(HomePage, {});
     if (currentPath === '/about-us')
         return _jsx(AboutPage, {});
     if (currentPath === '/people')
@@ -93,9 +132,7 @@ export default function SitePages({ currentPath }) {
     }
     if (currentPath === '/blogs')
         return _jsx(BlogsPage, {});
-    if (currentPath === '/book-reviews')
-        return _jsx(BookReviewsPage, {});
-    if (currentPath === '/media-reviews')
-        return _jsx(MediaReviewsPage, {});
-    return _jsx(HomePage, {});
+    if (currentPath === '/explainer')
+        return _jsx(ExplainerPage, {});
+    return _jsx(NotFoundPage, {});
 }
