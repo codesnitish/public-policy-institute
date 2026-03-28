@@ -9,6 +9,19 @@ type SitePagesProps = {
 };
 
 const sectionSx = { py: { xs: 6, md: 9 } };
+const explainers = [
+  {
+    slug: 'sex-vs-gender-are-they-the-same',
+    title: 'Sex vs Gender - Are they the Same?',
+    author: 'Pinaki Gakhar',
+    excerpt: 'Sex refers to biological traits, while gender relates to social roles, identity and expression.',
+    paragraphs: [
+      'In daily conversations, it is habitual for people to use the terms ‘sex’ and ‘gender’ interchangeably, however, these terms hold separate meanings. The terms ‘sex’ and ‘gender’ have been explored and defined as separate terms in fields such as sociology, anthropology, psychology and gender studies. This differentiation becomes important when treating individuals for mental and physical ailments and has a major effect on their identity.',
+      'Sex refers to the physiological characteristics of individuals at birth. These resemble characteristics related to what is commonly attributed to male or female bodies. On the other hand, gender is considered to be a social construct. It is the norms, roles and objects of material culture (clothing, language, toys, etc.) associated with a particular sex. There is no universal understanding of gender because it may differ across cultures and societies. An individual may have a certain sex but identify as a different gender. For example, a biological male may identify with the cultural traits usually assigned to women in that society. This is known as gender non-conformity. Gender, unlike sex, is a spectrum. Individuals may identify as the same gender as their biological sex. They may also identify with a different gender or choose not to identify within the binary male and female categories.',
+      'Gender is a core component of an individual’s identity. Inability to express their gender identity may cause severe psychological distress in individuals. It is essential to understand and empathise with an individual’s gender identity to create an inclusive society for all. When provided with the right support, individuals across the spectrum will feel secure and confident in their chosen gender identity.',
+    ],
+  },
+] as const;
 
 function formatDate(yyyyMmDd: string) {
   // Keep it simple: YYYY-MM-DD -> Month DD, YYYY (en-US)
@@ -364,50 +377,117 @@ function ExplainerPage() {
   return (
     <Box sx={{ ...sectionSx, bgcolor: '#fff' }}>
       <Container maxWidth="lg">
-        <Card elevation={0} sx={{ border: '1px solid', borderColor: 'divider', borderRadius: 3 }}>
-          <CardContent sx={{ p: { xs: 2.5, sm: 3.2 } }}>
-            <Box sx={{ maxWidth: 920 }}>
-              <Typography variant="h4" sx={{ color: 'text.primary', mb: 1.2 }}>
-                Sex vs Gender - Are they the Same?
+        <Grid container spacing={2.5} sx={{ mt: 0 }}>
+          {explainers.map((explainer) => (
+            <Grid key={explainer.slug} size={{ xs: 12, md: 6 }} sx={{ display: 'flex' }}>
+              <Card
+                component="a"
+                href={`/explainer/${explainer.slug}`}
+                elevation={0}
+                sx={{
+                  textDecoration: 'none',
+                  color: 'inherit',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  height: '100%',
+                  border: '1px solid',
+                  borderColor: 'divider',
+                  borderRadius: 3,
+                  overflow: 'hidden',
+                  width: '100%',
+                  transition: 'transform .2s ease, box-shadow .2s ease',
+                  '&:hover': { transform: 'translateY(-2px)', boxShadow: 3 },
+                }}
+              >
+                <CardContent sx={{ p: 3.2, flex: 1, display: 'flex', flexDirection: 'column' }}>
+                  <Box>
+                    <Chip
+                      label="Explainer"
+                      size="small"
+                      sx={{
+                        mb: 1.5,
+                        bgcolor: 'rgba(95,76,128,0.12)',
+                        color: 'text.primary',
+                        fontWeight: 700,
+                      }}
+                    />
+                    <Typography variant="h5" sx={{ color: 'text.primary', mb: 0.6, fontWeight: 700 }}>
+                      {explainer.title}
+                    </Typography>
+                    <Typography variant="body2" sx={{ color: 'text.secondary', mb: 1.8 }}>
+                      {explainer.author}
+                    </Typography>
+
+                    <Divider sx={{ mb: 1.6 }} />
+
+                    <Typography
+                      sx={{
+                        color: 'text.secondary',
+                        lineHeight: 1.8,
+                        overflow: 'hidden',
+                        textOverflow: 'ellipsis',
+                        display: '-webkit-box',
+                        WebkitLineClamp: 2,
+                        WebkitBoxOrient: 'vertical',
+                      }}
+                    >
+                      {explainer.excerpt}
+                    </Typography>
+                  </Box>
+                </CardContent>
+              </Card>
+            </Grid>
+          ))}
+        </Grid>
+      </Container>
+    </Box>
+  );
+}
+
+function ExplainerPostPage({ slug }: { slug: string }) {
+  const explainer = explainers.find((item) => item.slug === slug);
+
+  if (!explainer) {
+    return (
+      <Box sx={{ ...sectionSx, bgcolor: '#fff' }}>
+        <Container maxWidth="lg">
+          <Typography variant="h4" sx={{ color: 'text.primary' }}>Explainer not found</Typography>
+        </Container>
+      </Box>
+    );
+  }
+
+  return (
+    <Box sx={{ ...sectionSx, bgcolor: '#fff' }}>
+      <Container maxWidth="lg">
+        <Box sx={{ mb: 3 }}>
+          <Chip
+            label="Explainer"
+            size="small"
+            sx={{
+              mb: 1.5,
+              bgcolor: 'rgba(95,76,128,0.12)',
+              color: 'text.primary',
+              fontWeight: 700,
+            }}
+          />
+          <Typography variant="h3" sx={{ color: 'text.primary', mb: 1, wordBreak: 'break-word' }}>
+            {explainer.title}
+          </Typography>
+          <Typography variant="body2" sx={{ color: 'text.secondary' }}>
+            {explainer.author}
+          </Typography>
+        </Box>
+
+        <Box sx={{ maxWidth: 920 }}>
+          <Stack spacing={2.4}>
+            {explainer.paragraphs.map((paragraph) => (
+              <Typography key={paragraph} sx={{ color: 'text.secondary', lineHeight: 1.9 }}>
+                {paragraph}
               </Typography>
-              <Typography variant="body2" sx={{ color: 'text.secondary', mb: 2.5 }}>
-                Pinaki Gakhar
-              </Typography>
-
-              <Stack spacing={2.2}>
-                <Typography sx={{ color: 'text.secondary', lineHeight: 1.9 }}>
-                  In daily conversations, it is habitual for people to use the terms &lsquo;sex&rsquo; and
-                  &lsquo;gender&rsquo; interchangeably, however, these terms hold separate meanings. The terms
-                  &lsquo;sex&rsquo; and &lsquo;gender&rsquo; have been explored and defined as separate terms in fields such as
-                  sociology, anthropology, psychology and gender studies. This differentiation becomes important
-                  when treating individuals for mental and physical ailments and has a major effect on their
-                  identity.
-                </Typography>
-
-                <Typography sx={{ color: 'text.secondary', lineHeight: 1.9 }}>
-                  Sex refers to the physiological characteristics of individuals at birth. These resemble
-                  characteristics related to what is commonly attributed to male or female bodies. On the other
-                  hand, gender is considered to be a social construct. It is the norms, roles and objects of
-                  material culture (clothing, language, toys, etc.) associated with a particular sex. There is
-                  no universal understanding of gender because it may differ across cultures and societies. An
-                  individual may have a certain sex but identify as a different gender. For example, a biological
-                  male may identify with the cultural traits usually assigned to women in that society. This is
-                  known as gender non-conformity. Gender, unlike sex, is a spectrum. Individuals may identify as
-                  the same gender as their biological sex. They may also identify with a different gender or
-                  choose not to identify within the binary male and female categories.
-                </Typography>
-
-                <Typography sx={{ color: 'text.secondary', lineHeight: 1.9 }}>
-                  Gender is a core component of an individual&apos;s identity. Inability to express their gender
-                  identity may cause severe psychological distress in individuals. It is essential to understand
-                  and empathise with an individual&rsquo;s gender identity to create an inclusive society for all.
-                  When provided with the right support, individuals across the spectrum will feel secure and
-                  confident in their chosen gender identity.
-                </Typography>
-              </Stack>
-            </Box>
-          </CardContent>
-        </Card>
+            ))}
+          </Stack>
+        </Box>
       </Container>
     </Box>
   );
@@ -433,6 +513,10 @@ export default function SitePages({ currentPath }: SitePagesProps) {
   if (currentPath.startsWith('/blogs/') && currentPath !== '/blogs') {
     const slug = currentPath.replace(/^\/blogs\//, '');
     return <BlogPostPage slug={slug} />;
+  }
+  if (currentPath.startsWith('/explainer/') && currentPath !== '/explainer') {
+    const slug = currentPath.replace(/^\/explainer\//, '');
+    return <ExplainerPostPage slug={slug} />;
   }
   if (currentPath === '/blogs') return <BlogsPage />;
   if (currentPath === '/explainer') return <ExplainerPage />;

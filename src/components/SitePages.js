@@ -4,6 +4,19 @@ import { fetchBlogStore, findBlogBySlug } from '../blog/blogClient';
 import { useEffect, useMemo, useState } from 'react';
 import { MarkdownView } from '../blog/markdownView';
 const sectionSx = { py: { xs: 6, md: 9 } };
+const explainers = [
+    {
+        slug: 'sex-vs-gender-are-they-the-same',
+        title: 'Sex vs Gender - Are they the Same?',
+        author: 'Pinaki Gakhar',
+        excerpt: 'Sex refers to biological traits, while gender relates to social roles, identity and expression.',
+        paragraphs: [
+            'In daily conversations, it is habitual for people to use the terms ‘sex’ and ‘gender’ interchangeably, however, these terms hold separate meanings. The terms ‘sex’ and ‘gender’ have been explored and defined as separate terms in fields such as sociology, anthropology, psychology and gender studies. This differentiation becomes important when treating individuals for mental and physical ailments and has a major effect on their identity.',
+            'Sex refers to the physiological characteristics of individuals at birth. These resemble characteristics related to what is commonly attributed to male or female bodies. On the other hand, gender is considered to be a social construct. It is the norms, roles and objects of material culture (clothing, language, toys, etc.) associated with a particular sex. There is no universal understanding of gender because it may differ across cultures and societies. An individual may have a certain sex but identify as a different gender. For example, a biological male may identify with the cultural traits usually assigned to women in that society. This is known as gender non-conformity. Gender, unlike sex, is a spectrum. Individuals may identify as the same gender as their biological sex. They may also identify with a different gender or choose not to identify within the binary male and female categories.',
+            'Gender is a core component of an individual’s identity. Inability to express their gender identity may cause severe psychological distress in individuals. It is essential to understand and empathise with an individual’s gender identity to create an inclusive society for all. When provided with the right support, individuals across the spectrum will feel secure and confident in their chosen gender identity.',
+        ],
+    },
+];
 function formatDate(yyyyMmDd) {
     // Keep it simple: YYYY-MM-DD -> Month DD, YYYY (en-US)
     // Falls back to raw string if parsing fails.
@@ -114,7 +127,45 @@ function BlogPostPage({ slug }) {
     return (_jsx(Box, { sx: { ...sectionSx, bgcolor: '#fff' }, children: _jsxs(Container, { maxWidth: "lg", children: [_jsxs(Box, { sx: { mb: 3 }, children: [_jsx(Typography, { variant: "h3", sx: { color: 'text.primary', mb: 1, wordBreak: 'break-word' }, children: blog.title }), _jsxs(Typography, { variant: "body2", sx: { color: 'text.secondary' }, children: [blog.authors.join(' and '), " \u00B7 ", formatDate(blog.publishedAt)] })] }), _jsx(Box, { sx: { maxWidth: 920 }, children: _jsx(MarkdownView, { markdown: blog.contentMarkdown }) })] }) }));
 }
 function ExplainerPage() {
-    return (_jsx(Box, { sx: { ...sectionSx, bgcolor: '#fff' }, children: _jsx(Container, { maxWidth: "lg", children: _jsx(Card, { elevation: 0, sx: { border: '1px solid', borderColor: 'divider', borderRadius: 3 }, children: _jsx(CardContent, { sx: { p: { xs: 2.5, sm: 3.2 } }, children: _jsxs(Box, { sx: { maxWidth: 920 }, children: [_jsx(Typography, { variant: "h4", sx: { color: 'text.primary', mb: 1.2 }, children: "Sex vs Gender - Are they the Same?" }), _jsx(Typography, { variant: "body2", sx: { color: 'text.secondary', mb: 2.5 }, children: "Pinaki Gakhar" }), _jsxs(Stack, { spacing: 2.2, children: [_jsx(Typography, { sx: { color: 'text.secondary', lineHeight: 1.9 }, children: "In daily conversations, it is habitual for people to use the terms \u2018sex\u2019 and \u2018gender\u2019 interchangeably, however, these terms hold separate meanings. The terms \u2018sex\u2019 and \u2018gender\u2019 have been explored and defined as separate terms in fields such as sociology, anthropology, psychology and gender studies. This differentiation becomes important when treating individuals for mental and physical ailments and has a major effect on their identity." }), _jsx(Typography, { sx: { color: 'text.secondary', lineHeight: 1.9 }, children: "Sex refers to the physiological characteristics of individuals at birth. These resemble characteristics related to what is commonly attributed to male or female bodies. On the other hand, gender is considered to be a social construct. It is the norms, roles and objects of material culture (clothing, language, toys, etc.) associated with a particular sex. There is no universal understanding of gender because it may differ across cultures and societies. An individual may have a certain sex but identify as a different gender. For example, a biological male may identify with the cultural traits usually assigned to women in that society. This is known as gender non-conformity. Gender, unlike sex, is a spectrum. Individuals may identify as the same gender as their biological sex. They may also identify with a different gender or choose not to identify within the binary male and female categories." }), _jsx(Typography, { sx: { color: 'text.secondary', lineHeight: 1.9 }, children: "Gender is a core component of an individual's identity. Inability to express their gender identity may cause severe psychological distress in individuals. It is essential to understand and empathise with an individual\u2019s gender identity to create an inclusive society for all. When provided with the right support, individuals across the spectrum will feel secure and confident in their chosen gender identity." })] })] }) }) }) }) }));
+    return (_jsx(Box, { sx: { ...sectionSx, bgcolor: '#fff' }, children: _jsx(Container, { maxWidth: "lg", children: _jsx(Grid, { container: true, spacing: 2.5, sx: { mt: 0 }, children: explainers.map((explainer) => (_jsx(Grid, { size: { xs: 12, md: 6 }, sx: { display: 'flex' }, children: _jsx(Card, { component: "a", href: `/explainer/${explainer.slug}`, elevation: 0, sx: {
+                            textDecoration: 'none',
+                            color: 'inherit',
+                            display: 'flex',
+                            flexDirection: 'column',
+                            height: '100%',
+                            border: '1px solid',
+                            borderColor: 'divider',
+                            borderRadius: 3,
+                            overflow: 'hidden',
+                            width: '100%',
+                            transition: 'transform .2s ease, box-shadow .2s ease',
+                            '&:hover': { transform: 'translateY(-2px)', boxShadow: 3 },
+                        }, children: _jsx(CardContent, { sx: { p: 3.2, flex: 1, display: 'flex', flexDirection: 'column' }, children: _jsxs(Box, { children: [_jsx(Chip, { label: "Explainer", size: "small", sx: {
+                                            mb: 1.5,
+                                            bgcolor: 'rgba(95,76,128,0.12)',
+                                            color: 'text.primary',
+                                            fontWeight: 700,
+                                        } }), _jsx(Typography, { variant: "h5", sx: { color: 'text.primary', mb: 0.6, fontWeight: 700 }, children: explainer.title }), _jsx(Typography, { variant: "body2", sx: { color: 'text.secondary', mb: 1.8 }, children: explainer.author }), _jsx(Divider, { sx: { mb: 1.6 } }), _jsx(Typography, { sx: {
+                                            color: 'text.secondary',
+                                            lineHeight: 1.8,
+                                            overflow: 'hidden',
+                                            textOverflow: 'ellipsis',
+                                            display: '-webkit-box',
+                                            WebkitLineClamp: 2,
+                                            WebkitBoxOrient: 'vertical',
+                                        }, children: explainer.excerpt })] }) }) }) }, explainer.slug))) }) }) }));
+}
+function ExplainerPostPage({ slug }) {
+    const explainer = explainers.find((item) => item.slug === slug);
+    if (!explainer) {
+        return (_jsx(Box, { sx: { ...sectionSx, bgcolor: '#fff' }, children: _jsx(Container, { maxWidth: "lg", children: _jsx(Typography, { variant: "h4", sx: { color: 'text.primary' }, children: "Explainer not found" }) }) }));
+    }
+    return (_jsx(Box, { sx: { ...sectionSx, bgcolor: '#fff' }, children: _jsxs(Container, { maxWidth: "lg", children: [_jsxs(Box, { sx: { mb: 3 }, children: [_jsx(Chip, { label: "Explainer", size: "small", sx: {
+                                mb: 1.5,
+                                bgcolor: 'rgba(95,76,128,0.12)',
+                                color: 'text.primary',
+                                fontWeight: 700,
+                            } }), _jsx(Typography, { variant: "h3", sx: { color: 'text.primary', mb: 1, wordBreak: 'break-word' }, children: explainer.title }), _jsx(Typography, { variant: "body2", sx: { color: 'text.secondary' }, children: explainer.author })] }), _jsx(Box, { sx: { maxWidth: 920 }, children: _jsx(Stack, { spacing: 2.4, children: explainer.paragraphs.map((paragraph) => (_jsx(Typography, { sx: { color: 'text.secondary', lineHeight: 1.9 }, children: paragraph }, paragraph))) }) })] }) }));
 }
 function NotFoundPage() {
     return (_jsx(Box, { sx: { ...sectionSx, bgcolor: '#fff' }, children: _jsxs(Container, { maxWidth: "lg", children: [_jsx(Typography, { variant: "h3", sx: { color: 'text.primary', mb: 1.2 }, children: "Page not found" }), _jsx(Typography, { sx: { color: 'text.secondary', lineHeight: 1.9, maxWidth: 720 }, children: "The page you are looking for does not exist." })] }) }));
@@ -129,6 +180,10 @@ export default function SitePages({ currentPath }) {
     if (currentPath.startsWith('/blogs/') && currentPath !== '/blogs') {
         const slug = currentPath.replace(/^\/blogs\//, '');
         return _jsx(BlogPostPage, { slug: slug });
+    }
+    if (currentPath.startsWith('/explainer/') && currentPath !== '/explainer') {
+        const slug = currentPath.replace(/^\/explainer\//, '');
+        return _jsx(ExplainerPostPage, { slug: slug });
     }
     if (currentPath === '/blogs')
         return _jsx(BlogsPage, {});
