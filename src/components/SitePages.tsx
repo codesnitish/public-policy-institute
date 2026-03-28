@@ -364,16 +364,48 @@ function ExplainerPage() {
   return (
     <Box sx={{ ...sectionSx, bgcolor: '#fff' }}>
       <Container maxWidth="lg">
-        <Typography variant="h3" sx={{ color: 'text.primary', mb: 1.2 }}>Explainers</Typography>
-        <Typography sx={{ color: 'text.secondary', lineHeight: 1.9, maxWidth: 920 }}>
-          Short, accessible explainers that break down concepts, terms, and frameworks used in gender-responsive research and policy work.
-        </Typography>
-        <Card elevation={0} sx={{ mt: 3, border: '1px solid', borderColor: 'divider', borderRadius: 3 }}>
+        <Card elevation={0} sx={{ border: '1px solid', borderColor: 'divider', borderRadius: 3 }}>
           <CardContent sx={{ p: { xs: 2.5, sm: 3.2 } }}>
-            <Typography sx={{ fontWeight: 700, mb: 0.8 }}>Coming soon</Typography>
-            <Typography variant="body2" sx={{ color: 'text.secondary', lineHeight: 1.85 }}>
-              We are preparing a set of explainers to support readers with context and definitions. Check back shortly.
-            </Typography>
+            <Box sx={{ maxWidth: 920 }}>
+              <Typography variant="h4" sx={{ color: 'text.primary', mb: 1.2 }}>
+                Sex vs Gender - Are they the Same?
+              </Typography>
+              <Typography variant="body2" sx={{ color: 'text.secondary', mb: 2.5 }}>
+                Pinaki Gakhar
+              </Typography>
+
+              <Stack spacing={2.2}>
+                <Typography sx={{ color: 'text.secondary', lineHeight: 1.9 }}>
+                  In daily conversations, it is habitual for people to use the terms &lsquo;sex&rsquo; and
+                  &lsquo;gender&rsquo; interchangeably, however, these terms hold separate meanings. The terms
+                  &lsquo;sex&rsquo; and &lsquo;gender&rsquo; have been explored and defined as separate terms in fields such as
+                  sociology, anthropology, psychology and gender studies. This differentiation becomes important
+                  when treating individuals for mental and physical ailments and has a major effect on their
+                  identity.
+                </Typography>
+
+                <Typography sx={{ color: 'text.secondary', lineHeight: 1.9 }}>
+                  Sex refers to the physiological characteristics of individuals at birth. These resemble
+                  characteristics related to what is commonly attributed to male or female bodies. On the other
+                  hand, gender is considered to be a social construct. It is the norms, roles and objects of
+                  material culture (clothing, language, toys, etc.) associated with a particular sex. There is
+                  no universal understanding of gender because it may differ across cultures and societies. An
+                  individual may have a certain sex but identify as a different gender. For example, a biological
+                  male may identify with the cultural traits usually assigned to women in that society. This is
+                  known as gender non-conformity. Gender, unlike sex, is a spectrum. Individuals may identify as
+                  the same gender as their biological sex. They may also identify with a different gender or
+                  choose not to identify within the binary male and female categories.
+                </Typography>
+
+                <Typography sx={{ color: 'text.secondary', lineHeight: 1.9 }}>
+                  Gender is a core component of an individual&apos;s identity. Inability to express their gender
+                  identity may cause severe psychological distress in individuals. It is essential to understand
+                  and empathise with an individual&rsquo;s gender identity to create an inclusive society for all.
+                  When provided with the right support, individuals across the spectrum will feel secure and
+                  confident in their chosen gender identity.
+                </Typography>
+              </Stack>
+            </Box>
           </CardContent>
         </Card>
       </Container>
