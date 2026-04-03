@@ -16,6 +16,17 @@ const explainers = [
             'Gender is a core component of an individual’s identity. Inability to express their gender identity may cause severe psychological distress in individuals. It is essential to understand and empathise with an individual’s gender identity to create an inclusive society for all. When provided with the right support, individuals across the spectrum will feel secure and confident in their chosen gender identity.',
         ],
     },
+    {
+        slug: 'what-is-gender-neutrality',
+        title: 'What is Gender Neutrality?',
+        author: 'Balijepalli Anjana Devi',
+        excerpt: 'Gender neutrality promotes equal treatment and non-judgement of male, female and non-binary individuals.',
+        paragraphs: [
+            'Gender neutrality emerged as a post-constructivist feminist theory that challenges male and female gender norms to promote gender equality. It is a concept that promotes equal treatment and non-judgement of male, female and non-binary individuals. Gender neutrality reinforces the belief that society, the economy and the law should avoid distinguishing between roles based on people’s sex or gender. It also aspires to challenge restrictive gender norms that underestimate an individual’s capabilities and limit their opportunities. It ensures that every individual has the liberty to pursue their aspirations, avail opportunities and access legal rights regardless of their gender identity.',
+            'It is important to note that gender neutrality does not ignore gender identity. It seeks to emphasise the equal treatment of individuals irrespective of gender. It is about recognizing the differences, acknowledging them and understanding how they affect an individual’s path to achieving the opportunities they want in life. To promote egalitarian relationships, becoming self-aware, examining gender stereotypes critically and correcting internal biases is necessary.',
+            'Gender neutrality plays a significant role in promoting gender equality through fair and equal systems. To summarise, gender neutrality is a concept that seeks to build a society where individuals are free to reach their full potential without any constraints based on their gender.',
+        ],
+    },
 ];
 function formatDate(yyyyMmDd) {
     // Keep it simple: YYYY-MM-DD -> Month DD, YYYY (en-US)
