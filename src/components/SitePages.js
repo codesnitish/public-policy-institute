@@ -39,6 +39,28 @@ const explainers = [
             'Everybody has a right to live the way they desire. As friends and family of individuals suffering from gender dysphoria, it is imperative to be supportive and provide them with a safe space to express themselves.',
         ],
     },
+    {
+        slug: 'understanding-gender-expression',
+        title: 'Understanding Gender Expression',
+        author: 'Balijepalli Anjana Devi',
+        excerpt: 'Gender expression is how a person presents themselves through clothing, behaviour, mannerisms and voice.',
+        paragraphs: [
+            'Gender expression is how a person presents themselves through their mannerisms, clothing, behaviour, and voice. It is a form of self expression. What a person chooses to wear, how their hairstyle is and how they speak is a matter of convenience.',
+            'It is important to note that gender expression does not reflect what an individual’s gender identity is. For example, women who display masculine traits are often labelled as tomboys. But they could identify as female. Likewise, men who display traditionally defined feminine qualities could identify as male. Similarly, a person with an androgynous gender expression, meaning someone who embodies a blend of masculine and feminine personality traits, does not conform to social norms. It is also not an indication of their gender identity. Their gender identity could be female, non-binary or male.',
+            'A society should acknowledge and give individuals space to evolve into their gender identity and choose their gender expression. We should not force and shame anyone who doesn’t subscribe to socially defined norms. It affects a person’s mental well-being. Therefore, we should not dictate, assume or judge somebody’s gender identity through their self-expression or gender expression.',
+        ],
+    },
+    {
+        slug: 'what-is-gender-identity',
+        title: 'What is Gender Identity?',
+        author: 'Balijepalli Anjana Devi',
+        excerpt: 'Gender identity refers to the gender an individual relates to psychologically, including identities beyond the binary.',
+        paragraphs: [
+            'Gender identity refers to the gender an individual relates to psychologically. It can be the sex assigned at birth, male or female or it could be an individual who finds themselves on the spectrum of gender identities beyond the binary of male and female, these could be non-binary, transgender man, transgender woman, genderqueer, genderfluid, agender or any gender on the spectrum. Biological factors such as hormones and genetics influence a person’s gender identity.',
+            'Social factors do have a significant impact on how comfortably a person evolves into their gender identity. The renowned psychologist Sandra Bem explains how culture shapes gender identity from early childhood through her gender schema theory. She also challenged gender stereotypes and promoted an individual’s freedom to determine their gender.',
+            'Many people may grow into a gender identity through their lived experiences as well. If an individual is confused, to ease into their identity, they may refer to the Gender Identity Test or the Bem Sex Role Inventory to figure out if they are on the gender spectrum. These resources validate one’s struggle but do not confirm what their gender identity is. Therefore, one must visit a professional gender counsellor for proper guidance.',
+        ],
+    },
 ];
 function formatDate(yyyyMmDd) {
     // Keep it simple: YYYY-MM-DD -> Month DD, YYYY (en-US)
