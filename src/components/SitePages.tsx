@@ -66,6 +66,18 @@ const explainers = [
       'Many people may grow into a gender identity through their lived experiences as well. If an individual is confused, to ease into their identity, they may refer to the Gender Identity Test or the Bem Sex Role Inventory to figure out if they are on the gender spectrum. These resources validate one’s struggle but do not confirm what their gender identity is. Therefore, one must visit a professional gender counsellor for proper guidance.',
     ],
   },
+  {
+    slug: 'gender-continuum-term-and-tool',
+    title: 'Gender Continuum - Term and Tool',
+    author: 'Our Gender Lens Editorial Team',
+    excerpt: 'Gender continuum describes gender as a spectrum and can also be used as a tool to assess change in gender awareness.',
+    paragraphs: [
+      'It is a known fact that gender is beyond the binary of men and women. In the study of human sexuality, it is understood that gender is not binary but a spectrum. It is not static categories but continuous. It is a combination of traits including mental, physiological, emotional and behavioural traits that can be attributed to men and women.',
+      'Studies have found that given a chance to present the identification with gender on a spectrum, individuals that do not conform to binary categories of gender present a range of identification with the genders. Presenting an insight into gender being a spectrum.',
+      'Gender continuum thesis therefore refers to this continued gender expression beyond the binary categories of men and women. It consists of individuals identifying as bigender, thirdgender, pangender, genderqueer, and agender etc.',
+      'Gender continuum as a tool or a framework that can be used to assess the impact of interventions that target gender blind individuals to gender transformed. It allows assessors to understand if their interventions could create awareness to shift perceptions of individuals who ignore gender norms and roles to become more accepting and desirous of promoting gender equality.',
+    ],
+  },
 ] as const;
 
 function formatDate(yyyyMmDd: string) {
