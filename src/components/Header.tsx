@@ -21,6 +21,7 @@ const navItems = [
   { label: 'About Us', href: '/about-us' },
   { label: 'Our Team', href: '/people' },
   { label: 'Blogs', href: '/blogs' },
+  { label: 'Guidelines', href: '/guidelines' },
   { label: 'Explainers', href: '/explainer' },
 ];
 
@@ -67,7 +68,7 @@ export default function Header({ currentPath, onNavigate }: HeaderProps) {
           >
             <Box
               component="img"
-              src="/newlogo.png"
+              src="/logo.jpeg"
               alt="Logo"
               sx={{
                 height: { xs: 32, sm: 38, md: 54 },

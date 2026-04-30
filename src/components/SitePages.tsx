@@ -9,6 +9,101 @@ type SitePagesProps = {
 };
 
 const sectionSx = { py: { xs: 6, md: 9 } };
+const submissionEmail = 'ourgenderlens0317@gmail.com';
+const guidelineSections = [
+  {
+    title: 'Blogs',
+    subtitle: 'Submit your blog as a Word document',
+    bullets: [
+      'Submit to ourgenderlens0317@gmail.com',
+      'Include a brief bio (100 words)',
+      'Word limit: 800–1000 words',
+      'AI-generated content is not accepted',
+      'Add hyperlinks and references in your submission',
+      'Content must be educational in nature (no political opinions encouraged)',
+      'Maintain academic rigour',
+      'Use British English grammar',
+    ],
+    formatting: [
+      'Times New Roman',
+      '12-point font',
+      'Double spacing',
+      '0.5-inch indentation',
+    ],
+  },
+  {
+    title: 'Infographics',
+    subtitle: 'Submit the infographic in editable format',
+    bullets: [
+      'Submit to ourgenderlens0317@gmail.com',
+      'Include a brief bio (100 words)',
+      'Canva, Word, and PowerPoint are suitable platforms',
+      'Infographic must be 2–4 pages',
+      'All visual elements including charts, tables, and figures must be cited and editable',
+      'Avoid lengthy paragraphs',
+      'Avoid academic jargon and write crisp sentences',
+      'Articulate the concept comprehensively',
+      'Include a reference page citing source reports',
+    ],
+    formatting: [
+      'Times New Roman',
+      '12-point font',
+    ],
+    resources: [
+      'HOW TO MAKE INFOGRAPHIC',
+      'GENDER PAY GAP INFOGRAPHIC',
+    ],
+  },
+  {
+    title: 'Policy Briefs',
+    subtitle: 'Submit your policy brief as a Word document',
+    bullets: [
+      'Submit to ourgenderlens0317@gmail.com',
+      'Include a brief bio (100 words)',
+      'Word limit: 2000–2500 words',
+      'AI-generated content is not accepted',
+      'Add hyperlinks and references in your submission',
+      'Content must be educational in nature (no political opinions encouraged)',
+      'Maintain academic rigour',
+      'Use British English grammar',
+    ],
+    formatting: [
+      'Times New Roman',
+      '12-point font',
+      'Double spacing',
+      '0.5-inch indentation',
+    ],
+    resources: [
+      'HOW TO WRITE A POLICY BRIEF',
+      'UN POLICY BRIEF',
+      'OECD POLICY BRIEF',
+    ],
+  },
+  {
+    title: 'Policy Paper',
+    subtitle: 'Submit your policy paper as a Word document',
+    bullets: [
+      'Submit to ourgenderlens0317@gmail.com',
+      'Include a brief bio (100 words)',
+      'Word limit: 5000 words',
+      'AI-generated content is not accepted',
+      'Add hyperlinks and references in your submission',
+      'Content must be educational in nature (no political opinions encouraged)',
+      'Maintain academic rigour',
+      'Use British English grammar',
+    ],
+    formatting: [
+      'Times New Roman',
+      '12-point font',
+      'Double spacing',
+      '0.5-inch indentation',
+    ],
+    resources: [
+      'OECD POLICY PAPER',
+      'NITI AAYOG',
+    ],
+  },
+] as const;
 const explainers = [
   {
     slug: 'sex-vs-gender-are-they-the-same',
@@ -309,6 +404,80 @@ function AboutPage() {
   );
 }
 
+function GuidelinesPage() {
+  return (
+    <Box sx={{ ...sectionSx, bgcolor: '#F4F5F8' }}>
+      <Container maxWidth="lg">
+        <Box sx={{ mb: 4 }}>
+          <Typography variant="h3" sx={{ color: 'text.primary', mb: 1.2 }}>Guidelines</Typography>
+          <Typography sx={{ color: 'text.secondary', lineHeight: 1.85, maxWidth: 920, mb: 2 }}>
+            We welcome educational, evidence-based submissions across multiple formats. Please follow the relevant submission and formatting guidelines below before sending your work.
+          </Typography>
+          <Typography sx={{ color: 'text.secondary', lineHeight: 1.85 }}>
+            Submission email: <Box component="span" sx={{ fontWeight: 700, color: 'text.primary' }}>{submissionEmail}</Box>
+          </Typography>
+        </Box>
+
+        <Grid container spacing={3}>
+          {guidelineSections.map((section) => (
+            <Grid key={section.title} size={{ xs: 12, md: 6 }}>
+              <Card elevation={0} sx={{ border: '1px solid', borderColor: 'divider', borderRadius: 3, height: '100%' }}>
+                <CardContent sx={{ p: { xs: 2.5, sm: 3.2 } }}>
+                  <Chip
+                    label={section.title}
+                    size="small"
+                    sx={{ mb: 1.5, bgcolor: 'rgba(95,76,128,0.12)', color: 'text.primary', fontWeight: 700 }}
+                  />
+                  <Typography variant="h5" sx={{ color: 'text.primary', mb: 1 }}>
+                    {section.subtitle}
+                  </Typography>
+
+                  <Stack spacing={1} sx={{ mb: 2.5 }}>
+                    {section.bullets.map((item) => (
+                      <Typography key={item} sx={{ color: 'text.secondary', lineHeight: 1.8 }}>
+                        • {item}
+                      </Typography>
+                    ))}
+                  </Stack>
+
+                  <Divider sx={{ my: 2 }} />
+
+                  <Typography variant="subtitle1" sx={{ color: 'text.primary', fontWeight: 700, mb: 1 }}>
+                    APA 7th Edition Formatting
+                  </Typography>
+                  <Stack spacing={0.8}>
+                    {section.formatting.map((item) => (
+                      <Typography key={item} sx={{ color: 'text.secondary', lineHeight: 1.8 }}>
+                        • {item}
+                      </Typography>
+                    ))}
+                  </Stack>
+
+                  {'resources' in section && section.resources ? (
+                    <>
+                      <Divider sx={{ my: 2 }} />
+                      <Typography variant="subtitle1" sx={{ color: 'text.primary', fontWeight: 700, mb: 1 }}>
+                        Reference Resources
+                      </Typography>
+                      <Stack spacing={0.8}>
+                        {section.resources.map((item) => (
+                          <Typography key={item} sx={{ color: 'text.secondary', lineHeight: 1.8 }}>
+                            • {item}
+                          </Typography>
+                        ))}
+                      </Stack>
+                    </>
+                  ) : null}
+                </CardContent>
+              </Card>
+            </Grid>
+          ))}
+        </Grid>
+      </Container>
+    </Box>
+  );
+}
+
 function PeoplePage() {
   return (
     <Box sx={{ ...sectionSx, bgcolor: '#F4F5F8' }}>
@@ -567,6 +736,7 @@ export default function SitePages({ currentPath }: SitePagesProps) {
   if (currentPath === '/') return <HomePage />;
   if (currentPath === '/about-us') return <AboutPage />;
   if (currentPath === '/people') return <PeoplePage />;
+  if (currentPath === '/guidelines') return <GuidelinesPage />;
   if (currentPath.startsWith('/blogs/') && currentPath !== '/blogs') {
     const slug = currentPath.replace(/^\/blogs\//, '');
     return <BlogPostPage slug={slug} />;

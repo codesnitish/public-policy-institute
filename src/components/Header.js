@@ -9,6 +9,7 @@ const navItems = [
     { label: 'About Us', href: '/about-us' },
     { label: 'Our Team', href: '/people' },
     { label: 'Blogs', href: '/blogs' },
+    { label: 'Guidelines', href: '/guidelines' },
     { label: 'Explainers', href: '/explainer' },
 ];
 export default function Header({ currentPath, onNavigate }) {
@@ -34,7 +35,7 @@ export default function Header({ currentPath, onNavigate }) {
                                 color: '#fff !important',
                                 flexShrink: 1,
                                 minWidth: 0,
-                            }, children: [_jsx(Box, { component: "img", src: "/newlogo.png", alt: "Logo", sx: {
+                            }, children: [_jsx(Box, { component: "img", src: "/logo.jpeg", alt: "Logo", sx: {
                                         height: { xs: 32, sm: 38, md: 54 },
                                         width: { xs: 74, sm: 92, md: 140 },
                                         objectFit: 'contain',
