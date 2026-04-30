@@ -71,8 +71,8 @@ export default function Header({ currentPath, onNavigate }: HeaderProps) {
               src="/logo.jpeg"
               alt="Logo"
               sx={{
-                height: { xs: 32, sm: 38, md: 54 },
-                width: { xs: 74, sm: 92, md: 140 },
+                height: { xs: 38, sm: 46, md: 62 },
+                width: { xs: 86, sm: 110, md: 162 },
                 objectFit: 'contain',
                 display: 'block',
               }}
