@@ -173,6 +173,18 @@ const explainers = [
       'Gender continuum as a tool or a framework that can be used to assess the impact of interventions that target gender blind individuals to gender transformed. It allows assessors to understand if their interventions could create awareness to shift perceptions of individuals who ignore gender norms and roles to become more accepting and desirous of promoting gender equality.',
     ],
   },
+  {
+    slug: 'understanding-the-term-genderqueer',
+    title: 'Understanding the Term "Genderqueer"',
+    author: 'Riddhi Agnihotri',
+    excerpt: "Genderqueer describes people whose gender identity falls outside standard male-female categories and may be fluid, mixed, or entirely non-binary.",
+    paragraphs: [
+      "Genderqueer describes people whose gender identity does not fit into the standard male or female categories. Instead of identifying with just one side of the gender spectrum, genderqueer individuals may feel like a combination of both masculine and feminine, somewhere in the middle, or completely outside these traditional labels altogether.",
+      "The experience of being genderqueer varies greatly from person to person, shaped by individual feelings, cultural background, and life circumstances. A genderqueer person might describe their identity as fluid, shifting between masculine and feminine expressions depending on the context, or they might feel equally connected to both. Others experience gender as something entirely separate from the binary altogether.",
+      "This diversity in experience is why related terms like gender fluid and non-binary often get used alongside genderqueer. These labels overlap significantly because they all describe the shared experience of stepping outside conventional gender boundaries. Yet they remain distinct concepts since every individual's journey with gender is personal and unique. While genderqueer might resonate with one person, another might prefer a different term or choose to forgo labels entirely.",
+      "One major challenge is that genderqueer identities are not widely discussed or understood by most people. This leads to genderqueer individuals feeling invisible and facing social neglect in their communities. Creating more awareness and acceptance of these identities is important for building spaces where gender-diverse people can freely express themselves without fear of judgment or rejection.",
+    ],
+  },
 ] as const;
 
 function formatDate(yyyyMmDd: string) {
