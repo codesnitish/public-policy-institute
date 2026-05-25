@@ -54,7 +54,7 @@ export default function Header({ currentPath, onNavigate }: HeaderProps) {
         '& .MuiSvgIcon-root': { color: '#fff' },
       }}
     >
-      <Container maxWidth="lg">
+      <Container maxWidth={false} sx={{ px: { xs: 2, sm: 3, md: 4 } }}>
         <Toolbar sx={{ minHeight: { xs: 64, md: 72 }, px: { xs: 0, md: 1 } }}>
           <Box
             component="a"
@@ -67,7 +67,7 @@ export default function Header({ currentPath, onNavigate }: HeaderProps) {
               color: '#fff !important',
               flexShrink: 1,
               minWidth: 0,
-              mr: { xl: 4 },
+              mr: { xl: 5 },
             }}
           >
             <Box
@@ -96,7 +96,7 @@ export default function Header({ currentPath, onNavigate }: HeaderProps) {
             </Typography>
           </Box>
 
-          <Box sx={{ display: { xs: 'none', xl: 'flex' }, ml: 'auto', alignItems: 'center', gap: 0.2 }}>
+          <Box sx={{ display: { xs: 'none', xl: 'flex' }, ml: 'auto', alignItems: 'center', gap: 1.15 }}>
             {navItems.map((item) => (
               <Button
                 key={item.label}

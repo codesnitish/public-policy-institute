@@ -30,7 +30,7 @@ export default function Header({ currentPath, onNavigate }) {
             '& .MuiButton-root': { color: '#fff' },
             '& .MuiIconButton-root': { color: '#fff' },
             '& .MuiSvgIcon-root': { color: '#fff' },
-        }, children: [_jsx(Container, { maxWidth: "lg", children: _jsxs(Toolbar, { sx: { minHeight: { xs: 64, md: 72 }, px: { xs: 0, md: 1 } }, children: [_jsxs(Box, { component: "a", href: "/", sx: {
+        }, children: [_jsx(Container, { maxWidth: false, sx: { px: { xs: 2, sm: 3, md: 4 } }, children: _jsxs(Toolbar, { sx: { minHeight: { xs: 64, md: 72 }, px: { xs: 0, md: 1 } }, children: [_jsxs(Box, { component: "a", href: "/", sx: {
                                 display: 'flex',
                                 alignItems: 'center',
                                 gap: 1,
@@ -38,7 +38,7 @@ export default function Header({ currentPath, onNavigate }) {
                                 color: '#fff !important',
                                 flexShrink: 1,
                                 minWidth: 0,
-                                mr: { xl: 4 },
+                                mr: { xl: 5 },
                             }, children: [_jsx(Box, { component: "img", src: "/logo.jpeg", alt: "Logo", sx: {
                                         height: { xs: 38, sm: 46, md: 62 },
                                         width: { xs: 86, sm: 110, md: 162 },
@@ -52,7 +52,7 @@ export default function Header({ currentPath, onNavigate }) {
                                         lineHeight: { xs: 1.1, sm: 'normal' },
                                         maxWidth: { xs: 132, sm: 220, md: 'none' },
                                         wordBreak: 'keep-all',
-                                    }, children: "Our Gender Lens" })] }), _jsx(Box, { sx: { display: { xs: 'none', xl: 'flex' }, ml: 'auto', alignItems: 'center', gap: 0.2 }, children: navItems.map((item) => (_jsx(Button, { onClick: () => onNavigate(item.href), sx: {
+                                    }, children: "Our Gender Lens" })] }), _jsx(Box, { sx: { display: { xs: 'none', xl: 'flex' }, ml: 'auto', alignItems: 'center', gap: 1.15 }, children: navItems.map((item) => (_jsx(Button, { onClick: () => onNavigate(item.href), sx: {
                                     minHeight: 40,
                                     px: 0.75,
                                     color: '#fff !important',
