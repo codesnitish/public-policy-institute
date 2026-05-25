@@ -180,6 +180,20 @@ const explainers = [
             "One major challenge is that genderqueer identities are not widely discussed or understood by most people. This leads to genderqueer individuals feeling invisible and facing social neglect in their communities. Creating more awareness and acceptance of these identities is important for building spaces where gender-diverse people can freely express themselves without fear of judgment or rejection.",
         ],
     },
+    {
+        slug: 'what-is-homophily',
+        title: 'What is Homophily?',
+        author: 'Aastha Kaura',
+        publishedAt: '2026-05-25',
+        excerpt: 'Homophily is the tendency of people to connect with others who are similar in background, interests, opinions or traits.',
+        paragraphs: [
+            'One can often find themselves relating to people with shared interests across sports, cuisine, hobbies, etc. However, one may also have heard opposites attract. In social network theory, it is believed like attracts like and similarity breeds connect. This phenomenon is called homophily.',
+            'Homophily, a term coined by sociologists Paul F. Lazarsfeld and Robert K Merton in 1954, refers to the tendency of individuals to network and associate with others who are like them. This likeness can be based on different factors, such as demographics, behaviours, and traits, shaping how networks form and progress across societies and organizations.',
+            'It has powerful implications for the information they receive, the attitude they form, and the interactions they experience. Homophily exists in two forms- status and value. Status Homophily refers to friendships resulting from shared backgrounds. People of the same age, gender, class, and language, etc. would prefer to associate with one another. Whereas friendships formed by shared thoughts and interests are called Value Homophily. People with the same opinions, hobbies, interests, and values would prefer to associate with one another.',
+            'Homophily improves social bonding and trust. But it can also limit diversity, increase inequality, and create exclusionary social structures. Homophily may create echo chambers where people mostly hear the same opinions and are unaware of or closed off to different perspectives and ideas.',
+            'Too much similarity can, in turn, reduce creativity and innovation by limiting different perspectives. Homophily can sometimes lead to invisible discrimination behind “natural preference.” Therefore it may limit people’s social world.',
+        ],
+    },
 ];
 const whatWeDoItems = [
     'Policy briefs',
@@ -369,7 +383,7 @@ function ExplainerPage() {
                                             bgcolor: 'rgba(95,76,128,0.12)',
                                             color: 'text.primary',
                                             fontWeight: 700,
-                                        } }), _jsx(Typography, { variant: "h5", sx: { color: 'text.primary', mb: 0.6, fontWeight: 700 }, children: explainer.title }), _jsx(Typography, { variant: "body2", sx: { color: 'text.secondary', mb: 1.8 }, children: explainer.author }), _jsx(Divider, { sx: { mb: 1.6 } }), _jsx(Typography, { sx: {
+                                        } }), _jsx(Typography, { variant: "h5", sx: { color: 'text.primary', mb: 0.6, fontWeight: 700 }, children: explainer.title }), _jsxs(Typography, { variant: "body2", sx: { color: 'text.secondary', mb: 1.8 }, children: [explainer.author, explainer.publishedAt ? ` · ${formatDate(explainer.publishedAt)}` : ''] }), _jsx(Divider, { sx: { mb: 1.6 } }), _jsx(Typography, { sx: {
                                             color: 'text.secondary',
                                             lineHeight: 1.8,
                                             overflow: 'hidden',
@@ -389,7 +403,7 @@ function ExplainerPostPage({ slug }) {
                                 bgcolor: 'rgba(95,76,128,0.12)',
                                 color: 'text.primary',
                                 fontWeight: 700,
-                            } }), _jsx(Typography, { variant: "h3", sx: { color: 'text.primary', mb: 1, wordBreak: 'break-word' }, children: explainer.title }), _jsx(Typography, { variant: "body2", sx: { color: 'text.secondary' }, children: explainer.author })] }), _jsx(Box, { sx: { maxWidth: 920 }, children: _jsx(Stack, { spacing: 2.4, children: explainer.paragraphs.map((paragraph) => (_jsx(Typography, { sx: { color: 'text.secondary', lineHeight: 1.9 }, children: paragraph }, paragraph))) }) })] }) }));
+                            } }), _jsx(Typography, { variant: "h3", sx: { color: 'text.primary', mb: 1, wordBreak: 'break-word' }, children: explainer.title }), _jsxs(Typography, { variant: "body2", sx: { color: 'text.secondary' }, children: [explainer.author, explainer.publishedAt ? ` · ${formatDate(explainer.publishedAt)}` : ''] })] }), _jsx(Box, { sx: { maxWidth: 920 }, children: _jsx(Stack, { spacing: 2.4, children: explainer.paragraphs.map((paragraph) => (_jsx(Typography, { sx: { color: 'text.secondary', lineHeight: 1.9 }, children: paragraph }, paragraph))) }) })] }) }));
 }
 function NotFoundPage() {
     return (_jsx(Box, { sx: { ...sectionSx, bgcolor: '#fff' }, children: _jsxs(Container, { maxWidth: "lg", children: [_jsx(Typography, { variant: "h3", sx: { color: 'text.primary', mb: 1.2 }, children: "Page not found" }), _jsx(Typography, { sx: { color: 'text.secondary', lineHeight: 1.9, maxWidth: 720 }, children: "The page you are looking for does not exist." })] }) }));
