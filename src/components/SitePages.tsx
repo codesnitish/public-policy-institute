@@ -187,6 +187,72 @@ const explainers = [
   },
 ] as const;
 
+const whatWeDoItems = [
+  'Policy briefs',
+  'Policy papers and research reports',
+  'Primary research studies',
+  'Impact assessment',
+  'Awareness campaigns',
+  'Webinars',
+  'Presentations at conferences and academic forums',
+  'Blogs and explainer articles',
+] as const;
+
+const volunteerGroups = [
+  {
+    title: 'Research Volunteers',
+    text: 'Supporting studies, documentation, data collection, policy analysis, and knowledge-building initiatives that strengthen evidence-based advocacy.',
+  },
+  {
+    title: 'Communications Volunteers',
+    text: 'Helping amplify OGL’s voice through content writing, storytelling, social media, campaigns, public relations, and strategic communication.',
+  },
+  {
+    title: 'Programs Volunteers',
+    text: 'Working closely with teams to support workshops, events, community initiatives, and on-ground program execution.',
+  },
+  {
+    title: 'Tech Volunteers',
+    text: 'Contributing through website management, digital tools, technical support, innovation, and technology-driven solutions for impact.',
+  },
+  {
+    title: 'Outreach Volunteers',
+    text: 'Building partnerships, engaging communities, connecting with stakeholders, and expanding the reach of OGL’s initiatives.',
+  },
+  {
+    title: 'Design Volunteers',
+    text: 'Creating visual identities, campaign creatives, presentations, digital assets, and communication material that bring ideas to life.',
+  },
+  {
+    title: 'HR & People Operations Volunteers',
+    text: 'Supporting volunteer engagement, onboarding, coordination, team well-being, and strengthening OGL’s internal culture.',
+  },
+] as const;
+
+const volunteers = [
+  { name: 'Nishant', role: 'Research' },
+  { name: 'Aastha', role: 'Research' },
+  { name: 'Palak', role: 'Research' },
+  { name: 'Pragya', role: 'Research' },
+  { name: 'Sang', role: 'Research' },
+  { name: 'Rishab', role: 'Research' },
+  { name: 'Simeon', role: 'Research' },
+  { name: 'Ridhi', role: 'Research' },
+  { name: 'Priyadarshan', role: 'Research' },
+  { name: 'Eugene', role: 'Research' },
+  { name: 'Samuel', role: 'Research and Communications' },
+  { name: 'Gukan', role: 'Communications' },
+  { name: 'Dr. Neha', role: 'Senior Volunteer' },
+  { name: 'Akansha', role: 'HR Volunteer' },
+] as const;
+
+const collaborators = [
+  'Femme 2 Earth',
+  'Addie’s Afrique Foundation',
+  'SheCivic India',
+  'Friends of Youth and Children Organisation',
+] as const;
+
 function formatDate(yyyyMmDd: string) {
   // Keep it simple: YYYY-MM-DD -> Month DD, YYYY (en-US)
   // Falls back to raw string if parsing fails.
@@ -372,7 +438,7 @@ function AboutPage() {
       <Container maxWidth="lg">
         <Typography variant="h3" sx={{ color: 'text.primary', mb: 2 }}>About Us</Typography>
         <Typography sx={{ color: 'text.secondary', lineHeight: 1.9, mb: 2 }}>
-          Our Gender Lens is a gender-responsive research think tank focused on using evidence to inform more inclusive and equitable systems. We believe research should move beyond theory and directly contribute to better policies, stronger institutions, and meaningful social impact.
+          Our Gender Lens is a not for profit gender-responsive research platform focused on using evidence to inform more inclusive and equitable systems. We believe research should move beyond theory and directly contribute to better policies, stronger institutions, and meaningful social impact.
         </Typography>
         <Typography sx={{ color: 'text.secondary', lineHeight: 1.9, mb: 2 }}>
           We work across climate, technology, education, and health, examining how these sectors affect people in both rural and urban contexts. Our goal is to understand structural challenges, highlight gaps, and contribute to solutions that are practical, sustainable, and grounded in evidence.
@@ -391,11 +457,9 @@ function AboutPage() {
           We produce a range of research and knowledge outputs, including:
         </Typography>
         <Stack spacing={1.2}>
-          <Typography sx={{ color: 'text.secondary' }}>Weekly topic-based blogs</Typography>
-          <Typography sx={{ color: 'text.secondary' }}>Monthly policy briefs</Typography>
-          <Typography sx={{ color: 'text.secondary' }}>Policy papers and research reports</Typography>
-          <Typography sx={{ color: 'text.secondary' }}>Primary research studies</Typography>
-          <Typography sx={{ color: 'text.secondary' }}>Presentations at conferences and academic forums</Typography>
+          {whatWeDoItems.map((item) => (
+            <Typography key={item} sx={{ color: 'text.secondary' }}>• {item}</Typography>
+          ))}
         </Stack>
 
         <Typography sx={{ color: 'text.secondary', lineHeight: 1.9, mt: 3 }}>
@@ -411,6 +475,49 @@ function AboutPage() {
         <Typography sx={{ color: 'text.secondary', lineHeight: 1.9, mt: 2 }}>
           At Our Gender Lens, we are committed to producing research that is evidence-based, context-aware, and designed to contribute to long-term, inclusive development.
         </Typography>
+
+        <Divider sx={{ my: 3 }} />
+
+        <Typography variant="h4" sx={{ color: 'text.primary', mb: 1.5 }}>Our Team</Typography>
+        <Typography sx={{ color: 'text.secondary', lineHeight: 1.9, mb: 2 }}>
+          Our work is shaped by researchers, communications contributors, program volunteers, designers, people operations volunteers, and quiet supporters who bring evidence, creativity, and care to every initiative.
+        </Typography>
+        <Grid container spacing={2.5}>
+          <Grid size={{ xs: 12, md: 6 }}>
+            <Card elevation={0} sx={{ border: '1px solid', borderColor: 'divider', borderRadius: 3, height: '100%' }}>
+              <CardContent sx={{ p: { xs: 2.5, sm: 3.2 } }}>
+                <Chip label="Founder" size="small" sx={{ mb: 1.4, bgcolor: 'rgba(95,76,128,0.18)', color: 'text.primary', fontWeight: 700 }} />
+                <Typography variant="h5" sx={{ color: 'text.primary', mb: 1 }}>Pinaki Gakhar</Typography>
+                <Typography sx={{ color: 'text.secondary', lineHeight: 1.85 }}>
+                  Founder of Our Gender Lens, focused on advancing rigorous, inclusive, and evidence-based policy research.
+                </Typography>
+              </CardContent>
+            </Card>
+          </Grid>
+          <Grid size={{ xs: 12, md: 6 }}>
+            <Card elevation={0} sx={{ border: '1px solid', borderColor: 'divider', borderRadius: 3, height: '100%' }}>
+              <CardContent sx={{ p: { xs: 2.5, sm: 3.2 } }}>
+                <Chip label="Research Lead" size="small" sx={{ mb: 1.4, bgcolor: 'rgba(95,76,128,0.18)', color: 'text.primary', fontWeight: 700 }} />
+                <Typography variant="h5" sx={{ color: 'text.primary', mb: 1 }}>B. Anjana Devi</Typography>
+                <Typography sx={{ color: 'text.secondary', lineHeight: 1.85 }}>
+                  Research lead of Our Gender Lens, bringing analytical training and a commitment to evidence-based inquiry.
+                </Typography>
+              </CardContent>
+            </Card>
+          </Grid>
+        </Grid>
+
+        <Divider sx={{ my: 3 }} />
+
+        <Typography variant="h4" sx={{ color: 'text.primary', mb: 1.5 }}>Our Collaborators</Typography>
+        <Typography sx={{ color: 'text.secondary', lineHeight: 1.9, mb: 2 }}>
+          We collaborate with aligned organisations to build conversations, campaigns, and research efforts around gender equity and inclusion.
+        </Typography>
+        <Stack direction="row" spacing={1.2} useFlexGap flexWrap="wrap">
+          {collaborators.map((name) => (
+            <Chip key={name} label={name} sx={{ bgcolor: 'rgba(95,76,128,0.1)', color: 'text.primary', fontWeight: 700 }} />
+          ))}
+        </Stack>
       </Container>
     </Box>
   );
@@ -494,7 +601,12 @@ function PeoplePage() {
   return (
     <Box sx={{ ...sectionSx, bgcolor: '#F4F5F8' }}>
       <Container maxWidth="lg">
-        <Typography variant="h3" sx={{ color: 'text.primary', mb: 3 }}>Our Team</Typography>
+        <Box sx={{ mb: 4 }}>
+          <Typography variant="h3" sx={{ color: 'text.primary', mb: 1.2 }}>Our Team</Typography>
+          <Typography sx={{ color: 'text.secondary', maxWidth: 920, lineHeight: 1.85 }}>
+            At OGL, our work is powered by a passionate network of people who contribute their skills, creativity, and commitment across diverse areas of impact.
+          </Typography>
+        </Box>
         <Grid container spacing={3}>
           <Grid size={{ xs: 12, md: 6 }}>
             <Card elevation={0} sx={{ border: '1px solid', borderColor: 'divider', borderRadius: 3, height: '100%' }}>
@@ -502,7 +614,7 @@ function PeoplePage() {
                 <Chip label="Founder" size="small" sx={{ mb: 1.4, bgcolor: 'rgba(95,76,128,0.18)', color: 'text.primary', fontWeight: 700 }} />
                 <Typography variant="h5" sx={{ color: 'text.primary', mb: 1.5 }}>Pinaki Gakhar</Typography>
                 <Typography sx={{ color: 'text.secondary', lineHeight: 1.85 }}>
-                  Pinaki Gakhar is the Founder of Our Gender Lens, a new gender-responsive research think tank focused on advancing rigorous, inclusive, and evidence-based policy research. She holds a Master’s in Public Policy from Kautilya School of Public Policy, GITAM University, and a Bachelor's in Sociology (Honours) from MCM DAV College. Her academic foundation blends sociological thinking with structured policy analysis, shaping her systems-oriented approach to research and institutional development.
+                  Pinaki Gakhar is the Founder of Our Gender Lens, a new gender-responsive research think tank focused on advancing rigorous, inclusive, and evidence-based policy research. She holds a Master’s in Public Policy from Kautilya School of Public Policy, GITAM University, and a Bachelor’s in Sociology (Honours) from MCM DAV College. Her academic foundation blends sociological thinking with structured policy analysis, shaping her systems-oriented approach to research and institutional development.
                 </Typography>
                 <Typography sx={{ color: 'text.secondary', lineHeight: 1.85, mt: 1.4 }}>
                   Professionally, she has worked as a Program Associate at the Kautilya School of Public Policy, contributing to stakeholder coordination, research support, data management, institutional communication, and academic process improvement. She has also served as a Research Intern at the Bharti Institute of Public Policy, Indian School of Business, where she worked on projects spanning public finance, AI policy, employment, climate transitions, and public health.
@@ -520,15 +632,68 @@ function PeoplePage() {
                 <Chip label="Research Lead" size="small" sx={{ mb: 1.4, bgcolor: 'rgba(95,76,128,0.18)', color: 'text.primary', fontWeight: 700 }} />
                 <Typography variant="h5" sx={{ color: 'text.primary', mb: 1.5 }}>B. Anjana Devi</Typography>
                 <Typography sx={{ color: 'text.secondary', lineHeight: 1.85 }}>
-                  B. Anjana Devi is the research lead of Our Gender Lens. She holds a Master's in Public Policy (MPP) from Kautilya School of Public Policy (KSPP), GITAM University and a Bachelor's degree in economics (minor in history and public administration from K.L. (KLEF Deemed to be University). Her education provides her a framework to analyse policy decisions from a rational, data-centric, scientific perspective.
+                  B. Anjana Devi is the research lead of Our Gender Lens. She holds a Master’s in Public Policy (MPP) from Kautilya School of Public Policy (KSPP), GITAM University and a Bachelor’s degree in economics, with a minor in history and public administration, from K.L. (KLEF Deemed to be University). Her education provides her analytical training and a deep commitment to rigorous, evidence-based inquiry.
                 </Typography>
                 <Typography sx={{ color: 'text.secondary', lineHeight: 1.85, mt: 1.4 }}>
-                  Her professional journey has so far been independent freelance assignments.
+                  Professionally, Anjana has worked as a freelance ghost writer providing her clients with comprehensive literature reviews, data analysis, analytical briefs, and refined academic papers. Additionally, she worked as a research intern at the Bharti Institute of Public Policy, Indian School of Business, where she assisted the research team in the publication process of policy papers covering climate, economy, and agriculture.
+                </Typography>
+                <Typography sx={{ color: 'text.secondary', lineHeight: 1.85, mt: 1.4 }}>
+                  In her free time, Anjana enjoys singing pop songs, songwriting, writing sad poetry, and attempting to make Do It Yourself stuff with dehydrated flowers.
                 </Typography>
               </CardContent>
             </Card>
           </Grid>
         </Grid>
+
+        <Divider sx={{ my: 4 }} />
+
+        <Typography variant="h4" sx={{ color: 'text.primary', mb: 1.5 }}>Volunteers</Typography>
+        <Typography sx={{ color: 'text.secondary', lineHeight: 1.85, maxWidth: 940, mb: 2 }}>
+          From conducting meaningful research to building strong communities, our volunteers play an active role in shaping our initiatives and driving conversations around gender equity and inclusion.
+        </Typography>
+        <Grid container spacing={2.5} sx={{ mb: 4 }}>
+          {volunteerGroups.map((group) => (
+            <Grid key={group.title} size={{ xs: 12, md: 6 }}>
+              <Card elevation={0} sx={{ border: '1px solid', borderColor: 'divider', borderRadius: 3, height: '100%' }}>
+                <CardContent sx={{ p: { xs: 2.5, sm: 3 } }}>
+                  <Typography variant="h6" sx={{ color: 'text.primary', mb: 1 }}>{group.title}</Typography>
+                  <Typography sx={{ color: 'text.secondary', lineHeight: 1.8 }}>{group.text}</Typography>
+                </CardContent>
+              </Card>
+            </Grid>
+          ))}
+        </Grid>
+
+        <Grid container spacing={2}>
+          {volunteers.map((volunteer) => (
+            <Grid key={`${volunteer.name}-${volunteer.role}`} size={{ xs: 12, sm: 6, md: 4 }}>
+              <Card elevation={0} sx={{ border: '1px solid', borderColor: 'divider', borderRadius: 3, height: '100%' }}>
+                <CardContent sx={{ p: 2.4 }}>
+                  <Typography variant="h6" sx={{ color: 'text.primary', mb: 0.6 }}>{volunteer.name}</Typography>
+                  <Chip label={volunteer.role} size="small" sx={{ bgcolor: 'rgba(95,76,128,0.1)', color: 'text.primary', fontWeight: 700 }} />
+                </CardContent>
+              </Card>
+            </Grid>
+          ))}
+        </Grid>
+
+        <Divider sx={{ my: 4 }} />
+
+        <Typography variant="h4" sx={{ color: 'text.primary', mb: 1.5 }}>Silent Partners</Typography>
+        <Stack spacing={2}>
+          <Typography sx={{ color: 'text.secondary', lineHeight: 1.85 }}>
+            Behind every conversation, campaign, research project, and community initiative at OGL are individuals who contribute quietly yet meaningfully to our journey.
+          </Typography>
+          <Typography sx={{ color: 'text.secondary', lineHeight: 1.85 }}>
+            Our Silent Partners are volunteers, mentors, researchers, professionals, students, and allies who choose to support our work behind the scenes — through ideas, time, guidance, outreach, documentation, research, strategy, and emotional labour.
+          </Typography>
+          <Typography sx={{ color: 'text.secondary', lineHeight: 1.85 }}>
+            They may not always be visible on stage or social media, but their contributions shape the impact we create every day.
+          </Typography>
+          <Typography sx={{ color: 'text.secondary', lineHeight: 1.85 }}>
+            At OGL, we deeply value collective effort and believe that meaningful change is built not only by voices that are heard loudly, but also by those who work consistently and compassionately in the background.
+          </Typography>
+        </Stack>
       </Container>
     </Box>
   );
@@ -562,6 +727,33 @@ function BlogsPage() {
           {visibleBlogs.map((b) => (
             <Grid key={b.slug} size={{ xs: 12, md: 6 }} sx={{ display: 'flex' }}>
               <BlogCard blog={b} height={240} />
+            </Grid>
+          ))}
+        </Grid>
+      </Container>
+    </Box>
+  );
+}
+
+function CollaboratorsPage() {
+  return (
+    <Box sx={{ ...sectionSx, bgcolor: '#fff' }}>
+      <Container maxWidth="lg">
+        <Box sx={{ mb: 4 }}>
+          <Typography variant="h3" sx={{ color: 'text.primary', mb: 1.2 }}>Our Collaborators</Typography>
+          <Typography sx={{ color: 'text.secondary', maxWidth: 920, lineHeight: 1.85 }}>
+            Our collaborations help extend OGL’s research, campaigns, and community conversations through shared commitments to gender equity, inclusion, and evidence-informed change.
+          </Typography>
+        </Box>
+
+        <Grid container spacing={2.5}>
+          {collaborators.map((name) => (
+            <Grid key={name} size={{ xs: 12, sm: 6, md: 3 }}>
+              <Card elevation={0} sx={{ border: '1px solid', borderColor: 'divider', borderRadius: 3, height: '100%' }}>
+                <CardContent sx={{ p: 3, minHeight: 150, display: 'flex', alignItems: 'center' }}>
+                  <Typography variant="h6" sx={{ color: 'text.primary', lineHeight: 1.35 }}>{name}</Typography>
+                </CardContent>
+              </Card>
             </Grid>
           ))}
         </Grid>
@@ -744,11 +936,34 @@ function NotFoundPage() {
   );
 }
 
+function ComingSoonPage({ title }: { title: string }) {
+  return (
+    <Box sx={{ ...sectionSx, bgcolor: '#fff', minHeight: '55vh', display: 'flex', alignItems: 'center' }}>
+      <Container maxWidth="lg">
+        <Card elevation={0} sx={{ border: '1px solid', borderColor: 'divider', borderRadius: 3 }}>
+          <CardContent sx={{ p: { xs: 3, md: 5 }, textAlign: 'center' }}>
+            <Chip label="Coming Soon" sx={{ mb: 2, bgcolor: 'rgba(95,76,128,0.12)', color: 'text.primary', fontWeight: 700 }} />
+            <Typography variant="h3" sx={{ color: 'text.primary', mb: 1.5 }}>
+              {title}
+            </Typography>
+            <Typography sx={{ color: 'text.secondary', lineHeight: 1.85, maxWidth: 680, mx: 'auto' }}>
+              This page is being prepared and will be available soon.
+            </Typography>
+          </CardContent>
+        </Card>
+      </Container>
+    </Box>
+  );
+}
+
 export default function SitePages({ currentPath }: SitePagesProps) {
   if (currentPath === '/') return <HomePage />;
   if (currentPath === '/about-us') return <AboutPage />;
   if (currentPath === '/people') return <PeoplePage />;
+  if (currentPath === '/collaborators') return <CollaboratorsPage />;
   if (currentPath === '/guidelines') return <GuidelinesPage />;
+  if (currentPath === '/events') return <ComingSoonPage title="Events" />;
+  if (currentPath === '/policy-brief') return <ComingSoonPage title="Policy Brief" />;
   if (currentPath.startsWith('/blogs/') && currentPath !== '/blogs') {
     const slug = currentPath.replace(/^\/blogs\//, '');
     return <BlogPostPage slug={slug} />;

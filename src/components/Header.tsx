@@ -20,9 +20,12 @@ const navItems = [
   { label: 'Home', href: '/' },
   { label: 'About Us', href: '/about-us' },
   { label: 'Our Team', href: '/people' },
+  { label: 'Our Collaborators', href: '/collaborators' },
   { label: 'Blogs', href: '/blogs' },
-  { label: 'Guidelines', href: '/guidelines' },
   { label: 'Explainers', href: '/explainer' },
+  { label: 'Guidelines', href: '/guidelines' },
+  { label: 'Events', href: '/events' },
+  { label: 'Policy Brief', href: '/policy-brief' },
 ];
 
 type HeaderProps = {
@@ -64,6 +67,7 @@ export default function Header({ currentPath, onNavigate }: HeaderProps) {
               color: '#fff !important',
               flexShrink: 1,
               minWidth: 0,
+              mr: { xl: 4 },
             }}
           >
             <Box
@@ -92,18 +96,19 @@ export default function Header({ currentPath, onNavigate }: HeaderProps) {
             </Typography>
           </Box>
 
-          <Box sx={{ display: { xs: 'none', md: 'flex' }, ml: 'auto', alignItems: 'center', gap: 0.5 }}>
+          <Box sx={{ display: { xs: 'none', xl: 'flex' }, ml: 'auto', alignItems: 'center', gap: 0.2 }}>
             {navItems.map((item) => (
               <Button
                 key={item.label}
                 onClick={() => onNavigate(item.href)}
                 sx={{
                   minHeight: 40,
-                  px: 1,
+                  px: 0.75,
                   color: '#fff !important',
                   fontWeight: 600,
-                  fontSize: '0.92rem',
+                  fontSize: '0.88rem',
                   textTransform: 'none',
+                  whiteSpace: 'nowrap',
                   borderBottom: isActive(item.href) ? '2px solid' : '2px solid transparent',
                   borderColor: isActive(item.href) ? '#fff' : 'transparent',
                   borderRadius: 0,
@@ -116,7 +121,7 @@ export default function Header({ currentPath, onNavigate }: HeaderProps) {
             {/* Search icon hidden for now */}
           </Box>
 
-          <Box sx={{ ml: 'auto', display: { xs: 'flex', md: 'none' }, alignItems: 'center', gap: 0.5 }}>
+          <Box sx={{ ml: 'auto', display: { xs: 'flex', xl: 'none' }, alignItems: 'center', gap: 0.5 }}>
             {/* Search icon hidden for now */}
             <IconButton aria-label="Open navigation" onClick={() => setMobileOpen(true)} sx={{ color: '#fff' }}>
               <MenuIcon />

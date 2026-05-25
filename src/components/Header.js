@@ -8,9 +8,12 @@ const navItems = [
     { label: 'Home', href: '/' },
     { label: 'About Us', href: '/about-us' },
     { label: 'Our Team', href: '/people' },
+    { label: 'Our Collaborators', href: '/collaborators' },
     { label: 'Blogs', href: '/blogs' },
-    { label: 'Guidelines', href: '/guidelines' },
     { label: 'Explainers', href: '/explainer' },
+    { label: 'Guidelines', href: '/guidelines' },
+    { label: 'Events', href: '/events' },
+    { label: 'Policy Brief', href: '/policy-brief' },
 ];
 export default function Header({ currentPath, onNavigate }) {
     const [mobileOpen, setMobileOpen] = useState(false);
@@ -35,6 +38,7 @@ export default function Header({ currentPath, onNavigate }) {
                                 color: '#fff !important',
                                 flexShrink: 1,
                                 minWidth: 0,
+                                mr: { xl: 4 },
                             }, children: [_jsx(Box, { component: "img", src: "/logo.jpeg", alt: "Logo", sx: {
                                         height: { xs: 38, sm: 46, md: 62 },
                                         width: { xs: 86, sm: 110, md: 162 },
@@ -48,18 +52,19 @@ export default function Header({ currentPath, onNavigate }) {
                                         lineHeight: { xs: 1.1, sm: 'normal' },
                                         maxWidth: { xs: 132, sm: 220, md: 'none' },
                                         wordBreak: 'keep-all',
-                                    }, children: "Our Gender Lens" })] }), _jsx(Box, { sx: { display: { xs: 'none', md: 'flex' }, ml: 'auto', alignItems: 'center', gap: 0.5 }, children: navItems.map((item) => (_jsx(Button, { onClick: () => onNavigate(item.href), sx: {
+                                    }, children: "Our Gender Lens" })] }), _jsx(Box, { sx: { display: { xs: 'none', xl: 'flex' }, ml: 'auto', alignItems: 'center', gap: 0.2 }, children: navItems.map((item) => (_jsx(Button, { onClick: () => onNavigate(item.href), sx: {
                                     minHeight: 40,
-                                    px: 1,
+                                    px: 0.75,
                                     color: '#fff !important',
                                     fontWeight: 600,
-                                    fontSize: '0.92rem',
+                                    fontSize: '0.88rem',
                                     textTransform: 'none',
+                                    whiteSpace: 'nowrap',
                                     borderBottom: isActive(item.href) ? '2px solid' : '2px solid transparent',
                                     borderColor: isActive(item.href) ? '#fff' : 'transparent',
                                     borderRadius: 0,
                                     '&:hover': { color: '#fff', bgcolor: 'rgba(255,255,255,0.1)' },
-                                }, children: item.label }, item.label))) }), _jsx(Box, { sx: { ml: 'auto', display: { xs: 'flex', md: 'none' }, alignItems: 'center', gap: 0.5 }, children: _jsx(IconButton, { "aria-label": "Open navigation", onClick: () => setMobileOpen(true), sx: { color: '#fff' }, children: _jsx(MenuIcon, {}) }) })] }) }), _jsx(Drawer, { anchor: "right", open: mobileOpen, onClose: () => setMobileOpen(false), PaperProps: {
+                                }, children: item.label }, item.label))) }), _jsx(Box, { sx: { ml: 'auto', display: { xs: 'flex', xl: 'none' }, alignItems: 'center', gap: 0.5 }, children: _jsx(IconButton, { "aria-label": "Open navigation", onClick: () => setMobileOpen(true), sx: { color: '#fff' }, children: _jsx(MenuIcon, {}) }) })] }) }), _jsx(Drawer, { anchor: "right", open: mobileOpen, onClose: () => setMobileOpen(false), PaperProps: {
                     sx: {
                         width: '84%',
                         maxWidth: 360,
