@@ -2,6 +2,7 @@ import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 import Header from './components/Header';
 import Hero from './components/Hero';
 import SitePages from './components/SitePages';
+import Footer from './components/Footer';
 import { createTheme, CssBaseline, GlobalStyles, ThemeProvider } from '@mui/material';
 import { useEffect, useMemo, useState } from 'react';
 const fontStack = '"Montserrat", "Inter", "Segoe UI", "Helvetica Neue", Arial, sans-serif';
@@ -141,6 +142,6 @@ function App() {
                         '.MuiTypography-body1': { fontSize: '0.95rem' },
                         '.MuiTypography-body2': { fontSize: '0.9rem' },
                     },
-                } }), _jsx(Header, { currentPath: normalizedPath, onNavigate: navigate }), normalizedPath === '/' && _jsx(Hero, {}), _jsx(SitePages, { currentPath: normalizedPath })] }));
+                } }), _jsx(Header, { currentPath: normalizedPath, onNavigate: navigate }), normalizedPath === '/' && _jsx(Hero, {}), _jsx(SitePages, { currentPath: normalizedPath }), _jsx(Footer, { onNavigate: navigate })] }));
 }
 export default App;

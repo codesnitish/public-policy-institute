@@ -1,6 +1,7 @@
 import Header from './components/Header';
 import Hero from './components/Hero';
 import SitePages from './components/SitePages';
+import Footer from './components/Footer';
 import { createTheme, CssBaseline, GlobalStyles, ThemeProvider } from '@mui/material';
 import { useEffect, useMemo, useState } from 'react';
 
@@ -154,6 +155,7 @@ function App() {
       <Header currentPath={normalizedPath} onNavigate={navigate} />
       {normalizedPath === '/' && <Hero />}
       <SitePages currentPath={normalizedPath} />
+      <Footer onNavigate={navigate} />
     </ThemeProvider>
   );
 }

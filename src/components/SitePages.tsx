@@ -1,4 +1,20 @@
-import { Box, Card, CardContent, Chip, Container, Divider, Grid, Stack, Typography } from '@mui/material';
+import {
+  Box,
+  Card,
+  CardContent,
+  Chip,
+  Container,
+  Divider,
+  Grid,
+  Stack,
+  Table,
+  TableBody,
+  TableCell,
+  TableContainer,
+  TableHead,
+  TableRow,
+  Typography,
+} from '@mui/material';
 import { fetchBlogStore, findBlogBySlug } from '../blog/blogClient';
 import type { Blog } from '../blog/blogTypes';
 import { useEffect, useMemo, useState } from 'react';
@@ -229,22 +245,15 @@ const volunteerGroups = [
   },
 ] as const;
 
-const volunteers = [
-  { name: 'Nishant', role: 'Research' },
-  { name: 'Aastha', role: 'Research' },
-  { name: 'Palak', role: 'Research' },
-  { name: 'Pragya', role: 'Research' },
-  { name: 'Sang', role: 'Research' },
-  { name: 'Rishab', role: 'Research' },
-  { name: 'Simeon', role: 'Research' },
-  { name: 'Ridhi', role: 'Research' },
-  { name: 'Priyadarshan', role: 'Research' },
-  { name: 'Eugene', role: 'Research' },
-  { name: 'Samuel', role: 'Research and Communications' },
-  { name: 'Gukan', role: 'Communications' },
-  { name: 'Dr. Neha', role: 'Senior Volunteer' },
-  { name: 'Akansha', role: 'HR Volunteer' },
+const volunteerRoster = [
+  { role: 'Research', names: ['Nishant', 'Aastha', 'Palak', 'Pragya', 'Sang', 'Rishab', 'Simeon', 'Ridhi', 'Priyadarshan', 'Eugene'] },
+  { role: 'Research and Communications', names: ['Samuel'] },
+  { role: 'Communications', names: ['Gukan'] },
+  { role: 'Senior Volunteer', names: ['Dr. Neha'] },
+  { role: 'HR Volunteer', names: ['Akansha'] },
 ] as const;
+
+const volunteers = volunteerRoster.flatMap((group) => group.names.map((name) => ({ name, role: group.role })));
 
 const collaborators = [
   'Femme 2 Earth',
@@ -651,19 +660,30 @@ function PeoplePage() {
         <Typography sx={{ color: 'text.secondary', lineHeight: 1.85, maxWidth: 940, mb: 2 }}>
           From conducting meaningful research to building strong communities, our volunteers play an active role in shaping our initiatives and driving conversations around gender equity and inclusion.
         </Typography>
-        <Grid container spacing={2.5} sx={{ mb: 4 }}>
-          {volunteerGroups.map((group) => (
-            <Grid key={group.title} size={{ xs: 12, md: 6 }}>
-              <Card elevation={0} sx={{ border: '1px solid', borderColor: 'divider', borderRadius: 3, height: '100%' }}>
-                <CardContent sx={{ p: { xs: 2.5, sm: 3 } }}>
-                  <Typography variant="h6" sx={{ color: 'text.primary', mb: 1 }}>{group.title}</Typography>
-                  <Typography sx={{ color: 'text.secondary', lineHeight: 1.8 }}>{group.text}</Typography>
-                </CardContent>
-              </Card>
-            </Grid>
-          ))}
-        </Grid>
+        <TableContainer component={Box} sx={{ mb: 4, overflowX: 'auto', borderTop: '1px solid', borderBottom: '1px solid', borderColor: 'divider' }}>
+          <Table size="small" aria-label="Volunteer focus areas">
+            <TableHead>
+              <TableRow>
+                <TableCell sx={{ color: 'text.primary', fontWeight: 800, width: { xs: 170, md: 260 }, py: 1.6 }}>Volunteer Area</TableCell>
+                <TableCell sx={{ color: 'text.primary', fontWeight: 800, py: 1.6 }}>Contribution</TableCell>
+              </TableRow>
+            </TableHead>
+            <TableBody>
+              {volunteerGroups.map((group) => (
+                <TableRow key={group.title}>
+                  <TableCell sx={{ color: 'text.primary', fontWeight: 700, verticalAlign: 'top', py: 1.8 }}>
+                    {group.title}
+                  </TableCell>
+                  <TableCell sx={{ color: 'text.secondary', lineHeight: 1.75, py: 1.8 }}>
+                    {group.text}
+                  </TableCell>
+                </TableRow>
+              ))}
+            </TableBody>
+          </Table>
+        </TableContainer>
 
+        <Typography variant="h5" sx={{ color: 'text.primary', mb: 1.5 }}>Volunteer Roster</Typography>
         <Grid container spacing={2}>
           {volunteers.map((volunteer) => (
             <Grid key={`${volunteer.name}-${volunteer.role}`} size={{ xs: 12, sm: 6, md: 4 }}>
