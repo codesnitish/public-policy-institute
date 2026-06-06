@@ -35,6 +35,7 @@ type Explainer = {
 
 const sectionSx = { py: { xs: 6, md: 9 } };
 const submissionEmail = 'ourgenderlens0317@gmail.com';
+const webinarReportPdfUrl = '/events/webinar-report-gender-neutral-approach-to-mental-health.pdf#toolbar=0&navpanes=0&scrollbar=1&download=0';
 const guidelineSections = [
   {
     title: 'Blogs',
@@ -805,6 +806,91 @@ function CollaboratorsPage() {
   );
 }
 
+function EventsPage() {
+  const [showWebinarReport, setShowWebinarReport] = useState(false);
+
+  const openWebinarReport = () => setShowWebinarReport(true);
+
+  return (
+    <Box sx={{ ...sectionSx, bgcolor: '#fff' }}>
+      <Container maxWidth="lg">
+        <Box sx={{ mb: 4 }}>
+          <Typography variant="h3" sx={{ color: 'text.primary', mb: 1.2 }}>Events</Typography>
+          <Typography sx={{ color: 'text.secondary', maxWidth: 900, lineHeight: 1.85 }}>
+            Reports, reflections, and knowledge outputs from OGL events and public conversations.
+          </Typography>
+        </Box>
+
+        <Grid container spacing={2.5}>
+          <Grid size={{ xs: 12, md: 6 }}>
+            <Card
+              elevation={0}
+              role="button"
+              tabIndex={0}
+              onClick={openWebinarReport}
+              onKeyDown={(event) => {
+                if (event.key === 'Enter' || event.key === ' ') {
+                  event.preventDefault();
+                  openWebinarReport();
+                }
+              }}
+              sx={{
+                border: '1px solid',
+                borderColor: showWebinarReport ? 'primary.main' : 'divider',
+                borderRadius: 3,
+                cursor: 'pointer',
+                transition: 'transform .2s ease, box-shadow .2s ease, border-color .2s ease',
+                '&:hover': { transform: 'translateY(-2px)', boxShadow: 3, borderColor: 'primary.main' },
+                '&:focus-visible': { outline: '3px solid rgba(95,76,128,0.28)', outlineOffset: 3 },
+              }}
+            >
+              <CardContent sx={{ p: { xs: 2.5, sm: 3.2 } }}>
+                <Chip
+                  label="Webinar Report"
+                  size="small"
+                  sx={{ mb: 1.5, bgcolor: 'rgba(95,76,128,0.12)', color: 'text.primary', fontWeight: 700 }}
+                />
+                <Typography variant="h5" sx={{ color: 'text.primary', mb: 1, fontWeight: 700 }}>
+                  Webinar report- Gender Neutral Approach To Mental Health
+                </Typography>
+                <Typography sx={{ color: 'text.secondary', lineHeight: 1.8 }}>
+                  Click to view the report inside this page.
+                </Typography>
+              </CardContent>
+            </Card>
+          </Grid>
+        </Grid>
+
+        {showWebinarReport && (
+          <Box sx={{ mt: 4 }}>
+            <Typography variant="h4" sx={{ color: 'text.primary', mb: 1.5 }}>
+              Webinar report- Gender Neutral Approach To Mental Health
+            </Typography>
+            <Box
+              sx={{
+                border: '1px solid',
+                borderColor: 'divider',
+                borderRadius: 2,
+                overflow: 'hidden',
+                bgcolor: '#F4F5F8',
+                height: { xs: '72vh', md: '82vh' },
+              }}
+            >
+              <Box
+                component="iframe"
+                src={webinarReportPdfUrl}
+                title="Webinar report- Gender Neutral Approach To Mental Health"
+                onContextMenu={(event) => event.preventDefault()}
+                sx={{ display: 'block', width: '100%', height: '100%', border: 0 }}
+              />
+            </Box>
+          </Box>
+        )}
+      </Container>
+    </Box>
+  );
+}
+
 function BlogPostPage({ slug }: { slug: string }) {
   const [blogs, setBlogs] = useState<Blog[]>([]);
 
@@ -1007,7 +1093,7 @@ export default function SitePages({ currentPath }: SitePagesProps) {
   if (currentPath === '/people') return <PeoplePage />;
   if (currentPath === '/collaborators') return <CollaboratorsPage />;
   if (currentPath === '/guidelines') return <GuidelinesPage />;
-  if (currentPath === '/events') return <ComingSoonPage title="Events" />;
+  if (currentPath === '/events') return <EventsPage />;
   if (currentPath === '/policy-brief') return <ComingSoonPage title="Policy Brief" />;
   if (currentPath.startsWith('/blogs/') && currentPath !== '/blogs') {
     const slug = currentPath.replace(/^\/blogs\//, '');

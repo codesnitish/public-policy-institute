@@ -5,6 +5,7 @@ import { useEffect, useMemo, useState } from 'react';
 import { MarkdownView } from '../blog/markdownView';
 const sectionSx = { py: { xs: 6, md: 9 } };
 const submissionEmail = 'ourgenderlens0317@gmail.com';
+const webinarReportPdfUrl = '/events/webinar-report-gender-neutral-approach-to-mental-health.pdf#toolbar=0&navpanes=0&scrollbar=1&download=0';
 const guidelineSections = [
     {
         title: 'Blogs',
@@ -351,6 +352,31 @@ function BlogsPage() {
 function CollaboratorsPage() {
     return (_jsx(Box, { sx: { ...sectionSx, bgcolor: '#fff' }, children: _jsxs(Container, { maxWidth: "lg", children: [_jsxs(Box, { sx: { mb: 4 }, children: [_jsx(Typography, { variant: "h3", sx: { color: 'text.primary', mb: 1.2 }, children: "Our Collaborators" }), _jsx(Typography, { sx: { color: 'text.secondary', maxWidth: 920, lineHeight: 1.85 }, children: "Our collaborations help extend OGL\u2019s research, campaigns, and community conversations through shared commitments to gender equity, inclusion, and evidence-informed change." })] }), _jsx(Grid, { container: true, spacing: 2.5, children: collaborators.map((name) => (_jsx(Grid, { size: { xs: 12, sm: 6, md: 3 }, children: _jsx(Card, { elevation: 0, sx: { border: '1px solid', borderColor: 'divider', borderRadius: 3, height: '100%' }, children: _jsx(CardContent, { sx: { p: 3, minHeight: 150, display: 'flex', alignItems: 'center' }, children: _jsx(Typography, { variant: "h6", sx: { color: 'text.primary', lineHeight: 1.35 }, children: name }) }) }) }, name))) })] }) }));
 }
+function EventsPage() {
+    const [showWebinarReport, setShowWebinarReport] = useState(false);
+    const openWebinarReport = () => setShowWebinarReport(true);
+    return (_jsx(Box, { sx: { ...sectionSx, bgcolor: '#fff' }, children: _jsxs(Container, { maxWidth: "lg", children: [_jsxs(Box, { sx: { mb: 4 }, children: [_jsx(Typography, { variant: "h3", sx: { color: 'text.primary', mb: 1.2 }, children: "Events" }), _jsx(Typography, { sx: { color: 'text.secondary', maxWidth: 900, lineHeight: 1.85 }, children: "Reports, reflections, and knowledge outputs from OGL events and public conversations." })] }), _jsx(Grid, { container: true, spacing: 2.5, children: _jsx(Grid, { size: { xs: 12, md: 6 }, children: _jsx(Card, { elevation: 0, role: "button", tabIndex: 0, onClick: openWebinarReport, onKeyDown: (event) => {
+                                if (event.key === 'Enter' || event.key === ' ') {
+                                    event.preventDefault();
+                                    openWebinarReport();
+                                }
+                            }, sx: {
+                                border: '1px solid',
+                                borderColor: showWebinarReport ? 'primary.main' : 'divider',
+                                borderRadius: 3,
+                                cursor: 'pointer',
+                                transition: 'transform .2s ease, box-shadow .2s ease, border-color .2s ease',
+                                '&:hover': { transform: 'translateY(-2px)', boxShadow: 3, borderColor: 'primary.main' },
+                                '&:focus-visible': { outline: '3px solid rgba(95,76,128,0.28)', outlineOffset: 3 },
+                            }, children: _jsxs(CardContent, { sx: { p: { xs: 2.5, sm: 3.2 } }, children: [_jsx(Chip, { label: "Webinar Report", size: "small", sx: { mb: 1.5, bgcolor: 'rgba(95,76,128,0.12)', color: 'text.primary', fontWeight: 700 } }), _jsx(Typography, { variant: "h5", sx: { color: 'text.primary', mb: 1, fontWeight: 700 }, children: "Webinar report- Gender Neutral Approach To Mental Health" }), _jsx(Typography, { sx: { color: 'text.secondary', lineHeight: 1.8 }, children: "Click to view the report inside this page." })] }) }) }) }), showWebinarReport && (_jsxs(Box, { sx: { mt: 4 }, children: [_jsx(Typography, { variant: "h4", sx: { color: 'text.primary', mb: 1.5 }, children: "Webinar report- Gender Neutral Approach To Mental Health" }), _jsx(Box, { sx: {
+                                border: '1px solid',
+                                borderColor: 'divider',
+                                borderRadius: 2,
+                                overflow: 'hidden',
+                                bgcolor: '#F4F5F8',
+                                height: { xs: '72vh', md: '82vh' },
+                            }, children: _jsx(Box, { component: "iframe", src: webinarReportPdfUrl, title: "Webinar report- Gender Neutral Approach To Mental Health", onContextMenu: (event) => event.preventDefault(), sx: { display: 'block', width: '100%', height: '100%', border: 0 } }) })] }))] }) }));
+}
 function BlogPostPage({ slug }) {
     const [blogs, setBlogs] = useState([]);
     useEffect(() => {
@@ -423,7 +449,7 @@ export default function SitePages({ currentPath }) {
     if (currentPath === '/guidelines')
         return _jsx(GuidelinesPage, {});
     if (currentPath === '/events')
-        return _jsx(ComingSoonPage, { title: "Events" });
+        return _jsx(EventsPage, {});
     if (currentPath === '/policy-brief')
         return _jsx(ComingSoonPage, { title: "Policy Brief" });
     if (currentPath.startsWith('/blogs/') && currentPath !== '/blogs') {
