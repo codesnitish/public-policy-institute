@@ -1,11 +1,12 @@
 import { jsx as _jsx, jsxs as _jsxs, Fragment as _Fragment } from "react/jsx-runtime";
-import { Box, Card, CardContent, Chip, Container, Divider, Grid, Stack, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Typography, } from '@mui/material';
+import { Box, Card, CardContent, Chip, Container, Dialog, DialogContent, Divider, Grid, IconButton, Stack, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Typography, } from '@mui/material';
 import { fetchBlogStore, findBlogBySlug } from '../blog/blogClient';
 import { useEffect, useMemo, useState } from 'react';
 import { MarkdownView } from '../blog/markdownView';
 const sectionSx = { py: { xs: 6, md: 9 } };
 const submissionEmail = 'ourgenderlens0317@gmail.com';
 const webinarReportPdfUrl = '/events/webinar-report-gender-neutral-approach-to-mental-health.pdf#toolbar=0&navpanes=0&scrollbar=1&download=0';
+const upcomingEventFlierUrl = '/events/gendered-futures-registration-flier.jpg';
 const guidelineSections = [
     {
         title: 'Blogs',
@@ -354,8 +355,28 @@ function CollaboratorsPage() {
 }
 function EventsPage() {
     const [showWebinarReport, setShowWebinarReport] = useState(false);
+    const [showUpcomingEvent, setShowUpcomingEvent] = useState(false);
     const openWebinarReport = () => setShowWebinarReport(true);
-    return (_jsx(Box, { sx: { ...sectionSx, bgcolor: '#fff' }, children: _jsxs(Container, { maxWidth: "lg", children: [_jsxs(Box, { sx: { mb: 4 }, children: [_jsx(Typography, { variant: "h3", sx: { color: 'text.primary', mb: 1.2 }, children: "Events" }), _jsx(Typography, { sx: { color: 'text.secondary', maxWidth: 900, lineHeight: 1.85 }, children: "Reports, reflections, and knowledge outputs from OGL events and public conversations." })] }), _jsx(Grid, { container: true, spacing: 2.5, children: _jsx(Grid, { size: { xs: 12, md: 6 }, children: _jsx(Card, { elevation: 0, role: "button", tabIndex: 0, onClick: openWebinarReport, onKeyDown: (event) => {
+    const openUpcomingEvent = () => setShowUpcomingEvent(true);
+    const closeUpcomingEvent = () => setShowUpcomingEvent(false);
+    return (_jsx(Box, { sx: { ...sectionSx, bgcolor: '#fff' }, children: _jsxs(Container, { maxWidth: "lg", children: [_jsxs(Box, { sx: { mb: 4 }, children: [_jsx(Typography, { variant: "h3", sx: { color: 'text.primary', mb: 1.2 }, children: "Events" }), _jsx(Typography, { sx: { color: 'text.secondary', maxWidth: 900, lineHeight: 1.85 }, children: "Reports, reflections, and knowledge outputs from OGL events and public conversations." })] }), _jsx(Card, { elevation: 0, role: "button", tabIndex: 0, onClick: openUpcomingEvent, onKeyDown: (event) => {
+                        if (event.key === 'Enter' || event.key === ' ') {
+                            event.preventDefault();
+                            openUpcomingEvent();
+                        }
+                    }, sx: {
+                        mb: 3,
+                        border: '1px solid',
+                        borderColor: 'primary.main',
+                        borderRadius: 3,
+                        cursor: 'pointer',
+                        overflow: 'hidden',
+                        bgcolor: '#5F4C80',
+                        color: '#fff',
+                        transition: 'transform .2s ease, box-shadow .2s ease',
+                        '&:hover': { transform: 'translateY(-2px)', boxShadow: 3 },
+                        '&:focus-visible': { outline: '3px solid rgba(95,76,128,0.28)', outlineOffset: 3 },
+                    }, children: _jsx(CardContent, { sx: { p: { xs: 2.5, sm: 3.2 } }, children: _jsxs(Stack, { direction: { xs: 'column', sm: 'row' }, spacing: 2, alignItems: { xs: 'flex-start', sm: 'center' }, justifyContent: "space-between", children: [_jsxs(Box, { children: [_jsx(Chip, { label: "Upcoming Events", size: "small", sx: { mb: 1.2, bgcolor: 'rgba(255,255,255,0.16)', color: '#fff', fontWeight: 800 } }), _jsx(Typography, { variant: "h4", sx: { color: '#fff', fontWeight: 800, lineHeight: 1.2 }, children: "Gendered Futures: Climate Crisis, Inequality & Resilience in the Global South" })] }), _jsx(Typography, { sx: { color: 'rgba(255,255,255,0.86)', fontWeight: 700, whiteSpace: { sm: 'nowrap' } }, children: "View flyer" })] }) }) }), _jsx(Grid, { container: true, spacing: 2.5, children: _jsx(Grid, { size: { xs: 12, md: 6 }, children: _jsx(Card, { elevation: 0, role: "button", tabIndex: 0, onClick: openWebinarReport, onKeyDown: (event) => {
                                 if (event.key === 'Enter' || event.key === ' ') {
                                     event.preventDefault();
                                     openWebinarReport();
@@ -375,7 +396,29 @@ function EventsPage() {
                                 overflow: 'hidden',
                                 bgcolor: '#F4F5F8',
                                 height: { xs: '72vh', md: '82vh' },
-                            }, children: _jsx(Box, { component: "iframe", src: webinarReportPdfUrl, title: "Webinar report- Gender Neutral Approach To Mental Health", onContextMenu: (event) => event.preventDefault(), sx: { display: 'block', width: '100%', height: '100%', border: 0 } }) })] }))] }) }));
+                            }, children: _jsx(Box, { component: "iframe", src: webinarReportPdfUrl, title: "Webinar report- Gender Neutral Approach To Mental Health", onContextMenu: (event) => event.preventDefault(), sx: { display: 'block', width: '100%', height: '100%', border: 0 } }) })] })), _jsx(Dialog, { open: showUpcomingEvent, onClose: closeUpcomingEvent, maxWidth: false, PaperProps: {
+                        sx: {
+                            width: { xs: '94vw', md: '82vw' },
+                            maxWidth: 1100,
+                            maxHeight: '92vh',
+                            borderRadius: 3,
+                            overflow: 'hidden',
+                        },
+                    }, children: _jsxs(DialogContent, { sx: { p: 0, position: 'relative', bgcolor: '#201844' }, children: [_jsx(IconButton, { "aria-label": "Close upcoming event flyer", onClick: closeUpcomingEvent, sx: {
+                                    position: 'absolute',
+                                    top: 10,
+                                    right: 10,
+                                    zIndex: 2,
+                                    bgcolor: 'rgba(255,255,255,0.92)',
+                                    color: 'text.primary',
+                                    '&:hover': { bgcolor: '#fff' },
+                                }, children: "X" }), _jsx(Box, { component: "img", src: upcomingEventFlierUrl, alt: "Registrations are open for Gendered Futures: Climate Crisis, Inequality and Resilience in the Global South", sx: {
+                                    display: 'block',
+                                    width: '100%',
+                                    maxHeight: '92vh',
+                                    objectFit: 'contain',
+                                    bgcolor: '#201844',
+                                } })] }) })] }) }));
 }
 function BlogPostPage({ slug }) {
     const [blogs, setBlogs] = useState([]);

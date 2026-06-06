@@ -4,8 +4,11 @@ import {
   CardContent,
   Chip,
   Container,
+  Dialog,
+  DialogContent,
   Divider,
   Grid,
+  IconButton,
   Stack,
   Table,
   TableBody,
@@ -36,6 +39,7 @@ type Explainer = {
 const sectionSx = { py: { xs: 6, md: 9 } };
 const submissionEmail = 'ourgenderlens0317@gmail.com';
 const webinarReportPdfUrl = '/events/webinar-report-gender-neutral-approach-to-mental-health.pdf#toolbar=0&navpanes=0&scrollbar=1&download=0';
+const upcomingEventFlierUrl = '/events/gendered-futures-registration-flier.jpg';
 const guidelineSections = [
   {
     title: 'Blogs',
@@ -808,8 +812,11 @@ function CollaboratorsPage() {
 
 function EventsPage() {
   const [showWebinarReport, setShowWebinarReport] = useState(false);
+  const [showUpcomingEvent, setShowUpcomingEvent] = useState(false);
 
   const openWebinarReport = () => setShowWebinarReport(true);
+  const openUpcomingEvent = () => setShowUpcomingEvent(true);
+  const closeUpcomingEvent = () => setShowUpcomingEvent(false);
 
   return (
     <Box sx={{ ...sectionSx, bgcolor: '#fff' }}>
@@ -820,6 +827,50 @@ function EventsPage() {
             Reports, reflections, and knowledge outputs from OGL events and public conversations.
           </Typography>
         </Box>
+
+        <Card
+          elevation={0}
+          role="button"
+          tabIndex={0}
+          onClick={openUpcomingEvent}
+          onKeyDown={(event) => {
+            if (event.key === 'Enter' || event.key === ' ') {
+              event.preventDefault();
+              openUpcomingEvent();
+            }
+          }}
+          sx={{
+            mb: 3,
+            border: '1px solid',
+            borderColor: 'primary.main',
+            borderRadius: 3,
+            cursor: 'pointer',
+            overflow: 'hidden',
+            bgcolor: '#5F4C80',
+            color: '#fff',
+            transition: 'transform .2s ease, box-shadow .2s ease',
+            '&:hover': { transform: 'translateY(-2px)', boxShadow: 3 },
+            '&:focus-visible': { outline: '3px solid rgba(95,76,128,0.28)', outlineOffset: 3 },
+          }}
+        >
+          <CardContent sx={{ p: { xs: 2.5, sm: 3.2 } }}>
+            <Stack direction={{ xs: 'column', sm: 'row' }} spacing={2} alignItems={{ xs: 'flex-start', sm: 'center' }} justifyContent="space-between">
+              <Box>
+                <Chip
+                  label="Upcoming Events"
+                  size="small"
+                  sx={{ mb: 1.2, bgcolor: 'rgba(255,255,255,0.16)', color: '#fff', fontWeight: 800 }}
+                />
+                <Typography variant="h4" sx={{ color: '#fff', fontWeight: 800, lineHeight: 1.2 }}>
+                  Gendered Futures: Climate Crisis, Inequality & Resilience in the Global South
+                </Typography>
+              </Box>
+              <Typography sx={{ color: 'rgba(255,255,255,0.86)', fontWeight: 700, whiteSpace: { sm: 'nowrap' } }}>
+                View flyer
+              </Typography>
+            </Stack>
+          </CardContent>
+        </Card>
 
         <Grid container spacing={2.5}>
           <Grid size={{ xs: 12, md: 6 }}>
@@ -886,6 +937,51 @@ function EventsPage() {
             </Box>
           </Box>
         )}
+
+        <Dialog
+          open={showUpcomingEvent}
+          onClose={closeUpcomingEvent}
+          maxWidth={false}
+          PaperProps={{
+            sx: {
+              width: { xs: '94vw', md: '82vw' },
+              maxWidth: 1100,
+              maxHeight: '92vh',
+              borderRadius: 3,
+              overflow: 'hidden',
+            },
+          }}
+        >
+          <DialogContent sx={{ p: 0, position: 'relative', bgcolor: '#201844' }}>
+            <IconButton
+              aria-label="Close upcoming event flyer"
+              onClick={closeUpcomingEvent}
+              sx={{
+                position: 'absolute',
+                top: 10,
+                right: 10,
+                zIndex: 2,
+                bgcolor: 'rgba(255,255,255,0.92)',
+                color: 'text.primary',
+                '&:hover': { bgcolor: '#fff' },
+              }}
+            >
+              X
+            </IconButton>
+            <Box
+              component="img"
+              src={upcomingEventFlierUrl}
+              alt="Registrations are open for Gendered Futures: Climate Crisis, Inequality and Resilience in the Global South"
+              sx={{
+                display: 'block',
+                width: '100%',
+                maxHeight: '92vh',
+                objectFit: 'contain',
+                bgcolor: '#201844',
+              }}
+            />
+          </DialogContent>
+        </Dialog>
       </Container>
     </Box>
   );
