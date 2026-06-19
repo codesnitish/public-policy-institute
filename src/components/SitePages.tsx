@@ -1,5 +1,6 @@
 import {
   Box,
+  Button,
   Card,
   CardContent,
   Chip,
@@ -18,6 +19,7 @@ import {
   TableRow,
   Typography,
 } from '@mui/material';
+import DownloadIcon from '@mui/icons-material/Download';
 import { fetchBlogStore, findBlogBySlug } from '../blog/blogClient';
 import type { Blog } from '../blog/blogTypes';
 import { useEffect, useMemo, useState } from 'react';
@@ -40,6 +42,31 @@ const sectionSx = { py: { xs: 6, md: 9 } };
 const submissionEmail = 'ourgenderlens0317@gmail.com';
 const webinarReportPdfUrl = '/events/webinar-report-gender-neutral-approach-to-mental-health.pdf#toolbar=0&navpanes=0&scrollbar=1&download=0';
 const upcomingEventFlierUrl = '/events/gendered-futures-registration-flier.jpg';
+const femaleLfprDocxUrl = '/policy-briefs/female-labour-force-participation-in-india.docx';
+const femaleLfprChartUrl = '/policy-briefs/female-labour-force-participation-chart.jpeg';
+
+const policyBriefs = [
+  {
+    slug: 'female-labour-force-participation-in-india',
+    title: 'Female Labour Force Participation in India: Structural Challenges and the Road Ahead',
+    author: 'Rishabh Sharma',
+    authorBio: 'Rishabh Sharma is a policy and governance professional with experience in economic analysis, public policy communication, and governance studies. His work focuses on understanding the relationships among the economy, society, and institutions through research and analysis.',
+    downloadUrl: femaleLfprDocxUrl,
+    downloadFilename: 'Female Labour Force Participation in India.docx',
+    chartUrl: femaleLfprChartUrl,
+    chartCaption: 'Source: Periodic Labour Force Survey 2022–23',
+    paragraphs: [
+      'Can India achieve inclusive economic growth while a large section of the population (women) remains outside the formal workforce? Why does rising female education not translate into proportionate employment opportunities? These questions are central to India’s development debate as the country aims to utilise its demographic dividend effectively and achieve the target of a developed economy by 2047, as laid out in the Amrit Kaal goals.',
+      'According to the Periodic Labour Force Survey 2022–23, India’s Female Labour Force Participation Rate increased from 23.3% in 2017–18 to nearly 37% in 2022–23. While the statistic above indicates improvement in the overall participation. There still exist many deeper structural problems with women’s employment.',
+      'One major challenge is the dominance of informal and low-productivity employment among women. A significant proportion of women, particularly in rural India, are engaged as unpaid family workers in agriculture and household enterprises. Informal jobs are often much easier to access and require fewer formal qualifications. Skill gaps, limited access to training, and information asymmetry can restrict the transition to better-paying formal jobs. This reflects limited access to secure and formal employment opportunities. Therefore, alongside efforts to improve women’s skills, access to childcare, safe transportation, and labour market information, there is a need to expand labour-intensive sectors such as textiles, food processing, electronics assembly, and MSMEs. These sectors can provide a large pool of accessible resources and well-paying employment opportunities.',
+      'A second structural issue is the burden of unpaid domestic and caregiving responsibilities. According to the Time Use Survey 2019, Indian women spend nearly five times more hours on unpaid domestic work than men. The unequal distribution of care work acts as a barrier t women’s economic participation, reducing their availability for paid work. Therefore, policies aimed at expanding childcare services, such as strengthening maternity support and workplace flexibility, are an important step towards easing these constraints. Existing initiatives such as Mission Shakti, National Creche Scheme, and POSHAN Abhiyaan provide an institutional foundation for supporting working women and improving female labour force participation.',
+      'Safety and mobility constraints also affect women’s employment opportunities. These are often not just limited to the work environment, but in general can lead to challenges in day-to-day activities. When women hear about concerns related to unsafe public spaces, unrideable transportation, workplace harassment, or weak institutional protections, their participation in the labour market is often restricted. Consequently, improving transport infrastructure, expanding working women\'s hostels, and strengthening workplace safety mechanisms are essential for creating an enabling environment for female workforce participation.',
+      'Another major concern is the mismatch between education and employment generation. Female enrolment in higher education has increased considerably over the last decade, yet suitable employment opportunities have not expanded proportionately. The disconnect between educational attainment and labour market outcomes results in women remaining outside the workforce or being underemployed. Therefore, policy interventions must focus on aligning skill development with market demand while creating employment and entrepreneurial opportunities for women. Initiatives such as Skill India Mission, Pradhan Mantri Kaushal Vikas Yojana, Stand Up India, and Digital India aim to improve employability and women’s economic participation.',
+      'Government interventions have also contributed positively. Under the Deendayal Antyodaya Yojana National Rural Livelihood Mission, more than 10 crore women have been mobilised through Self Help Groups. Similarly, the Pradhan Mantri Mudra Yojana has expanded credit access for women-led enterprises. Initiatives such as Beti Bachao Beti Padhao, Mahila E Haat, and Startup India have also attempted to improve women’s educational access and entrepreneurship.',
+      'Increasing female labour force participation is not only a question of gender equality but also an economic necessity. India’s demographic dividend cannot be fully realised unless women are integrated into secure, productive, and dignified employment opportunities across sectors. While policy interventions and government schemes have laid an important foundation, the impact depends on how effectively these are implemented at the ground level. Bridging the gap between policy design and lived realities requires stronger institutions. As India advances towards the Viksit Bharat 2047 vision, increasing female labour force participation must be viewed not merely as a welfare objective but also as a centre pillar of economic growth, productivity and national development.',
+    ],
+  },
+] as const;
 const guidelineSections = [
   {
     title: 'Blogs',
@@ -1150,6 +1177,175 @@ function ExplainerPostPage({ slug }: { slug: string }) {
   );
 }
 
+function PolicyBriefPage() {
+  return (
+    <Box sx={{ ...sectionSx, bgcolor: '#fff' }}>
+      <Container maxWidth="lg">
+        <Box sx={{ mb: 4 }}>
+          <Typography variant="h3" sx={{ color: 'text.primary', mb: 1.2 }}>Policy Brief</Typography>
+          <Typography sx={{ color: 'text.secondary', maxWidth: 900, lineHeight: 1.85 }}>
+            Evidence-based policy analysis and opinion pieces on gender, labour, and inclusive development.
+          </Typography>
+        </Box>
+
+        <Grid container spacing={2.5}>
+          {policyBriefs.map((item) => (
+            <Grid key={item.slug} size={{ xs: 12, md: 6 }} sx={{ display: 'flex' }}>
+              <Card
+                component="a"
+                href={`/policy-brief/${item.slug}`}
+                elevation={0}
+                sx={{
+                  textDecoration: 'none',
+                  color: 'inherit',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  height: '100%',
+                  border: '1px solid',
+                  borderColor: 'divider',
+                  borderRadius: 3,
+                  overflow: 'hidden',
+                  width: '100%',
+                  transition: 'transform .2s ease, box-shadow .2s ease',
+                  '&:hover': { transform: 'translateY(-2px)', boxShadow: 3 },
+                }}
+              >
+                <CardContent sx={{ p: 3.2, flex: 1, display: 'flex', flexDirection: 'column' }}>
+                  <Chip
+                    label="Policy Brief"
+                    size="small"
+                    sx={{ mb: 1.5, bgcolor: 'rgba(95,76,128,0.12)', color: 'text.primary', fontWeight: 700, alignSelf: 'flex-start' }}
+                  />
+                  <Typography variant="h5" sx={{ color: 'text.primary', mb: 0.6, fontWeight: 700 }}>
+                    {item.title}
+                  </Typography>
+                  <Typography variant="body2" sx={{ color: 'text.secondary', mb: 1.8 }}>
+                    {item.author}
+                  </Typography>
+                  <Divider sx={{ mb: 1.6 }} />
+                  <Typography
+                    sx={{
+                      color: 'text.secondary',
+                      lineHeight: 1.8,
+                      overflow: 'hidden',
+                      textOverflow: 'ellipsis',
+                      display: '-webkit-box',
+                      WebkitLineClamp: 3,
+                      WebkitBoxOrient: 'vertical',
+                    }}
+                  >
+                    {item.paragraphs[0]}
+                  </Typography>
+                </CardContent>
+              </Card>
+            </Grid>
+          ))}
+        </Grid>
+      </Container>
+    </Box>
+  );
+}
+
+function PolicyBriefPostPage({ slug }: { slug: string }) {
+  const brief = policyBriefs.find((item) => item.slug === slug);
+
+  if (!brief) {
+    return (
+      <Box sx={{ ...sectionSx, bgcolor: '#fff' }}>
+        <Container maxWidth="lg">
+          <Typography variant="h4" sx={{ color: 'text.primary' }}>Policy brief not found</Typography>
+        </Container>
+      </Box>
+    );
+  }
+
+  return (
+    <Box sx={{ ...sectionSx, bgcolor: '#fff' }}>
+      <Container maxWidth="lg">
+        <Box sx={{ mb: 3 }}>
+          <Chip
+            label="Policy Brief"
+            size="small"
+            sx={{ mb: 1.5, bgcolor: 'rgba(95,76,128,0.12)', color: 'text.primary', fontWeight: 700 }}
+          />
+          <Typography variant="h3" sx={{ color: 'text.primary', mb: 1, wordBreak: 'break-word' }}>
+            {brief.title}
+          </Typography>
+          <Typography variant="body2" sx={{ color: 'text.secondary', mb: 2 }}>
+            {brief.author}
+          </Typography>
+          <Button
+            component="a"
+            href={brief.downloadUrl}
+            download={brief.downloadFilename}
+            variant="outlined"
+            startIcon={<DownloadIcon />}
+            sx={{
+              textTransform: 'none',
+              fontWeight: 700,
+              borderColor: 'primary.main',
+              color: 'primary.main',
+              '&:hover': { borderColor: 'primary.dark', bgcolor: 'rgba(95,76,128,0.06)' },
+            }}
+          >
+            Download Word document
+          </Button>
+        </Box>
+
+        <Box sx={{ maxWidth: 920 }}>
+          <Typography sx={{ color: 'text.secondary', lineHeight: 1.9, mb: 2.4, fontStyle: 'italic' }}>
+            {brief.authorBio}
+          </Typography>
+          <Stack spacing={2.4}>
+            {brief.paragraphs.map((paragraph, index) => (
+              <Box key={paragraph}>
+                <Typography sx={{ color: 'text.secondary', lineHeight: 1.9 }}>
+                  {paragraph}
+                </Typography>
+                {index === 1 && brief.chartUrl ? (
+                  <Box sx={{ mt: 2.4 }}>
+                    <Box
+                      component="img"
+                      src={brief.chartUrl}
+                      alt="Female Labour Force Participation Rate in India"
+                      sx={{
+                        display: 'block',
+                        width: '100%',
+                        maxWidth: 640,
+                        borderRadius: 2,
+                        border: '1px solid',
+                        borderColor: 'divider',
+                      }}
+                    />
+                    {brief.chartCaption ? (
+                      <Typography variant="body2" sx={{ color: 'text.secondary', mt: 1 }}>
+                        {brief.chartCaption}
+                      </Typography>
+                    ) : null}
+                  </Box>
+                ) : null}
+              </Box>
+            ))}
+          </Stack>
+
+          <Box sx={{ mt: 4, pt: 3, borderTop: '1px solid', borderColor: 'divider' }}>
+            <Button
+              component="a"
+              href={brief.downloadUrl}
+              download={brief.downloadFilename}
+              variant="contained"
+              startIcon={<DownloadIcon />}
+              sx={{ textTransform: 'none', fontWeight: 700 }}
+            >
+              Download full policy brief (.docx)
+            </Button>
+          </Box>
+        </Box>
+      </Container>
+    </Box>
+  );
+}
+
 function NotFoundPage() {
   return (
     <Box sx={{ ...sectionSx, bgcolor: '#fff' }}>
@@ -1163,26 +1359,6 @@ function NotFoundPage() {
   );
 }
 
-function ComingSoonPage({ title }: { title: string }) {
-  return (
-    <Box sx={{ ...sectionSx, bgcolor: '#fff', minHeight: '55vh', display: 'flex', alignItems: 'center' }}>
-      <Container maxWidth="lg">
-        <Card elevation={0} sx={{ border: '1px solid', borderColor: 'divider', borderRadius: 3 }}>
-          <CardContent sx={{ p: { xs: 3, md: 5 }, textAlign: 'center' }}>
-            <Chip label="Coming Soon" sx={{ mb: 2, bgcolor: 'rgba(95,76,128,0.12)', color: 'text.primary', fontWeight: 700 }} />
-            <Typography variant="h3" sx={{ color: 'text.primary', mb: 1.5 }}>
-              {title}
-            </Typography>
-            <Typography sx={{ color: 'text.secondary', lineHeight: 1.85, maxWidth: 680, mx: 'auto' }}>
-              This page is being prepared and will be available soon.
-            </Typography>
-          </CardContent>
-        </Card>
-      </Container>
-    </Box>
-  );
-}
-
 export default function SitePages({ currentPath }: SitePagesProps) {
   if (currentPath === '/') return <HomePage />;
   if (currentPath === '/about-us') return <AboutPage />;
@@ -1190,7 +1366,11 @@ export default function SitePages({ currentPath }: SitePagesProps) {
   if (currentPath === '/collaborators') return <CollaboratorsPage />;
   if (currentPath === '/guidelines') return <GuidelinesPage />;
   if (currentPath === '/events') return <EventsPage />;
-  if (currentPath === '/policy-brief') return <ComingSoonPage title="Policy Brief" />;
+  if (currentPath === '/policy-brief') return <PolicyBriefPage />;
+  if (currentPath.startsWith('/policy-brief/') && currentPath !== '/policy-brief') {
+    const slug = currentPath.replace(/^\/policy-brief\//, '');
+    return <PolicyBriefPostPage slug={slug} />;
+  }
   if (currentPath.startsWith('/blogs/') && currentPath !== '/blogs') {
     const slug = currentPath.replace(/^\/blogs\//, '');
     return <BlogPostPage slug={slug} />;
