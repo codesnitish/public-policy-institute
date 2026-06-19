@@ -8,9 +8,9 @@ const sectionSx = { py: { xs: 6, md: 9 } };
 const submissionEmail = 'ourgenderlens0317@gmail.com';
 const webinarReportPdfUrl = '/events/webinar-report-gender-neutral-approach-to-mental-health.pdf#toolbar=0&navpanes=0&scrollbar=1&download=0';
 const upcomingEventFlierUrl = '/events/gendered-futures-registration-flier.jpg';
-const femaleLfprDocxUrl = '/policy-briefs/female-labour-force-participation-in-india.docx';
-const femaleLfprChartUrl = '/policy-briefs/female-labour-force-participation-chart.jpeg';
-const policyBriefs = [
+const femaleLfprDocxUrl = '/opinions/female-labour-force-participation-in-india.docx';
+const femaleLfprChartUrl = '/opinions/female-labour-force-participation-chart.jpeg';
+const opinions = [
     {
         slug: 'female-labour-force-participation-in-india',
         title: 'Female Labour Force Participation in India: Structural Challenges and the Road Ahead',
@@ -499,8 +499,8 @@ function ExplainerPostPage({ slug }) {
                                 fontWeight: 700,
                             } }), _jsx(Typography, { variant: "h3", sx: { color: 'text.primary', mb: 1, wordBreak: 'break-word' }, children: explainer.title }), _jsxs(Typography, { variant: "body2", sx: { color: 'text.secondary' }, children: [explainer.author, explainer.publishedAt ? ` · ${formatDate(explainer.publishedAt)}` : ''] })] }), _jsx(Box, { sx: { maxWidth: 920 }, children: _jsx(Stack, { spacing: 2.4, children: explainer.paragraphs.map((paragraph) => (_jsx(Typography, { sx: { color: 'text.secondary', lineHeight: 1.9 }, children: paragraph }, paragraph))) }) })] }) }));
 }
-function PolicyBriefPage() {
-    return (_jsx(Box, { sx: { ...sectionSx, bgcolor: '#fff' }, children: _jsxs(Container, { maxWidth: "lg", children: [_jsxs(Box, { sx: { mb: 4 }, children: [_jsx(Typography, { variant: "h3", sx: { color: 'text.primary', mb: 1.2 }, children: "Policy Brief" }), _jsx(Typography, { sx: { color: 'text.secondary', maxWidth: 900, lineHeight: 1.85 }, children: "Evidence-based policy analysis and opinion pieces on gender, labour, and inclusive development." })] }), _jsx(Grid, { container: true, spacing: 2.5, children: policyBriefs.map((item) => (_jsx(Grid, { size: { xs: 12, md: 6 }, sx: { display: 'flex' }, children: _jsx(Card, { component: "a", href: `/policy-brief/${item.slug}`, elevation: 0, sx: {
+function OpinionPage() {
+    return (_jsx(Box, { sx: { ...sectionSx, bgcolor: '#fff' }, children: _jsxs(Container, { maxWidth: "lg", children: [_jsxs(Box, { sx: { mb: 4 }, children: [_jsx(Typography, { variant: "h3", sx: { color: 'text.primary', mb: 1.2 }, children: "Opinion" }), _jsx(Typography, { sx: { color: 'text.secondary', maxWidth: 900, lineHeight: 1.85 }, children: "Perspectives and analysis on gender, labour, and inclusive development." })] }), _jsx(Grid, { container: true, spacing: 2.5, children: opinions.map((item) => (_jsx(Grid, { size: { xs: 12, md: 6 }, sx: { display: 'flex' }, children: _jsx(Card, { component: "a", href: `/opinion/${item.slug}`, elevation: 0, sx: {
                                 textDecoration: 'none',
                                 color: 'inherit',
                                 display: 'flex',
@@ -513,7 +513,7 @@ function PolicyBriefPage() {
                                 width: '100%',
                                 transition: 'transform .2s ease, box-shadow .2s ease',
                                 '&:hover': { transform: 'translateY(-2px)', boxShadow: 3 },
-                            }, children: _jsxs(CardContent, { sx: { p: 3.2, flex: 1, display: 'flex', flexDirection: 'column' }, children: [_jsx(Chip, { label: "Policy Brief", size: "small", sx: { mb: 1.5, bgcolor: 'rgba(95,76,128,0.12)', color: 'text.primary', fontWeight: 700, alignSelf: 'flex-start' } }), _jsx(Typography, { variant: "h5", sx: { color: 'text.primary', mb: 0.6, fontWeight: 700 }, children: item.title }), _jsx(Typography, { variant: "body2", sx: { color: 'text.secondary', mb: 1.8 }, children: item.author }), _jsx(Divider, { sx: { mb: 1.6 } }), _jsx(Typography, { sx: {
+                            }, children: _jsxs(CardContent, { sx: { p: 3.2, flex: 1, display: 'flex', flexDirection: 'column' }, children: [_jsx(Chip, { label: "Opinion", size: "small", sx: { mb: 1.5, bgcolor: 'rgba(95,76,128,0.12)', color: 'text.primary', fontWeight: 700, alignSelf: 'flex-start' } }), _jsx(Typography, { variant: "h5", sx: { color: 'text.primary', mb: 0.6, fontWeight: 700 }, children: item.title }), _jsx(Typography, { variant: "body2", sx: { color: 'text.secondary', mb: 1.8 }, children: item.author }), _jsx(Divider, { sx: { mb: 1.6 } }), _jsx(Typography, { sx: {
                                             color: 'text.secondary',
                                             lineHeight: 1.8,
                                             overflow: 'hidden',
@@ -523,25 +523,28 @@ function PolicyBriefPage() {
                                             WebkitBoxOrient: 'vertical',
                                         }, children: item.paragraphs[0] })] }) }) }, item.slug))) })] }) }));
 }
-function PolicyBriefPostPage({ slug }) {
-    const brief = policyBriefs.find((item) => item.slug === slug);
-    if (!brief) {
-        return (_jsx(Box, { sx: { ...sectionSx, bgcolor: '#fff' }, children: _jsx(Container, { maxWidth: "lg", children: _jsx(Typography, { variant: "h4", sx: { color: 'text.primary' }, children: "Policy brief not found" }) }) }));
+function OpinionPostPage({ slug }) {
+    const opinion = opinions.find((item) => item.slug === slug);
+    if (!opinion) {
+        return (_jsx(Box, { sx: { ...sectionSx, bgcolor: '#fff' }, children: _jsx(Container, { maxWidth: "lg", children: _jsx(Typography, { variant: "h4", sx: { color: 'text.primary' }, children: "Opinion not found" }) }) }));
     }
-    return (_jsx(Box, { sx: { ...sectionSx, bgcolor: '#fff' }, children: _jsxs(Container, { maxWidth: "lg", children: [_jsxs(Box, { sx: { mb: 3 }, children: [_jsx(Chip, { label: "Policy Brief", size: "small", sx: { mb: 1.5, bgcolor: 'rgba(95,76,128,0.12)', color: 'text.primary', fontWeight: 700 } }), _jsx(Typography, { variant: "h3", sx: { color: 'text.primary', mb: 1, wordBreak: 'break-word' }, children: brief.title }), _jsx(Typography, { variant: "body2", sx: { color: 'text.secondary', mb: 2 }, children: brief.author }), _jsx(Button, { component: "a", href: brief.downloadUrl, download: brief.downloadFilename, variant: "outlined", startIcon: _jsx(DownloadIcon, {}), sx: {
+    return (_jsx(Box, { sx: { ...sectionSx, bgcolor: '#fff' }, children: _jsxs(Container, { maxWidth: "lg", children: [_jsxs(Box, { sx: { mb: 3 }, children: [_jsx(Chip, { label: "Opinion", size: "small", sx: { mb: 1.5, bgcolor: 'rgba(95,76,128,0.12)', color: 'text.primary', fontWeight: 700 } }), _jsx(Typography, { variant: "h3", sx: { color: 'text.primary', mb: 1, wordBreak: 'break-word' }, children: opinion.title }), _jsx(Typography, { variant: "body2", sx: { color: 'text.secondary', mb: 2 }, children: opinion.author }), _jsx(Button, { component: "a", href: opinion.downloadUrl, download: opinion.downloadFilename, variant: "outlined", startIcon: _jsx(DownloadIcon, {}), sx: {
                                 textTransform: 'none',
                                 fontWeight: 700,
                                 borderColor: 'primary.main',
                                 color: 'primary.main',
                                 '&:hover': { borderColor: 'primary.dark', bgcolor: 'rgba(95,76,128,0.06)' },
-                            }, children: "Download Word document" })] }), _jsxs(Box, { sx: { maxWidth: 920 }, children: [_jsx(Typography, { sx: { color: 'text.secondary', lineHeight: 1.9, mb: 2.4, fontStyle: 'italic' }, children: brief.authorBio }), _jsx(Stack, { spacing: 2.4, children: brief.paragraphs.map((paragraph, index) => (_jsxs(Box, { children: [_jsx(Typography, { sx: { color: 'text.secondary', lineHeight: 1.9 }, children: paragraph }), index === 1 && brief.chartUrl ? (_jsxs(Box, { sx: { mt: 2.4 }, children: [_jsx(Box, { component: "img", src: brief.chartUrl, alt: "Female Labour Force Participation Rate in India", sx: {
+                            }, children: "Download Word document" })] }), _jsxs(Box, { sx: { maxWidth: 920 }, children: [_jsx(Typography, { sx: { color: 'text.secondary', lineHeight: 1.9, mb: 2.4, fontStyle: 'italic' }, children: opinion.authorBio }), _jsx(Stack, { spacing: 2.4, children: opinion.paragraphs.map((paragraph, index) => (_jsxs(Box, { children: [_jsx(Typography, { sx: { color: 'text.secondary', lineHeight: 1.9 }, children: paragraph }), index === 1 && opinion.chartUrl ? (_jsxs(Box, { sx: { mt: 2.4 }, children: [_jsx(Box, { component: "img", src: opinion.chartUrl, alt: "Female Labour Force Participation Rate in India", sx: {
                                                     display: 'block',
                                                     width: '100%',
                                                     maxWidth: 640,
                                                     borderRadius: 2,
                                                     border: '1px solid',
                                                     borderColor: 'divider',
-                                                } }), brief.chartCaption ? (_jsx(Typography, { variant: "body2", sx: { color: 'text.secondary', mt: 1 }, children: brief.chartCaption })) : null] })) : null] }, paragraph))) }), _jsx(Box, { sx: { mt: 4, pt: 3, borderTop: '1px solid', borderColor: 'divider' }, children: _jsx(Button, { component: "a", href: brief.downloadUrl, download: brief.downloadFilename, variant: "contained", startIcon: _jsx(DownloadIcon, {}), sx: { textTransform: 'none', fontWeight: 700 }, children: "Download full policy brief (.docx)" }) })] })] }) }));
+                                                } }), opinion.chartCaption ? (_jsx(Typography, { variant: "body2", sx: { color: 'text.secondary', mt: 1 }, children: opinion.chartCaption })) : null] })) : null] }, paragraph))) }), _jsx(Box, { sx: { mt: 4, pt: 3, borderTop: '1px solid', borderColor: 'divider' }, children: _jsx(Button, { component: "a", href: opinion.downloadUrl, download: opinion.downloadFilename, variant: "contained", startIcon: _jsx(DownloadIcon, {}), sx: { textTransform: 'none', fontWeight: 700 }, children: "Download full opinion (.docx)" }) })] })] }) }));
+}
+function ComingSoonPage({ title }) {
+    return (_jsx(Box, { sx: { ...sectionSx, bgcolor: '#fff', minHeight: '55vh', display: 'flex', alignItems: 'center' }, children: _jsx(Container, { maxWidth: "lg", children: _jsx(Card, { elevation: 0, sx: { border: '1px solid', borderColor: 'divider', borderRadius: 3 }, children: _jsxs(CardContent, { sx: { p: { xs: 3, md: 5 }, textAlign: 'center' }, children: [_jsx(Chip, { label: "Coming Soon", sx: { mb: 2, bgcolor: 'rgba(95,76,128,0.12)', color: 'text.primary', fontWeight: 700 } }), _jsx(Typography, { variant: "h3", sx: { color: 'text.primary', mb: 1.5 }, children: title }), _jsx(Typography, { sx: { color: 'text.secondary', lineHeight: 1.85, maxWidth: 680, mx: 'auto' }, children: "This page is being prepared and will be available soon." })] }) }) }) }));
 }
 function NotFoundPage() {
     return (_jsx(Box, { sx: { ...sectionSx, bgcolor: '#fff' }, children: _jsxs(Container, { maxWidth: "lg", children: [_jsx(Typography, { variant: "h3", sx: { color: 'text.primary', mb: 1.2 }, children: "Page not found" }), _jsx(Typography, { sx: { color: 'text.secondary', lineHeight: 1.9, maxWidth: 720 }, children: "The page you are looking for does not exist." })] }) }));
@@ -559,12 +562,14 @@ export default function SitePages({ currentPath }) {
         return _jsx(GuidelinesPage, {});
     if (currentPath === '/events')
         return _jsx(EventsPage, {});
-    if (currentPath === '/policy-brief')
-        return _jsx(PolicyBriefPage, {});
-    if (currentPath.startsWith('/policy-brief/') && currentPath !== '/policy-brief') {
-        const slug = currentPath.replace(/^\/policy-brief\//, '');
-        return _jsx(PolicyBriefPostPage, { slug: slug });
+    if (currentPath === '/opinion')
+        return _jsx(OpinionPage, {});
+    if (currentPath.startsWith('/opinion/') && currentPath !== '/opinion') {
+        const slug = currentPath.replace(/^\/opinion\//, '');
+        return _jsx(OpinionPostPage, { slug: slug });
     }
+    if (currentPath === '/policy-brief')
+        return _jsx(ComingSoonPage, { title: "Policy Brief" });
     if (currentPath.startsWith('/blogs/') && currentPath !== '/blogs') {
         const slug = currentPath.replace(/^\/blogs\//, '');
         return _jsx(BlogPostPage, { slug: slug });

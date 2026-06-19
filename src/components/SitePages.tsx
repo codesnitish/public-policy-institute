@@ -42,10 +42,10 @@ const sectionSx = { py: { xs: 6, md: 9 } };
 const submissionEmail = 'ourgenderlens0317@gmail.com';
 const webinarReportPdfUrl = '/events/webinar-report-gender-neutral-approach-to-mental-health.pdf#toolbar=0&navpanes=0&scrollbar=1&download=0';
 const upcomingEventFlierUrl = '/events/gendered-futures-registration-flier.jpg';
-const femaleLfprDocxUrl = '/policy-briefs/female-labour-force-participation-in-india.docx';
-const femaleLfprChartUrl = '/policy-briefs/female-labour-force-participation-chart.jpeg';
+const femaleLfprDocxUrl = '/opinions/female-labour-force-participation-in-india.docx';
+const femaleLfprChartUrl = '/opinions/female-labour-force-participation-chart.jpeg';
 
-const policyBriefs = [
+const opinions = [
   {
     slug: 'female-labour-force-participation-in-india',
     title: 'Female Labour Force Participation in India: Structural Challenges and the Road Ahead',
@@ -1177,23 +1177,23 @@ function ExplainerPostPage({ slug }: { slug: string }) {
   );
 }
 
-function PolicyBriefPage() {
+function OpinionPage() {
   return (
     <Box sx={{ ...sectionSx, bgcolor: '#fff' }}>
       <Container maxWidth="lg">
         <Box sx={{ mb: 4 }}>
-          <Typography variant="h3" sx={{ color: 'text.primary', mb: 1.2 }}>Policy Brief</Typography>
+          <Typography variant="h3" sx={{ color: 'text.primary', mb: 1.2 }}>Opinion</Typography>
           <Typography sx={{ color: 'text.secondary', maxWidth: 900, lineHeight: 1.85 }}>
-            Evidence-based policy analysis and opinion pieces on gender, labour, and inclusive development.
+            Perspectives and analysis on gender, labour, and inclusive development.
           </Typography>
         </Box>
 
         <Grid container spacing={2.5}>
-          {policyBriefs.map((item) => (
+          {opinions.map((item) => (
             <Grid key={item.slug} size={{ xs: 12, md: 6 }} sx={{ display: 'flex' }}>
               <Card
                 component="a"
-                href={`/policy-brief/${item.slug}`}
+                href={`/opinion/${item.slug}`}
                 elevation={0}
                 sx={{
                   textDecoration: 'none',
@@ -1212,7 +1212,7 @@ function PolicyBriefPage() {
               >
                 <CardContent sx={{ p: 3.2, flex: 1, display: 'flex', flexDirection: 'column' }}>
                   <Chip
-                    label="Policy Brief"
+                    label="Opinion"
                     size="small"
                     sx={{ mb: 1.5, bgcolor: 'rgba(95,76,128,0.12)', color: 'text.primary', fontWeight: 700, alignSelf: 'flex-start' }}
                   />
@@ -1246,14 +1246,14 @@ function PolicyBriefPage() {
   );
 }
 
-function PolicyBriefPostPage({ slug }: { slug: string }) {
-  const brief = policyBriefs.find((item) => item.slug === slug);
+function OpinionPostPage({ slug }: { slug: string }) {
+  const opinion = opinions.find((item) => item.slug === slug);
 
-  if (!brief) {
+  if (!opinion) {
     return (
       <Box sx={{ ...sectionSx, bgcolor: '#fff' }}>
         <Container maxWidth="lg">
-          <Typography variant="h4" sx={{ color: 'text.primary' }}>Policy brief not found</Typography>
+          <Typography variant="h4" sx={{ color: 'text.primary' }}>Opinion not found</Typography>
         </Container>
       </Box>
     );
@@ -1264,20 +1264,20 @@ function PolicyBriefPostPage({ slug }: { slug: string }) {
       <Container maxWidth="lg">
         <Box sx={{ mb: 3 }}>
           <Chip
-            label="Policy Brief"
+            label="Opinion"
             size="small"
             sx={{ mb: 1.5, bgcolor: 'rgba(95,76,128,0.12)', color: 'text.primary', fontWeight: 700 }}
           />
           <Typography variant="h3" sx={{ color: 'text.primary', mb: 1, wordBreak: 'break-word' }}>
-            {brief.title}
+            {opinion.title}
           </Typography>
           <Typography variant="body2" sx={{ color: 'text.secondary', mb: 2 }}>
-            {brief.author}
+            {opinion.author}
           </Typography>
           <Button
             component="a"
-            href={brief.downloadUrl}
-            download={brief.downloadFilename}
+            href={opinion.downloadUrl}
+            download={opinion.downloadFilename}
             variant="outlined"
             startIcon={<DownloadIcon />}
             sx={{
@@ -1294,19 +1294,19 @@ function PolicyBriefPostPage({ slug }: { slug: string }) {
 
         <Box sx={{ maxWidth: 920 }}>
           <Typography sx={{ color: 'text.secondary', lineHeight: 1.9, mb: 2.4, fontStyle: 'italic' }}>
-            {brief.authorBio}
+            {opinion.authorBio}
           </Typography>
           <Stack spacing={2.4}>
-            {brief.paragraphs.map((paragraph, index) => (
+            {opinion.paragraphs.map((paragraph, index) => (
               <Box key={paragraph}>
                 <Typography sx={{ color: 'text.secondary', lineHeight: 1.9 }}>
                   {paragraph}
                 </Typography>
-                {index === 1 && brief.chartUrl ? (
+                {index === 1 && opinion.chartUrl ? (
                   <Box sx={{ mt: 2.4 }}>
                     <Box
                       component="img"
-                      src={brief.chartUrl}
+                      src={opinion.chartUrl}
                       alt="Female Labour Force Participation Rate in India"
                       sx={{
                         display: 'block',
@@ -1317,9 +1317,9 @@ function PolicyBriefPostPage({ slug }: { slug: string }) {
                         borderColor: 'divider',
                       }}
                     />
-                    {brief.chartCaption ? (
+                    {opinion.chartCaption ? (
                       <Typography variant="body2" sx={{ color: 'text.secondary', mt: 1 }}>
-                        {brief.chartCaption}
+                        {opinion.chartCaption}
                       </Typography>
                     ) : null}
                   </Box>
@@ -1331,16 +1331,36 @@ function PolicyBriefPostPage({ slug }: { slug: string }) {
           <Box sx={{ mt: 4, pt: 3, borderTop: '1px solid', borderColor: 'divider' }}>
             <Button
               component="a"
-              href={brief.downloadUrl}
-              download={brief.downloadFilename}
+              href={opinion.downloadUrl}
+              download={opinion.downloadFilename}
               variant="contained"
               startIcon={<DownloadIcon />}
               sx={{ textTransform: 'none', fontWeight: 700 }}
             >
-              Download full policy brief (.docx)
+              Download full opinion (.docx)
             </Button>
           </Box>
         </Box>
+      </Container>
+    </Box>
+  );
+}
+
+function ComingSoonPage({ title }: { title: string }) {
+  return (
+    <Box sx={{ ...sectionSx, bgcolor: '#fff', minHeight: '55vh', display: 'flex', alignItems: 'center' }}>
+      <Container maxWidth="lg">
+        <Card elevation={0} sx={{ border: '1px solid', borderColor: 'divider', borderRadius: 3 }}>
+          <CardContent sx={{ p: { xs: 3, md: 5 }, textAlign: 'center' }}>
+            <Chip label="Coming Soon" sx={{ mb: 2, bgcolor: 'rgba(95,76,128,0.12)', color: 'text.primary', fontWeight: 700 }} />
+            <Typography variant="h3" sx={{ color: 'text.primary', mb: 1.5 }}>
+              {title}
+            </Typography>
+            <Typography sx={{ color: 'text.secondary', lineHeight: 1.85, maxWidth: 680, mx: 'auto' }}>
+              This page is being prepared and will be available soon.
+            </Typography>
+          </CardContent>
+        </Card>
       </Container>
     </Box>
   );
@@ -1366,11 +1386,12 @@ export default function SitePages({ currentPath }: SitePagesProps) {
   if (currentPath === '/collaborators') return <CollaboratorsPage />;
   if (currentPath === '/guidelines') return <GuidelinesPage />;
   if (currentPath === '/events') return <EventsPage />;
-  if (currentPath === '/policy-brief') return <PolicyBriefPage />;
-  if (currentPath.startsWith('/policy-brief/') && currentPath !== '/policy-brief') {
-    const slug = currentPath.replace(/^\/policy-brief\//, '');
-    return <PolicyBriefPostPage slug={slug} />;
+  if (currentPath === '/opinion') return <OpinionPage />;
+  if (currentPath.startsWith('/opinion/') && currentPath !== '/opinion') {
+    const slug = currentPath.replace(/^\/opinion\//, '');
+    return <OpinionPostPage slug={slug} />;
   }
+  if (currentPath === '/policy-brief') return <ComingSoonPage title="Policy Brief" />;
   if (currentPath.startsWith('/blogs/') && currentPath !== '/blogs') {
     const slug = currentPath.replace(/^\/blogs\//, '');
     return <BlogPostPage slug={slug} />;

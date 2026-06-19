@@ -25,6 +25,7 @@ const navItems = [
   { label: 'Explainers', href: '/explainer' },
   { label: 'Guidelines', href: '/guidelines' },
   { label: 'Events', href: '/events' },
+  { label: 'Opinion', href: '/opinion' },
   { label: 'Policy Brief', href: '/policy-brief' },
 ];
 
