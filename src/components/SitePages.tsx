@@ -24,6 +24,7 @@ import { fetchBlogStore, findBlogBySlug } from '../blog/blogClient';
 import type { Blog } from '../blog/blogTypes';
 import { useEffect, useMemo, useState } from 'react';
 import { MarkdownView } from '../blog/markdownView';
+import costOfFearMarkdown from '../content/opinions/the-cost-of-fear-an-obstacle-to-girls-education-and-health.md?raw';
 
 type SitePagesProps = {
   currentPath: string;
@@ -45,11 +46,35 @@ const upcomingEventFlierUrl = '/events/gendered-futures-registration-flier.jpg';
 const femaleLfprDocxUrl = '/opinions/female-labour-force-participation-in-india.docx';
 const femaleLfprChartUrl = '/opinions/female-labour-force-participation-chart.jpeg';
 
-const opinions = [
+type Opinion = {
+  slug: string;
+  title: string;
+  author: string;
+  excerpt: string;
+  publishedAt?: string;
+  authorBio?: string;
+  downloadUrl?: string;
+  downloadFilename?: string;
+  chartUrl?: string;
+  chartCaption?: string;
+  paragraphs?: readonly string[];
+  contentMarkdown?: string;
+};
+
+const opinions: Opinion[] = [
+  {
+    slug: 'the-cost-of-fear-an-obstacle-to-girls-education-and-health',
+    title: "The Cost of Fear: An Obstacle to Girls' Education and Health",
+    author: 'Ishita Gupta',
+    publishedAt: '2026-06-23',
+    excerpt: "Fear of violence shapes girls' educational opportunities, health, mobility, and future life outcomes. This piece explores how safety is a prerequisite for inclusive development and gender equality.",
+    contentMarkdown: costOfFearMarkdown,
+  },
   {
     slug: 'female-labour-force-participation-in-india',
     title: 'Female Labour Force Participation in India: Structural Challenges and the Road Ahead',
     author: 'Rishabh Sharma',
+    excerpt: 'Can India achieve inclusive economic growth while a large section of the population (women) remains outside the formal workforce?',
     authorBio: 'Rishabh Sharma is a policy and governance professional with experience in economic analysis, public policy communication, and governance studies. His work focuses on understanding the relationships among the economy, society, and institutions through research and analysis.',
     downloadUrl: femaleLfprDocxUrl,
     downloadFilename: 'Female Labour Force Participation in India.docx',
@@ -66,7 +91,7 @@ const opinions = [
       'Increasing female labour force participation is not only a question of gender equality but also an economic necessity. India’s demographic dividend cannot be fully realised unless women are integrated into secure, productive, and dignified employment opportunities across sectors. While policy interventions and government schemes have laid an important foundation, the impact depends on how effectively these are implemented at the ground level. Bridging the gap between policy design and lived realities requires stronger institutions. As India advances towards the Viksit Bharat 2047 vision, increasing female labour force participation must be viewed not merely as a welfare objective but also as a centre pillar of economic growth, productivity and national development.',
     ],
   },
-] as const;
+];
 const guidelineSections = [
   {
     title: 'Blogs',
@@ -1221,6 +1246,7 @@ function OpinionPage() {
                   </Typography>
                   <Typography variant="body2" sx={{ color: 'text.secondary', mb: 1.8 }}>
                     {item.author}
+                    {item.publishedAt ? ` · ${formatDate(item.publishedAt)}` : ''}
                   </Typography>
                   <Divider sx={{ mb: 1.6 }} />
                   <Typography
@@ -1234,7 +1260,7 @@ function OpinionPage() {
                       WebkitBoxOrient: 'vertical',
                     }}
                   >
-                    {item.paragraphs[0]}
+                    {item.excerpt}
                   </Typography>
                 </CardContent>
               </Card>
@@ -1273,73 +1299,84 @@ function OpinionPostPage({ slug }: { slug: string }) {
           </Typography>
           <Typography variant="body2" sx={{ color: 'text.secondary', mb: 2 }}>
             {opinion.author}
+            {opinion.publishedAt ? ` · ${formatDate(opinion.publishedAt)}` : ''}
           </Typography>
-          <Button
-            component="a"
-            href={opinion.downloadUrl}
-            download={opinion.downloadFilename}
-            variant="outlined"
-            startIcon={<DownloadIcon />}
-            sx={{
-              textTransform: 'none',
-              fontWeight: 700,
-              borderColor: 'primary.main',
-              color: 'primary.main',
-              '&:hover': { borderColor: 'primary.dark', bgcolor: 'rgba(95,76,128,0.06)' },
-            }}
-          >
-            Download Word document
-          </Button>
-        </Box>
-
-        <Box sx={{ maxWidth: 920 }}>
-          <Typography sx={{ color: 'text.secondary', lineHeight: 1.9, mb: 2.4, fontStyle: 'italic' }}>
-            {opinion.authorBio}
-          </Typography>
-          <Stack spacing={2.4}>
-            {opinion.paragraphs.map((paragraph, index) => (
-              <Box key={paragraph}>
-                <Typography sx={{ color: 'text.secondary', lineHeight: 1.9 }}>
-                  {paragraph}
-                </Typography>
-                {index === 1 && opinion.chartUrl ? (
-                  <Box sx={{ mt: 2.4 }}>
-                    <Box
-                      component="img"
-                      src={opinion.chartUrl}
-                      alt="Female Labour Force Participation Rate in India"
-                      sx={{
-                        display: 'block',
-                        width: '100%',
-                        maxWidth: 640,
-                        borderRadius: 2,
-                        border: '1px solid',
-                        borderColor: 'divider',
-                      }}
-                    />
-                    {opinion.chartCaption ? (
-                      <Typography variant="body2" sx={{ color: 'text.secondary', mt: 1 }}>
-                        {opinion.chartCaption}
-                      </Typography>
-                    ) : null}
-                  </Box>
-                ) : null}
-              </Box>
-            ))}
-          </Stack>
-
-          <Box sx={{ mt: 4, pt: 3, borderTop: '1px solid', borderColor: 'divider' }}>
+          {opinion.downloadUrl && opinion.downloadFilename ? (
             <Button
               component="a"
               href={opinion.downloadUrl}
               download={opinion.downloadFilename}
-              variant="contained"
+              variant="outlined"
               startIcon={<DownloadIcon />}
-              sx={{ textTransform: 'none', fontWeight: 700 }}
+              sx={{
+                textTransform: 'none',
+                fontWeight: 700,
+                borderColor: 'primary.main',
+                color: 'primary.main',
+                '&:hover': { borderColor: 'primary.dark', bgcolor: 'rgba(95,76,128,0.06)' },
+              }}
             >
-              Download full opinion (.docx)
+              Download Word document
             </Button>
-          </Box>
+          ) : null}
+        </Box>
+
+        <Box sx={{ maxWidth: 920 }}>
+          {opinion.authorBio ? (
+            <Typography sx={{ color: 'text.secondary', lineHeight: 1.9, mb: 2.4, fontStyle: 'italic' }}>
+              {opinion.authorBio}
+            </Typography>
+          ) : null}
+          {opinion.contentMarkdown ? (
+            <MarkdownView markdown={opinion.contentMarkdown} />
+          ) : (
+            <Stack spacing={2.4}>
+              {opinion.paragraphs?.map((paragraph, index) => (
+                <Box key={paragraph}>
+                  <Typography sx={{ color: 'text.secondary', lineHeight: 1.9 }}>
+                    {paragraph}
+                  </Typography>
+                  {index === 1 && opinion.chartUrl ? (
+                    <Box sx={{ mt: 2.4 }}>
+                      <Box
+                        component="img"
+                        src={opinion.chartUrl}
+                        alt="Female Labour Force Participation Rate in India"
+                        sx={{
+                          display: 'block',
+                          width: '100%',
+                          maxWidth: 640,
+                          borderRadius: 2,
+                          border: '1px solid',
+                          borderColor: 'divider',
+                        }}
+                      />
+                      {opinion.chartCaption ? (
+                        <Typography variant="body2" sx={{ color: 'text.secondary', mt: 1 }}>
+                          {opinion.chartCaption}
+                        </Typography>
+                      ) : null}
+                    </Box>
+                  ) : null}
+                </Box>
+              ))}
+            </Stack>
+          )}
+
+          {opinion.downloadUrl && opinion.downloadFilename ? (
+            <Box sx={{ mt: 4, pt: 3, borderTop: '1px solid', borderColor: 'divider' }}>
+              <Button
+                component="a"
+                href={opinion.downloadUrl}
+                download={opinion.downloadFilename}
+                variant="contained"
+                startIcon={<DownloadIcon />}
+                sx={{ textTransform: 'none', fontWeight: 700 }}
+              >
+                Download full opinion (.docx)
+              </Button>
+            </Box>
+          ) : null}
         </Box>
       </Container>
     </Box>

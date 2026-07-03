@@ -6,7 +6,10 @@
       "id": "gender-climate-and-power-who-really-pays-the-price-of-a-warming-planet",
       "slug": "gender-climate-and-power-who-really-pays-the-price-of-a-warming-planet",
       "title": "Gender, Climate, and Power: Who Really Pays the Price of a Warming Planet?",
-      "authors": ["Elizabeth Kwateng", "Sedinam Gbeku"],
+      "authors": [
+        "Elizabeth Kwateng",
+        "Sedinam Gbeku"
+      ],
       "publishedAt": "2026-06-01",
       "coverImageUrl": "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1600&q=80",
       "excerpt": "Climate change deepens existing inequalities, with women and girls across the Global South often paying hidden economic, social, and safety costs. This piece examines climate vulnerability through gender, power, and representation.",
@@ -16,7 +19,9 @@
       "id": "impact-of-menstrual-poverty-on-girl-education-in-india",
       "slug": "impact-of-menstrual-poverty-on-girl-education-in-india",
       "title": "Impact of Menstrual Poverty on Girl Education in India",
-      "authors": ["Priyadharshan T"],
+      "authors": [
+        "Priyadharshan T"
+      ],
       "publishedAt": "2026-05-28",
       "coverImageUrl": "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=1600&q=80",
       "excerpt": "Period poverty disrupts health, dignity, and education for millions of girls in India. This piece examines how lack of products, school sanitation, awareness, and supportive policy keeps girls away from classrooms.",
@@ -26,7 +31,9 @@
       "id": "survival-sex-in-men-challenging-a-gendered-narrative",
       "slug": "survival-sex-in-men-challenging-a-gendered-narrative",
       "title": "Survival Sex In Men - Challenging a Gendered Narrative",
-      "authors": ["Aastha Kaura"],
+      "authors": [
+        "Aastha Kaura"
+      ],
       "publishedAt": "2026-05-19",
       "coverImageUrl": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=1600&q=80",
       "excerpt": "Survival sex is often discussed through a gendered lens that renders men's experiences invisible. This piece examines how homelessness, stigma, abuse, and structural exclusion shape survival sex among vulnerable men.",
@@ -36,7 +43,9 @@
       "id": "the-invisible-crisis-why-society-must-recognize-mothers-mental-load",
       "slug": "the-invisible-crisis-why-society-must-recognize-mothers-mental-load",
       "title": "The Invisible Crisis: Why Society Must Recognize Mother's Mental Load",
-      "authors": ["Riddhi Agnihotri"],
+      "authors": [
+        "Riddhi Agnihotri"
+      ],
       "publishedAt": "2026-05-10",
       "coverImageUrl": "https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?auto=format&fit=crop&w=1600&q=80",
       "excerpt": "Mothers often carry an invisible burden of planning, remembering, anticipating, and emotionally regulating family life. This piece examines the mental load as an overlooked driver of gender inequality and maternal mental health strain.",
@@ -46,7 +55,9 @@
       "id": "female-labour-force-participation-rate-whats-the-issue",
       "slug": "female-labour-force-participation-rate-whats-the-issue",
       "title": "Female Labour Force Participation Rate- What's the Issue?",
-      "authors": ["Pinaki Gakhar"],
+      "authors": [
+        "Pinaki Gakhar"
+      ],
       "publishedAt": "2026-05-01",
       "coverImageUrl": "https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=1600&q=80",
       "excerpt": "India's female labour force participation rate remains far below its potential despite a demographic dividend, policy schemes, and rising educational attainment. This piece examines the structural, social, and institutional barriers keeping women out of paid work.",
@@ -56,7 +67,9 @@
       "id": "she-bears-the-heat-how-climate-change-disproportionately-impacts-women",
       "slug": "she-bears-the-heat-how-climate-change-disproportionately-impacts-women",
       "title": "She Bears the Heat: How Climate Change Disproportionately Impacts Women",
-      "authors": ["Shivani Kulkarni"],
+      "authors": [
+        "Shivani Kulkarni"
+      ],
       "publishedAt": "2026-04-20",
       "coverImageUrl": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=1600&q=80",
       "excerpt": "Climate change is not gender neutral. This piece examines how rising temperatures, disasters, displacement, and resource scarcity intensify existing inequalities for women and girls across the world.",
@@ -66,7 +79,9 @@
       "id": "digital-inclusion-of-women-through-self-help-groups-what-the-literature-has-to-say",
       "slug": "digital-inclusion-of-women-through-self-help-groups-what-the-literature-has-to-say",
       "title": "Digital Inclusion of Women through Self-Help Groups: What the Literature has to Say",
-      "authors": ["Balijepalli Anjana Devi"],
+      "authors": [
+        "Balijepalli Anjana Devi"
+      ],
       "publishedAt": "2026-04-04",
       "coverImageUrl": "https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=1600&q=80",
       "excerpt": "Self-help groups have become a key route for women's digital and financial inclusion in rural India. This piece surveys the literature on current initiatives, scaling barriers, and the behavioural questions that still need attention.",
@@ -76,7 +91,9 @@
       "id": "indian-mens-mental-health-a-silent-crisis-and-current-solutions",
       "slug": "indian-mens-mental-health-a-silent-crisis-and-current-solutions",
       "title": "Indian Men's Mental Health: A Silent Crisis and Current Solutions",
-      "authors": ["Balijepalli Anjana Devi"],
+      "authors": [
+        "Balijepalli Anjana Devi"
+      ],
       "publishedAt": "2026-03-14",
       "coverImageUrl": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=1600&q=80",
       "excerpt": "Men's mental health in India remains under-recognized despite its links to suicide, substance use, chronic illness, and lost productivity. This piece examines the scale of the crisis and the interventions already in place.",
@@ -86,7 +103,9 @@
       "id": "gender-issues-understanding-gender-and-society",
       "slug": "gender-issues-understanding-gender-and-society",
       "title": "Gender Issues: Understanding Gender and Society",
-      "authors": ["Chitsimran Ekka"],
+      "authors": [
+        "Chitsimran Ekka"
+      ],
       "publishedAt": "2026-02-28",
       "coverImageUrl": "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=1600&q=80",
       "excerpt": "Gender shapes expectations, access, safety, and opportunity across education, work, media, and identity. Understanding these dynamics helps build a more just and compassionate society for everyone.",
@@ -96,7 +115,9 @@
       "id": "women-equity-ai-technology",
       "slug": "women-and-equity-in-ai-technology",
       "title": "Women and Equity in AI Technology",
-      "authors": ["Pinaki Gakhar"],
+      "authors": [
+        "Pinaki Gakhar"
+      ],
       "publishedAt": "2026-02-23",
       "coverImageUrl": "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1600&q=80",
       "excerpt": "The Fourth Industrial Revolution is reshaping economies and societies. This piece examines equity in AI, the gendered digital divide, and the steps needed to build inclusive, safe, and fair technology systems.",
@@ -106,7 +127,9 @@
       "id": "climate-fueled-gender-violence-nudged",
       "slug": "climate-fueled-gender-violence-can-the-solutions-be-nudged",
       "title": "Climate Fueled Gender Violence: Can the Solutions be Nudged?",
-      "authors": ["Pinaki Gakhar"],
+      "authors": [
+        "Pinaki Gakhar"
+      ],
       "publishedAt": "2026-03-07",
       "coverImageUrl": "https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&fit=crop&w=1600&q=80",
       "excerpt": "Climate stressors can amplify inequality and violence. This piece looks at evidence on climate-fueled gender-based violence and explores behavioural change approaches alongside traditional policy tools.",

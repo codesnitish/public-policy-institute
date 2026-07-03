@@ -4,6 +4,7 @@ import DownloadIcon from '@mui/icons-material/Download';
 import { fetchBlogStore, findBlogBySlug } from '../blog/blogClient';
 import { useEffect, useMemo, useState } from 'react';
 import { MarkdownView } from '../blog/markdownView';
+import costOfFearMarkdown from '../content/opinions/the-cost-of-fear-an-obstacle-to-girls-education-and-health.md?raw';
 const sectionSx = { py: { xs: 6, md: 9 } };
 const submissionEmail = 'ourgenderlens0317@gmail.com';
 const webinarReportPdfUrl = '/events/webinar-report-gender-neutral-approach-to-mental-health.pdf#toolbar=0&navpanes=0&scrollbar=1&download=0';
@@ -12,9 +13,18 @@ const femaleLfprDocxUrl = '/opinions/female-labour-force-participation-in-india.
 const femaleLfprChartUrl = '/opinions/female-labour-force-participation-chart.jpeg';
 const opinions = [
     {
+        slug: 'the-cost-of-fear-an-obstacle-to-girls-education-and-health',
+        title: "The Cost of Fear: An Obstacle to Girls' Education and Health",
+        author: 'Ishita Gupta',
+        publishedAt: '2026-06-23',
+        excerpt: "Fear of violence shapes girls' educational opportunities, health, mobility, and future life outcomes. This piece explores how safety is a prerequisite for inclusive development and gender equality.",
+        contentMarkdown: costOfFearMarkdown,
+    },
+    {
         slug: 'female-labour-force-participation-in-india',
         title: 'Female Labour Force Participation in India: Structural Challenges and the Road Ahead',
         author: 'Rishabh Sharma',
+        excerpt: 'Can India achieve inclusive economic growth while a large section of the population (women) remains outside the formal workforce?',
         authorBio: 'Rishabh Sharma is a policy and governance professional with experience in economic analysis, public policy communication, and governance studies. His work focuses on understanding the relationships among the economy, society, and institutions through research and analysis.',
         downloadUrl: femaleLfprDocxUrl,
         downloadFilename: 'Female Labour Force Participation in India.docx',
@@ -513,7 +523,7 @@ function OpinionPage() {
                                 width: '100%',
                                 transition: 'transform .2s ease, box-shadow .2s ease',
                                 '&:hover': { transform: 'translateY(-2px)', boxShadow: 3 },
-                            }, children: _jsxs(CardContent, { sx: { p: 3.2, flex: 1, display: 'flex', flexDirection: 'column' }, children: [_jsx(Chip, { label: "Opinion", size: "small", sx: { mb: 1.5, bgcolor: 'rgba(95,76,128,0.12)', color: 'text.primary', fontWeight: 700, alignSelf: 'flex-start' } }), _jsx(Typography, { variant: "h5", sx: { color: 'text.primary', mb: 0.6, fontWeight: 700 }, children: item.title }), _jsx(Typography, { variant: "body2", sx: { color: 'text.secondary', mb: 1.8 }, children: item.author }), _jsx(Divider, { sx: { mb: 1.6 } }), _jsx(Typography, { sx: {
+                            }, children: _jsxs(CardContent, { sx: { p: 3.2, flex: 1, display: 'flex', flexDirection: 'column' }, children: [_jsx(Chip, { label: "Opinion", size: "small", sx: { mb: 1.5, bgcolor: 'rgba(95,76,128,0.12)', color: 'text.primary', fontWeight: 700, alignSelf: 'flex-start' } }), _jsx(Typography, { variant: "h5", sx: { color: 'text.primary', mb: 0.6, fontWeight: 700 }, children: item.title }), _jsxs(Typography, { variant: "body2", sx: { color: 'text.secondary', mb: 1.8 }, children: [item.author, item.publishedAt ? ` · ${formatDate(item.publishedAt)}` : ''] }), _jsx(Divider, { sx: { mb: 1.6 } }), _jsx(Typography, { sx: {
                                             color: 'text.secondary',
                                             lineHeight: 1.8,
                                             overflow: 'hidden',
@@ -521,27 +531,27 @@ function OpinionPage() {
                                             display: '-webkit-box',
                                             WebkitLineClamp: 3,
                                             WebkitBoxOrient: 'vertical',
-                                        }, children: item.paragraphs[0] })] }) }) }, item.slug))) })] }) }));
+                                        }, children: item.excerpt })] }) }) }, item.slug))) })] }) }));
 }
 function OpinionPostPage({ slug }) {
     const opinion = opinions.find((item) => item.slug === slug);
     if (!opinion) {
         return (_jsx(Box, { sx: { ...sectionSx, bgcolor: '#fff' }, children: _jsx(Container, { maxWidth: "lg", children: _jsx(Typography, { variant: "h4", sx: { color: 'text.primary' }, children: "Opinion not found" }) }) }));
     }
-    return (_jsx(Box, { sx: { ...sectionSx, bgcolor: '#fff' }, children: _jsxs(Container, { maxWidth: "lg", children: [_jsxs(Box, { sx: { mb: 3 }, children: [_jsx(Chip, { label: "Opinion", size: "small", sx: { mb: 1.5, bgcolor: 'rgba(95,76,128,0.12)', color: 'text.primary', fontWeight: 700 } }), _jsx(Typography, { variant: "h3", sx: { color: 'text.primary', mb: 1, wordBreak: 'break-word' }, children: opinion.title }), _jsx(Typography, { variant: "body2", sx: { color: 'text.secondary', mb: 2 }, children: opinion.author }), _jsx(Button, { component: "a", href: opinion.downloadUrl, download: opinion.downloadFilename, variant: "outlined", startIcon: _jsx(DownloadIcon, {}), sx: {
+    return (_jsx(Box, { sx: { ...sectionSx, bgcolor: '#fff' }, children: _jsxs(Container, { maxWidth: "lg", children: [_jsxs(Box, { sx: { mb: 3 }, children: [_jsx(Chip, { label: "Opinion", size: "small", sx: { mb: 1.5, bgcolor: 'rgba(95,76,128,0.12)', color: 'text.primary', fontWeight: 700 } }), _jsx(Typography, { variant: "h3", sx: { color: 'text.primary', mb: 1, wordBreak: 'break-word' }, children: opinion.title }), _jsxs(Typography, { variant: "body2", sx: { color: 'text.secondary', mb: 2 }, children: [opinion.author, opinion.publishedAt ? ` · ${formatDate(opinion.publishedAt)}` : ''] }), opinion.downloadUrl && opinion.downloadFilename ? (_jsx(Button, { component: "a", href: opinion.downloadUrl, download: opinion.downloadFilename, variant: "outlined", startIcon: _jsx(DownloadIcon, {}), sx: {
                                 textTransform: 'none',
                                 fontWeight: 700,
                                 borderColor: 'primary.main',
                                 color: 'primary.main',
                                 '&:hover': { borderColor: 'primary.dark', bgcolor: 'rgba(95,76,128,0.06)' },
-                            }, children: "Download Word document" })] }), _jsxs(Box, { sx: { maxWidth: 920 }, children: [_jsx(Typography, { sx: { color: 'text.secondary', lineHeight: 1.9, mb: 2.4, fontStyle: 'italic' }, children: opinion.authorBio }), _jsx(Stack, { spacing: 2.4, children: opinion.paragraphs.map((paragraph, index) => (_jsxs(Box, { children: [_jsx(Typography, { sx: { color: 'text.secondary', lineHeight: 1.9 }, children: paragraph }), index === 1 && opinion.chartUrl ? (_jsxs(Box, { sx: { mt: 2.4 }, children: [_jsx(Box, { component: "img", src: opinion.chartUrl, alt: "Female Labour Force Participation Rate in India", sx: {
+                            }, children: "Download Word document" })) : null] }), _jsxs(Box, { sx: { maxWidth: 920 }, children: [opinion.authorBio ? (_jsx(Typography, { sx: { color: 'text.secondary', lineHeight: 1.9, mb: 2.4, fontStyle: 'italic' }, children: opinion.authorBio })) : null, opinion.contentMarkdown ? (_jsx(MarkdownView, { markdown: opinion.contentMarkdown })) : (_jsx(Stack, { spacing: 2.4, children: opinion.paragraphs?.map((paragraph, index) => (_jsxs(Box, { children: [_jsx(Typography, { sx: { color: 'text.secondary', lineHeight: 1.9 }, children: paragraph }), index === 1 && opinion.chartUrl ? (_jsxs(Box, { sx: { mt: 2.4 }, children: [_jsx(Box, { component: "img", src: opinion.chartUrl, alt: "Female Labour Force Participation Rate in India", sx: {
                                                     display: 'block',
                                                     width: '100%',
                                                     maxWidth: 640,
                                                     borderRadius: 2,
                                                     border: '1px solid',
                                                     borderColor: 'divider',
-                                                } }), opinion.chartCaption ? (_jsx(Typography, { variant: "body2", sx: { color: 'text.secondary', mt: 1 }, children: opinion.chartCaption })) : null] })) : null] }, paragraph))) }), _jsx(Box, { sx: { mt: 4, pt: 3, borderTop: '1px solid', borderColor: 'divider' }, children: _jsx(Button, { component: "a", href: opinion.downloadUrl, download: opinion.downloadFilename, variant: "contained", startIcon: _jsx(DownloadIcon, {}), sx: { textTransform: 'none', fontWeight: 700 }, children: "Download full opinion (.docx)" }) })] })] }) }));
+                                                } }), opinion.chartCaption ? (_jsx(Typography, { variant: "body2", sx: { color: 'text.secondary', mt: 1 }, children: opinion.chartCaption })) : null] })) : null] }, paragraph))) })), opinion.downloadUrl && opinion.downloadFilename ? (_jsx(Box, { sx: { mt: 4, pt: 3, borderTop: '1px solid', borderColor: 'divider' }, children: _jsx(Button, { component: "a", href: opinion.downloadUrl, download: opinion.downloadFilename, variant: "contained", startIcon: _jsx(DownloadIcon, {}), sx: { textTransform: 'none', fontWeight: 700 }, children: "Download full opinion (.docx)" }) })) : null] })] }) }));
 }
 function ComingSoonPage({ title }) {
     return (_jsx(Box, { sx: { ...sectionSx, bgcolor: '#fff', minHeight: '55vh', display: 'flex', alignItems: 'center' }, children: _jsx(Container, { maxWidth: "lg", children: _jsx(Card, { elevation: 0, sx: { border: '1px solid', borderColor: 'divider', borderRadius: 3 }, children: _jsxs(CardContent, { sx: { p: { xs: 3, md: 5 }, textAlign: 'center' }, children: [_jsx(Chip, { label: "Coming Soon", sx: { mb: 2, bgcolor: 'rgba(95,76,128,0.12)', color: 'text.primary', fontWeight: 700 } }), _jsx(Typography, { variant: "h3", sx: { color: 'text.primary', mb: 1.5 }, children: title }), _jsx(Typography, { sx: { color: 'text.secondary', lineHeight: 1.85, maxWidth: 680, mx: 'auto' }, children: "This page is being prepared and will be available soon." })] }) }) }) }));

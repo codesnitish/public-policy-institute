@@ -6,7 +6,10 @@
       "id": "gender-climate-and-power-who-really-pays-the-price-of-a-warming-planet",
       "slug": "gender-climate-and-power-who-really-pays-the-price-of-a-warming-planet",
       "title": "Gender, Climate, and Power: Who Really Pays the Price of a Warming Planet?",
-      "authors": ["Elizabeth Kwateng", "Sedinam Gbeku"],
+      "authors": [
+        "Elizabeth Kwateng",
+        "Sedinam Gbeku"
+      ],
       "publishedAt": "2026-06-01",
       "coverImageUrl": "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1600&q=80",
       "excerpt": "Climate change deepens existing inequalities, with women and girls across the Global South often paying hidden economic, social, and safety costs. This piece examines climate vulnerability through gender, power, and representation.",
@@ -16,7 +19,9 @@
       "id": "impact-of-menstrual-poverty-on-girl-education-in-india",
       "slug": "impact-of-menstrual-poverty-on-girl-education-in-india",
       "title": "Impact of Menstrual Poverty on Girl Education in India",
-      "authors": ["Priyadharshan T"],
+      "authors": [
+        "Priyadharshan T"
+      ],
       "publishedAt": "2026-05-28",
       "coverImageUrl": "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=1600&q=80",
       "excerpt": "Period poverty disrupts health, dignity, and education for millions of girls in India. This piece examines how lack of products, school sanitation, awareness, and supportive policy keeps girls away from classrooms.",
@@ -26,7 +31,9 @@
       "id": "survival-sex-in-men-challenging-a-gendered-narrative",
       "slug": "survival-sex-in-men-challenging-a-gendered-narrative",
       "title": "Survival Sex In Men - Challenging a Gendered Narrative",
-      "authors": ["Aastha Kaura"],
+      "authors": [
+        "Aastha Kaura"
+      ],
       "publishedAt": "2026-05-19",
       "coverImageUrl": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=1600&q=80",
       "excerpt": "Survival sex is often discussed through a gendered lens that renders men's experiences invisible. This piece examines how homelessness, stigma, abuse, and structural exclusion shape survival sex among vulnerable men.",
@@ -36,7 +43,9 @@
       "id": "the-invisible-crisis-why-society-must-recognize-mothers-mental-load",
       "slug": "the-invisible-crisis-why-society-must-recognize-mothers-mental-load",
       "title": "The Invisible Crisis: Why Society Must Recognize Mother's Mental Load",
-      "authors": ["Riddhi Agnihotri"],
+      "authors": [
+        "Riddhi Agnihotri"
+      ],
       "publishedAt": "2026-05-10",
       "coverImageUrl": "https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?auto=format&fit=crop&w=1600&q=80",
       "excerpt": "Mothers often carry an invisible burden of planning, remembering, anticipating, and emotionally regulating family life. This piece examines the mental load as an overlooked driver of gender inequality and maternal mental health strain.",
@@ -46,7 +55,9 @@
       "id": "female-labour-force-participation-rate-whats-the-issue",
       "slug": "female-labour-force-participation-rate-whats-the-issue",
       "title": "Female Labour Force Participation Rate- What's the Issue?",
-      "authors": ["Pinaki Gakhar"],
+      "authors": [
+        "Pinaki Gakhar"
+      ],
       "publishedAt": "2026-05-01",
       "coverImageUrl": "https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=1600&q=80",
       "excerpt": "India's female labour force participation rate remains far below its potential despite a demographic dividend, policy schemes, and rising educational attainment. This piece examines the structural, social, and institutional barriers keeping women out of paid work.",
@@ -56,7 +67,9 @@
       "id": "she-bears-the-heat-how-climate-change-disproportionately-impacts-women",
       "slug": "she-bears-the-heat-how-climate-change-disproportionately-impacts-women",
       "title": "She Bears the Heat: How Climate Change Disproportionately Impacts Women",
-      "authors": ["Shivani Kulkarni"],
+      "authors": [
+        "Shivani Kulkarni"
+      ],
       "publishedAt": "2026-04-20",
       "coverImageUrl": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=1600&q=80",
       "excerpt": "Climate change is not gender neutral. This piece examines how rising temperatures, disasters, displacement, and resource scarcity intensify existing inequalities for women and girls across the world.",
@@ -66,7 +79,9 @@
       "id": "digital-inclusion-of-women-through-self-help-groups-what-the-literature-has-to-say",
       "slug": "digital-inclusion-of-women-through-self-help-groups-what-the-literature-has-to-say",
       "title": "Digital Inclusion of Women through Self-Help Groups: What the Literature has to Say",
-      "authors": ["Balijepalli Anjana Devi"],
+      "authors": [
+        "Balijepalli Anjana Devi"
+      ],
       "publishedAt": "2026-04-04",
       "coverImageUrl": "https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=1600&q=80",
       "excerpt": "Self-help groups have become a key route for women's digital and financial inclusion in rural India. This piece surveys the literature on current initiatives, scaling barriers, and the behavioural questions that still need attention.",
@@ -76,7 +91,9 @@
       "id": "indian-mens-mental-health-a-silent-crisis-and-current-solutions",
       "slug": "indian-mens-mental-health-a-silent-crisis-and-current-solutions",
       "title": "Indian Men's Mental Health: A Silent Crisis and Current Solutions",
-      "authors": ["Balijepalli Anjana Devi"],
+      "authors": [
+        "Balijepalli Anjana Devi"
+      ],
       "publishedAt": "2026-03-14",
       "coverImageUrl": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=1600&q=80",
       "excerpt": "Men's mental health in India remains under-recognized despite its links to suicide, substance use, chronic illness, and lost productivity. This piece examines the scale of the crisis and the interventions already in place.",
@@ -86,7 +103,9 @@
       "id": "gender-issues-understanding-gender-and-society",
       "slug": "gender-issues-understanding-gender-and-society",
       "title": "Gender Issues: Understanding Gender and Society",
-      "authors": ["Chitsimran Ekka"],
+      "authors": [
+        "Chitsimran Ekka"
+      ],
       "publishedAt": "2026-02-28",
       "coverImageUrl": "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=1600&q=80",
       "excerpt": "Gender shapes expectations, access, safety, and opportunity across education, work, media, and identity. Understanding these dynamics helps build a more just and compassionate society for everyone.",
@@ -96,7 +115,9 @@
       "id": "women-equity-ai-technology",
       "slug": "women-and-equity-in-ai-technology",
       "title": "Women and Equity in AI Technology",
-      "authors": ["Pinaki Gakhar"],
+      "authors": [
+        "Pinaki Gakhar"
+      ],
       "publishedAt": "2026-02-23",
       "coverImageUrl": "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1600&q=80",
       "excerpt": "The Fourth Industrial Revolution is reshaping economies and societies. This piece examines equity in AI, the gendered digital divide, and the steps needed to build inclusive, safe, and fair technology systems.",
@@ -106,21 +127,13 @@
       "id": "climate-fueled-gender-violence-nudged",
       "slug": "climate-fueled-gender-violence-can-the-solutions-be-nudged",
       "title": "Climate Fueled Gender Violence: Can the Solutions be Nudged?",
-      "authors": ["Pinaki Gakhar"],
+      "authors": [
+        "Pinaki Gakhar"
+      ],
       "publishedAt": "2026-03-07",
       "coverImageUrl": "https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&fit=crop&w=1600&q=80",
       "excerpt": "Climate stressors can amplify inequality and violence. This piece looks at evidence on climate-fueled gender-based violence and explores behavioural change approaches alongside traditional policy tools.",
       "contentMarkdown": "A concern flagged by the United Nations (UN) over two years ago, climate change fueled gender violence needs to be given another look. Repeated emphasis is placed on the need for gender equity to tackle climate change. While there are some widely acknowledged solutions to the issues, such as stricter laws and the Duluth Model, can there be a behavioural approach?\n\n[Baschieri et al.](https://pubmed.ncbi.nlm.nih.gov/?term=%22Baschieri%20A%22%5BAuthor%5D) (2025) mention that climate change leads to food insecurity and adverse effects on livelihoods. Increased income inequality as a result of climate change and stress caused by extreme heat, beyond its impact on the surrounding environment, has ripple effects on [gender based violence](https://pubmed.ncbi.nlm.nih.gov/?term=%22Baschieri%20A%22%5BAuthor%5D). Climate change is bound to increase inequalities and food insecurity. This increasing inequality may lead to greater tension in interpersonal dynamics.\n\nIt was found that the [rise in intimate partner femicide can increase up to 28% during heatwaves.](https://www.spotlightinitiative.org/publications/colliding-crises-how-climate-crisis-fuels-gender-based-violence) These stressors can lead to increase in gender based violence in the form of \"psychosocial abuse, physical violence, sexual violence, coercion, survival sex, child marriage, female genital mutilation, selective malnourishment, and even femicide.\" It has been found that [every 1°C rise in temperature is associated with a 4.7 per cent rise in violence](https://www.unicef.org/eap/media/20741/file/Gender%20Policy%20Brief%20-%20Gender-Based%20Violence%20and%20Climate%20Crisis.pdf.pdf) caused by a sexually intimate partner termed as intimate partner violence (IPV). [By 2090 at a 2°C rise in temperature an additional 40 million women and girls will experience IPV.](https://www.unicef.org/eap/media/20741/file/Gender%20Policy%20Brief%20-%20Gender-Based%20Violence%20and%20Climate%20Crisis.pdf.pdf)\n\nDespite awareness on the issues, the [UN Spotlight Initiative brief (2025)](https://www.spotlightinitiative.org/publications/colliding-crises-how-climate-crisis-fuels-gender-based-violence) found how only 0.04% of the climate-related development assistance focuses on gender equality. [\"Climate action must incorporate a gender lens to elevate the unique needs of women to avoid these harms\"](https://www.spotlightinitiative.org/publications/colliding-crises-how-climate-crisis-fuels-gender-based-violence). What can be done?\n\nThere is a recognised need for gender based financing, data collection on the impact of climate change for women and protective measures against gender based violence. Several countries have pledged to focus on gender equality and have started initiatives to tackle the issue at hand. Strict enforcement of laws, improved access to help, campaigning for creating awareness, providing education to women and income opportunities are some of the commonly recommended solutions.\n\nOne of the widely acknowledged methods is the [Duluth Model](https://www.sciencedirect.com/science/article/abs/pii/S1359178907000353) from the feminist approach which speaks of educating men on violence. However many studies have rendered it ineffective.\n\n[Gilchrist et al.(2021)](https://pmc.ncbi.nlm.nih.gov/articles/PMC8551949/) in their study provided an eight step behavioural change wheel utilising the COM-B Framework. Localised solutions to gender violence can be formulated using this method.\n\nIn the case of climate change fueled violence, the problem can be identified as the stress caused by climate change and growing inequality. The targeted change in behaviour can be the release of stress through violence. Focus can be put on providing alternate means to release mental strain. Community support groups, promotion of collective activities, [promoting self regulation and crisis management](https://pmc.ncbi.nlm.nih.gov/articles/PMC8551949/) and access to mental healthcare can be some ways to channelise the stress.\n\nGreater efforts are required to understand climate change caused gender violence. More data and research is required in this area. Moreover it is imperative to formulate a joint effort of using traditional policy tools along with behavioural change efforts that can lead to improved outcomes. Transfer of knowledge is also a necessity of the hour to ensure that proven models regarding the issues can be replicated across the world."
-    },
-    {
-      "id": "the-cost-of-fear-how-safety-concerns-shape-womens-life-choices",
-      "slug": "the-cost-of-fear-how-safety-concerns-shape-womens-life-choices",
-      "title": "The Cost of Fear: How Safety Concerns Shape Women’s Life Choices",
-      "authors": ["Ishita Gupta"],
-      "publishedAt": "2026-06-23",
-      "coverImageUrl": "https://images.unsplash.com/photo-1759658516746-2b9d3385b03f?q=80&w=1074&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      "excerpt": "Fear of violence shapes girls' educational opportunities, health, mobility, and future life outcomes. This article explores how safety is a prerequisite for inclusive development and gender equality.",
-      "contentMarkdown": "Think of this - each morning, millions of girls worldwide do a silent calculation before even stepping outside. The calculation is not what subjects they would like or what kind of jobs they might want to do. Instead, it is about if the trip to school is safe enough for them to even consider going. This decision that remains unseen by lawmakers and is missing in most development indicators is actually one of the greatest factors changing women's life choices in the world. Fear here is not just a feeling; it is a serious limitation. When safety cannot be guaranteed, opportunities get limited - this is most clear when it comes to girls' education.\n\nThough the linkage between physical safety and women being able to appear in public has been established for a very long time, the subject does not get enough attention in the main policy narratives. Acts of gender violence, harassment during travels, schools not being safe, the fear of attack while going to lessons - these cannot be seen as isolated problems. Rather, they constitute the daily life realities of many girls and women globally. Besides, we should want to get rid of barriers created by safety concerns in education for a matter of gender fairness, it is also a factor without which the idea of development that includes everyone cannot be realised.\n\nGlobally, statistics point out over and over again how girls' enrolment to and staying in school are lower than boys in places with high violence threats. For instance, [UNESCO (2023)](https://www.unesco.org/en/articles/2023-global-education-monitoring-report-technology-education-tool-whose-terms) reported that approximately 130 million girls are still out of school worldwide, and amongst the top reasons for girls being withdrawn from education as cited by families are unsafe routes and environments. This cannot simply be seen as a matter of someone's choice but rather a logical reaction to the reality of a threat which is long-standing.\n\nIn South Asia and sub-Saharan Africa, research work has shown that not only the distance of the school but also the lack of safe transport or even lighting along that distance strongly determines if girls are going to drop out of school or not. At times, if the parents see the daughter as a potential target of harassment, assault, or abduction on her way to school, the reason they decide to not let her go is not at all that they do not care about her education - rather it is their fear which is rational by the very fact safety is an issue. Still, it is only the girl who pays the price for this decision.\n\nThe comprehensive research carried out by [Plan International (2021)](https://plan-international.org/uploads/2022/02/annualreview2021-en-web.pdf) reveals that 58% of girls living in African, Asian, and Latin American regions have said that they feel unsafe in public places, with schools and travel routes being the most mentioned locations. The effects of this lack of safety are far-reaching - girls who are either harassed or witness harassment at their educational institutions will most likely suffer from anxiety, show less willingness to participate in class, and may decide to drop out of school altogether.\n\nSafety concerns are not working separately. If a girl is afraid, not only is her movement restricted but her access to health services, social networks, and information also takes a hit. If girls drop out of school because of unsafe environments, they are more likely to get married earlier, have adolescent pregnancy, and have less access to reproductive health care - the results that get worse over generations. The [World Health Organization (2022)](https://www.who.int/) recognised limited mobility as one of the social determinants of health, adding that because women and girls are afraid of safety when they cannot go to the health centres they suffer maternal and reproductive health outcomes.\n\nSecondly, long-lasting fear is a psychological stress that affects health as well. The study in [The Lancet (2020)](https://www.thelancet.com/article/S0140-6736(20)30367-6/fulltext) found that girls living in areas of conflicts and high crime exhibited higher levels of anxiety and post-traumatic stress disorder. That avoidance of schools was a result of the unsafe environment which was a contributing factor to their mental health problems. Education is basically the right to safety, because of this, if one of them is missing, the other becomes unreachable.\n\nIt would be a great mistake to perceive safety issues as mere bad luck. Women and girls have suffered disproportionately when it comes to insecurity because of their gender and this is a fact that is supported by the system. Patriarchal norms which allow women to be harassed in public, the lack of legal protections, under-policed areas, and the lack of infrastructure designed with women's needs in mind are all factors that together create one of the causes of fear and this fear is then constantly being produced and reinforced.\n\nTake urban planning for example which has always been done without the active participation of women. [UN-Habitat (2022)](https://unhabitat.org/sites/default/files/2022/06/wcr_2022.pdf) points out that public spaces like bus stops, markets, parks, and routes to schools are often not well lit, lack supervision and are difficult for women travelling alone or with children to access. This is not a coincidence. It is the physical manifestation of a society which has not made women's safety its main concern in its planning processes.\n\nHowever, the issue is that schools themselves may not be safe either. Sexual harassment by teachers and fellow students, lack of proper sanitation facilities (in particular for menstruating girls), and the absence of female staff members in decision-making roles are factors that have made girls not only insecure but also disrespected. A girl is promised education when she can use a toilet in private without being afraid or when she does not fear her way back home after an after-school program.\n\nWe cannot simply talk about safety. It must be linked to development. Women's options for life are very much limited by the fear of violence. The first two paragraphs suggest that the solution in this case is a combination of policy infrastructure community, and culture - co-ordinated action. It is through gender-responsive urban design that governments can most effectively make a difference in women's safety. Besides investing in safe transportation and well-lit public spaces, governments should also consider accessible school routes as an important factor. Results from the [Safe Schools Initiative programmes](https://www.worldbank.org/en/topic/teachers/brief/safe-schools-supporting-the-future-of-learning-through-safe-schools) illustrate that interventions at the school level through codes of conduct, teacher training on gender-based violence, and community monitoring might reduce harassment quite a bit as well as increase girls' attendance and completion rates.\n\nCommunity engagement is also very important. The inclusion of families in safety audits, school management committees, and peer-led campaigns against gender-based violence lead to improvements not only in attendance figures but also in the cultural norms that underpin safety. Girls' voices are essential in these processes. They are, after all, the experts on their own experiences of insecurity.\n\nTechnology can be another aspect of the solution. That includes mobile-based reporting platforms, community alert systems, and digital literacy programmes which assist girls in identifying and responding to online harassment. But technology alone cannot replace structural changes. A combination of digital tools, accountability mechanisms, and institutional reforms is what results in a lasting impact.\n\nFear pays no tribute to human intangible assets. It is measured in lost school years, in foregone health outcomes, and in unrealized potential. When safety concerns shape women's life choices, consequences can be seen not just in women and girls themselves but also in their families, communities, and economies. Gender equity cannot be achieved in situations where women and girls lack both physical and psychological safety.\n\nEducation, health, and technology as the main sectors of inclusive development will require the recognition of safety as not just that of an individual's personal concern, rather as a development outcome, institutional responsibility and a societal obligation for its fellow members. Focusing on the safety of women and girls is not only complementary to the development agenda; it is actually the basis of it. The educational promise will continue to be conditional, and the cost of that condition will unfairly fall on girls' until they are safe to walk to school, sit in a classroom, and come back home without fear."
     }
   ]
 }
