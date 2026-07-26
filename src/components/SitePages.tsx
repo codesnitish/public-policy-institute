@@ -25,6 +25,7 @@ import type { Blog } from "../blog/blogTypes";
 import { useEffect, useMemo, useState } from "react";
 import { MarkdownView } from "../blog/markdownView";
 import costOfFearMarkdown from "../content/opinions/the-cost-of-fear-an-obstacle-to-girls-education-and-health.md?raw";
+import menstrualJusticeMarkdown from "../content/opinions/menstrual-justice-is-a-six-piece-puzzle.md?raw";
 
 type SitePagesProps = {
   currentPath: string;
@@ -65,6 +66,15 @@ type Opinion = {
 };
 
 const opinions: Opinion[] = [
+  {
+    slug: "menstrual-justice-is-a-six-piece-puzzle",
+    title: "Menstrual Justice is a Six Piece Puzzle",
+    author: "Pinaki Gakhar",
+    publishedAt: "2026-07-26",
+    excerpt:
+      "Menstrual justice goes beyond hygiene. This piece frames menstruation through dignity, safety, access, rights, health systems, education, infrastructure, and social transformation.",
+    contentMarkdown: menstrualJusticeMarkdown,
+  },
   {
     slug: "the-cost-of-fear-an-obstacle-to-girls-education-and-health",
     title: "The Cost of Fear: An Obstacle to Girls' Education and Health",
