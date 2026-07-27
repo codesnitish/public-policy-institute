@@ -628,10 +628,25 @@ function AboutPage() {
         </Typography>
         <Typography sx={{ color: "text.secondary", lineHeight: 1.9, mb: 2 }}>
           Our Gender Lens is a not for profit gender-responsive research
-          platform focused on using evidence to inform more inclusive and
-          equitable systems. We believe research should move beyond theory and
-          directly contribute to better policies, stronger institutions, and
-          meaningful social impact.
+          platform under{" "}
+          <Box
+            component="a"
+            href="https://ishkiifoundation.netlify.app"
+            target="_blank"
+            rel="noreferrer"
+            sx={{
+              color: "text.primary",
+              fontWeight: 700,
+              textDecorationThickness: "2px",
+              textUnderlineOffset: "4px",
+            }}
+          >
+            Ishkii Foundation
+          </Box>
+          , focused on using evidence to inform more inclusive and equitable
+          systems. We believe research should move beyond theory and directly
+          contribute to better policies, stronger institutions, and meaningful
+          social impact.
         </Typography>
         <Typography sx={{ color: "text.secondary", lineHeight: 1.9, mb: 2 }}>
           We work across climate, technology, education, and health, examining
