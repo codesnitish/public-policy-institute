@@ -218,6 +218,18 @@ const explainers = [
         ],
     },
     {
+        slug: "gender-fluidity",
+        title: "Gender Fluidity",
+        author: "Riddhi Agnihotri",
+        excerpt: "Gender fluidity describes a gender identity that can shift over time or across contexts rather than staying fixed.",
+        paragraphs: [
+            "Gender fluidity is a non-fixed gender identity characterized by shifts in how a person experiences, identifies with, or expresses gender over time, rather than maintaining consistent alignment with a single gender identity. As an identity, it differs from the clothes and style an individual adopts, since that falls under gender expression rather than gender identity.",
+            "Gender fluidity is a relatively recent identity term, first recorded in the late 1980s. It spread rapidly as people realized that gender is not tied solely to binary categories or physical sex characteristics.",
+            "In society, gender fluidity is used as a self-identification term by people whose gender identity changes over time or across contexts. It is also used in academic, media, and advocacy contexts to describe gender diversity and to challenge fixed male and female expectations. On social platforms and in social settings, the term has helped normalize discussions of pronouns, identity, and nonbinary experiences.",
+            "The widespread use of this term has had a positive impact, as it allows people to identify themselves accurately, which can reduce isolation and support mental well-being. It also encourages more inclusive workplaces, schools, healthcare settings, and families by broadening understanding beyond rigid gender categories. In broader cultural terms, the concept helps society recognize that gender expression and identity are diverse rather than uniform.",
+        ],
+    },
+    {
         slug: "what-is-homophily",
         title: "What is Homophily?",
         author: "Aastha Kaura",
