@@ -196,6 +196,21 @@ const guidelineSections = [
 ] as const;
 const explainers: Explainer[] = [
   {
+    slug: "sexual-harassment-vs-sexual-abuse-whats-the-difference",
+    title: "Explainer: Sexual Harassment Vs. Sexual Abuse - What’s the difference?",
+    author: "Priyadarshan T",
+    excerpt:
+      "Sexual harassment and sexual abuse are related but distinct forms of harm, and understanding the difference helps people recognize, report, and defend against both.",
+    paragraphs: [
+      "Take a look at these headlines: a Bengaluru boxing coach accused of sexually harassing a student for 4 years; a minor girl alleging her mother let her boyfriend sexually abuse her, with 2 arrests made. They read alike, but harassment and abuse are different terms.",
+      "Sexual Harassment: It refers to making the victim feel distressed, humiliated, threatened, or fearful of further violence. The perpetrator pressures the victim to do, or refrain from doing, something they are not obliged to.",
+      "It includes unwanted sexual advances, comments, jokes, touches, calls, letters, emails, visits, stalking, verbal abuse, threats, property damage, and bodily harm. Often, harassment demands sexual favours in exchange for work or academic opportunities - implying or explicitly promising, offering, or withholding a job, pay raise, opportunities, promotion, role, grades, recommendation letter, or academic mentorship.",
+      "Sexual Abuse: This refers to a single or repeated physical, verbal, or psychological act, that violates an individual's human and civil rights. It usually describes sexual assault (unwanted touching, kissing, groping) against children. Since a person cannot legally consent to sexual activity until 18, any sexual activity with a child below the age of consent is called sexual abuse.",
+      "This includes sexual slavery, pornography, child abuse, and sexual assault, where a person knowingly causes another to engage in a sex act by threat or fear, or engages in a sexual act with someone incapable of understanding or consenting to it.",
+      "Regardless of whether it's harassment or abuse, both can seriously impact a person's health and well-being. Therefore, it’s necessary to understand these terminologies in order to protect ourselves from becoming victims and defend ourselves if we are victims.",
+    ],
+  },
+  {
     slug: "sex-vs-gender-are-they-the-same",
     title: "Sex vs Gender - Are they the Same?",
     author: "Pinaki Gakhar",
