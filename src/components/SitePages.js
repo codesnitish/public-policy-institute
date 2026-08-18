@@ -138,6 +138,30 @@ const guidelineSections = [
 ];
 const explainers = [
     {
+        slug: "radical-feminism",
+        title: "Radical Feminism",
+        author: "Santhiya Govindaraj",
+        excerpt: "Radical feminism centers patriarchy as the root of gender inequality and argues that social institutions must be fundamentally transformed.",
+        paragraphs: [
+            "Radical feminism lays emphasis on patriarchy as the central framework for analysing gender inequality. Radical feminists argue that patriarchy is deeply embedded in society and must be fundamentally dismantled rather than merely reformed.",
+            "Radical feminism calls for restructuring society and its institutions because it is generally sceptical of reformist approaches. Laws, political institutions, religious institutions, family structures and other social institutions are examined as sites where patriarchal power can be exercised over women.",
+            "Radical feminists oppose such forms of domination and have strongly advocated for women’s control over their own bodies, including the right to abortion and access to contraception. They have challenged the sexual objectification and commodification of women’s bodies in the media, as well as various forms of abuse and exploitation.",
+            "Opposition to physical, sexual, psychological and economic violence against women is another important concern of radical feminism. Radical feminists have also examined societal sexism, including prejudice, stereotyping and discrimination based on gender that are embedded in cultural norms, values and social systems. Prostitution and pornography have been particularly contested areas, with some radical feminists viewing them as forms of sexual exploitation and patriarchal control.",
+            "One of the major points of contention surrounding radical feminism is its differing positions on transgender women and gender identity. Some radical feminist groups hold transgender-exclusionary or gender-critical positions, arguing that womanhood is fundamentally defined by biological sex rather than gender identity. Some of these groups identify as women-only organisations. These positions remain highly contested both within feminism and in wider debates about gender and transgender rights.",
+        ],
+    },
+    {
+        slug: "ecofeminism",
+        title: "Ecofeminism",
+        author: "Ishita Gupta",
+        excerpt: "Ecofeminism examines the links between women and nature, arguing that both have historically faced exploitation and domination.",
+        paragraphs: [
+            "Ecofeminism, also called ecological feminism, is a branch of feminism that examines the connections between women and nature. The term was introduced by French feminist Françoise d’Eaubonne in 1974. According to Vandana Shiva, women and nature are closely connected because both have faced exploitation and domination. She also highlights the Chipko Movement, where women in the Garhwal region hugged trees to stop their commercial cutting. It showed how women played an important role in protecting forests and nature.",
+            "Another important idea of ecofeminism is that women have traditionally been closer to nature because of their everyday work. In many communities, women collect water, firewood and food from their surroundings. Because of this, they often notice changes in the environment quickly. Ecofeminism says that their knowledge and experience should not be ignored. Women can play an important role in solving environmental problems because they understand the needs of their families and communities. It also shows that environmental problems are not only about nature but can also affect people’s everyday lives.",
+            "Ecofeminism also questions the way development is done. Projects like dams, industries and mining can harm forests and the people living around them. Ecofeminism advocates for development that does not cause harm to nature and the people who depend on it.",
+        ],
+    },
+    {
         slug: "sexual-harassment-vs-sexual-abuse-whats-the-difference",
         title: "Explainer: Sexual Harassment Vs. Sexual Abuse - What’s the difference?",
         author: "Priyadarshan T",
