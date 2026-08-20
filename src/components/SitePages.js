@@ -138,6 +138,18 @@ const guidelineSections = [
 ];
 const explainers = [
     {
+        slug: "difference-between-gender-sensitive-responsive-and-transformative",
+        title: "Difference between gender sensitive, responsive, and transformative",
+        author: "Nidhi Chaudhary",
+        excerpt: "Gender sensitive, responsive, and transformative approaches describe different levels of action for addressing gender inequality in policies and programmes.",
+        paragraphs: [
+            "Gender sensitive, gender responsive and gender transformative approaches or frameworks are adapted in the context of policies, programmes, initiatives and interventions.",
+            "A gender sensitive approach recognises that a patriarchal structure impacts female, male, trans people, and people of other identities differently. However, this approach does not give concrete steps or a plan of action to challenge and improve the imbalance. For example, a generic statement of non-discrimination is issued at workplaces instead of a proper induction to employees encouraging inclusive behavior.",
+            "A gender responsive approach is a step ahead from a gender sensitive approach as it actively designs policies to reduce the said imbalance in a society. For example, reserved seats and coaches for women travellers in transport.",
+            "A gender transformative approach aims to bring a systematic change by working on the root cause such as working towards behavioural change and challenging oppressive stereotypes. For example, the Mukyamantri Balika Cycle Yojana in 2016, in which cash was given to girls enrolling in class 9 to buy a cycle to enable safe travel to schools. This reduced school dropout rate, along with addressing mobility concerns and challenging stereotypes.",
+        ],
+    },
+    {
         slug: "radical-feminism",
         title: "Radical Feminism",
         author: "Santhiya Govindaraj",
