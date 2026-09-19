@@ -138,6 +138,20 @@ const guidelineSections = [
 ];
 const explainers = [
     {
+        slug: "equal-pay-from-the-feminist-struggle-to-a-fundamental-right",
+        title: "Equal Pay: From the Feminist Struggle to a Fundamental Right",
+        author: "Unknown",
+        excerpt: "Equal pay is both a workplace issue and a question of dignity, recognition, and economic justice.",
+        paragraphs: [
+            "Originating in the early days of the feminist movement and the labour movement, the demand for equal pay for men and women has never been merely a workplace concern. It is a matter of a fundamental right, recognition, dignity, and economic justice.",
+            "During the Industrial Revolution, women entered factories, offices, and other workplaces in large numbers, and the two world wars further accelerated their participation in the workforce. Their participation contributed to increased output and profits for employers, but did not necessarily translate into rightful income for themselves. Women frequently received lower wages than men for performing the same or comparable work, reflecting deeply rooted beliefs about men’s supposed superiority, women’s supposedly inferior abilities, and their place in society.",
+            "Just as they fought for their voting rights, women fought for equal pay as well. Over time, protests, feminist movements, trade unions and demands for recognition, equal pay, and fair treatment gained momentum. These efforts helped establish equal pay for equal work as a fundamental principle of workplace justice, embedded as Article 23 of the Universal Declaration of Human Rights.",
+            "Today, equal pay is recognised as both a legal and ethical responsibility for employers, though the legal protection and enforcement still vary considerably across countries. It means ensuring that individuals receive equal remuneration for work that is the same, similar, or of equal value, without discrimination based on gender.",
+            "Equal pay extends beyond a basic salary. It can include bonuses, overtime payments, holiday pay, pension contributions, health insurance, and other employment benefits, such as travel allowances and workplace perks.",
+            "Ultimately, equal pay isn’t simply about receiving the same paycheck. It is about recognising the equal value of people’s contributions and ensuring that gender isn’t one of the determining factors in someone’s economic opportunities, professional worth, or financial prosperity.",
+        ],
+    },
+    {
         slug: "difference-between-gender-sensitive-responsive-and-transformative",
         title: "Difference between gender sensitive, responsive, and transformative",
         author: "Nidhi Chaudhary",
