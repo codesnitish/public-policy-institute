@@ -194,7 +194,7 @@ const explainers: Explainer[] = [
   {
     slug: "equal-pay-from-the-feminist-struggle-to-a-fundamental-right",
     title: "Equal Pay: From the Feminist Struggle to a Fundamental Right",
-    author: "Unknown",
+    author: "Santhiya",
     excerpt:
       "Equal pay is both a workplace issue and a question of dignity, recognition, and economic justice.",
     paragraphs: [

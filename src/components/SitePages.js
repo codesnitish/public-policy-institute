@@ -139,7 +139,7 @@ const explainers = [
     {
         slug: "equal-pay-from-the-feminist-struggle-to-a-fundamental-right",
         title: "Equal Pay: From the Feminist Struggle to a Fundamental Right",
-        author: "Unknown",
+        author: "Santhiya",
         excerpt: "Equal pay is both a workplace issue and a question of dignity, recognition, and economic justice.",
         paragraphs: [
             "Originating in the early days of the feminist movement and the labour movement, the demand for equal pay for men and women has never been merely a workplace concern. It is a matter of a fundamental right, recognition, dignity, and economic justice.",
