@@ -5,11 +5,8 @@ import {
   CardContent,
   Chip,
   Container,
-  Dialog,
-  DialogContent,
   Divider,
   Grid,
-  IconButton,
   Stack,
   Table,
   TableBody,
@@ -44,7 +41,6 @@ const sectionSx = { py: { xs: 6, md: 9 } };
 const submissionEmail = "ourgenderlens0317@gmail.com";
 const webinarReportPdfUrl =
   "/events/webinar-report-gender-neutral-approach-to-mental-health.pdf#toolbar=0&navpanes=0&scrollbar=1&download=0";
-const upcomingEventFlierUrl = "/events/gendered-futures-registration-flier.jpg";
 const femaleLfprDocxUrl =
   "/opinions/female-labour-force-participation-in-india.docx";
 const femaleLfprChartUrl =
@@ -425,35 +421,53 @@ const volunteerGroups = [
 
 const volunteerRoster = [
   {
-    role: "Research",
+    role: "Volunteer",
     names: [
-      "Nishant",
+      "Santhiya",
       "Aastha",
-      "Palak",
-      "Pragya",
-      "Sang",
       "Rishab",
       "Simeon",
-      "Ridhi",
       "Priyadarshan",
-      "Eugene",
+      "Ishita",
+      "Dinesh",
+      "Sruthi",
+      "Dr. Neha (domain experts)",
+      "Dr. Bernadette",
+      "Dr. Nyasha",
+      "Dr. Ipsita",
+      "Shruti",
+      "Poojitha",
+      "Anchal",
+      "Diana",
     ],
   },
-  { role: "Research and Communications", names: ["Samuel"] },
-  { role: "Communications", names: ["Gukan"] },
-  { role: "Senior Volunteer", names: ["Dr. Neha"] },
-  { role: "HR Volunteer", names: ["Akansha"] },
 ] as const;
 
 const volunteers = volunteerRoster.flatMap((group) =>
   group.names.map((name) => ({ name, role: group.role })),
 );
 
+const internGroups = [
+  {
+    role: "Research",
+    names: [
+      "Khethavat Pragathi Singh",
+      "GURLEEN KAUR",
+      "Nayanika Karan",
+      "Rishit Bagga",
+      "Sruthi Saravanan",
+    ],
+  },
+  { role: "Programs", names: ["Prapti Swaroop", "Mehak Singh"] },
+  { role: "Social Media", names: ["Chitranshu Tomar", "Sonam Maurya"] },
+] as const;
+
 const collaborators = [
   "Femme 2 Earth",
-  // 'Addie’s Afrique Foundation',
   "SheCivic India",
-  "Friends of Youth and Children Organisation",
+  "Black Girl Tales",
+  "She Moves",
+  "Women Students Mentorship Association",
 ] as const;
 
 function formatDate(yyyyMmDd: string) {
@@ -723,7 +737,7 @@ function AboutPage() {
               textUnderlineOffset: "4px",
             }}
           >
-            Ishkii Foundation
+            Ishkki Foundation
           </Box>
           , focused on using evidence to inform more inclusive and equitable
           systems. We believe research should move beyond theory and directly
@@ -1266,6 +1280,46 @@ function PeoplePage() {
         <Divider sx={{ my: 4 }} />
 
         <Typography variant="h4" sx={{ color: "text.primary", mb: 1.5 }}>
+          Interns
+        </Typography>
+        <Grid container spacing={2}>
+          {internGroups.map((group) => (
+            <Grid key={group.role} size={{ xs: 12, md: 4 }}>
+              <Card
+                elevation={0}
+                sx={{
+                  border: "1px solid",
+                  borderColor: "divider",
+                  borderRadius: 3,
+                  height: "100%",
+                }}
+              >
+                <CardContent sx={{ p: 2.6 }}>
+                  <Typography
+                    variant="h6"
+                    sx={{ color: "text.primary", mb: 1.4, fontWeight: 800 }}
+                  >
+                    {group.role}
+                  </Typography>
+                  <Stack spacing={1}>
+                    {group.names.map((name) => (
+                      <Typography
+                        key={`${group.role}-${name}`}
+                        sx={{ color: "text.secondary", lineHeight: 1.6 }}
+                      >
+                        {name}
+                      </Typography>
+                    ))}
+                  </Stack>
+                </CardContent>
+              </Card>
+            </Grid>
+          ))}
+        </Grid>
+
+        <Divider sx={{ my: 4 }} />
+
+        <Typography variant="h4" sx={{ color: "text.primary", mb: 1.5 }}>
           Silent Partners
         </Typography>
         <Stack spacing={2}>
@@ -1399,11 +1453,8 @@ function CollaboratorsPage() {
 
 function EventsPage() {
   const [showWebinarReport, setShowWebinarReport] = useState(false);
-  const [showUpcomingEvent, setShowUpcomingEvent] = useState(false);
 
   const openWebinarReport = () => setShowWebinarReport(true);
-  const openUpcomingEvent = () => setShowUpcomingEvent(true);
-  const closeUpcomingEvent = () => setShowUpcomingEvent(false);
 
   return (
     <Box sx={{ ...sectionSx, bgcolor: "#fff" }}>
@@ -1419,73 +1470,6 @@ function EventsPage() {
             public conversations.
           </Typography>
         </Box>
-
-        <Card
-          elevation={0}
-          role="button"
-          tabIndex={0}
-          onClick={openUpcomingEvent}
-          onKeyDown={(event) => {
-            if (event.key === "Enter" || event.key === " ") {
-              event.preventDefault();
-              openUpcomingEvent();
-            }
-          }}
-          sx={{
-            mb: 3,
-            border: "1px solid",
-            borderColor: "primary.main",
-            borderRadius: 3,
-            cursor: "pointer",
-            overflow: "hidden",
-            bgcolor: "#5F4C80",
-            color: "#fff",
-            transition: "transform .2s ease, box-shadow .2s ease",
-            "&:hover": { transform: "translateY(-2px)", boxShadow: 3 },
-            "&:focus-visible": {
-              outline: "3px solid rgba(95,76,128,0.28)",
-              outlineOffset: 3,
-            },
-          }}
-        >
-          <CardContent sx={{ p: { xs: 2.5, sm: 3.2 } }}>
-            <Stack
-              direction={{ xs: "column", sm: "row" }}
-              spacing={2}
-              alignItems={{ xs: "flex-start", sm: "center" }}
-              justifyContent="space-between"
-            >
-              <Box>
-                <Chip
-                  label="Upcoming Events"
-                  size="small"
-                  sx={{
-                    mb: 1.2,
-                    bgcolor: "rgba(255,255,255,0.16)",
-                    color: "#fff",
-                    fontWeight: 800,
-                  }}
-                />
-                <Typography
-                  variant="h4"
-                  sx={{ color: "#fff", fontWeight: 800, lineHeight: 1.2 }}
-                >
-                  Gendered Futures: Climate Crisis, Inequality & Resilience in
-                  the Global South
-                </Typography>
-              </Box>
-              <Typography
-                sx={{
-                  color: "rgba(255,255,255,0.86)",
-                  fontWeight: 700,
-                  whiteSpace: { sm: "nowrap" },
-                }}
-              >
-                View flyer
-              </Typography>
-            </Stack>
-          </CardContent>
-        </Card>
 
         <Grid container spacing={2.5}>
           <Grid size={{ xs: 12, md: 6 }}>
@@ -1574,52 +1558,6 @@ function EventsPage() {
           </Box>
         )}
 
-        <Dialog
-          open={showUpcomingEvent}
-          onClose={closeUpcomingEvent}
-          maxWidth={false}
-          PaperProps={{
-            sx: {
-              width: { xs: "94vw", md: "82vw" },
-              maxWidth: 1100,
-              maxHeight: "92vh",
-              borderRadius: 3,
-              overflow: "hidden",
-            },
-          }}
-        >
-          <DialogContent
-            sx={{ p: 0, position: "relative", bgcolor: "#201844" }}
-          >
-            <IconButton
-              aria-label="Close upcoming event flyer"
-              onClick={closeUpcomingEvent}
-              sx={{
-                position: "absolute",
-                top: 10,
-                right: 10,
-                zIndex: 2,
-                bgcolor: "rgba(255,255,255,0.92)",
-                color: "text.primary",
-                "&:hover": { bgcolor: "#fff" },
-              }}
-            >
-              X
-            </IconButton>
-            <Box
-              component="img"
-              src={upcomingEventFlierUrl}
-              alt="Registrations are open for Gendered Futures: Climate Crisis, Inequality and Resilience in the Global South"
-              sx={{
-                display: "block",
-                width: "100%",
-                maxHeight: "92vh",
-                objectFit: "contain",
-                bgcolor: "#201844",
-              }}
-            />
-          </DialogContent>
-        </Dialog>
       </Container>
     </Box>
   );

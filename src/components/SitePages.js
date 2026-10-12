@@ -1,5 +1,5 @@
 import { jsx as _jsx, jsxs as _jsxs, Fragment as _Fragment } from "react/jsx-runtime";
-import { Box, Button, Card, CardContent, Chip, Container, Dialog, DialogContent, Divider, Grid, IconButton, Stack, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Typography, } from "@mui/material";
+import { Box, Button, Card, CardContent, Chip, Container, Divider, Grid, Stack, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Typography, } from "@mui/material";
 import DownloadIcon from "@mui/icons-material/Download";
 import { fetchBlogStore, findBlogBySlug } from "../blog/blogClient";
 import { useEffect, useMemo, useState } from "react";
@@ -9,7 +9,6 @@ import menstrualJusticeMarkdown from "../content/opinions/menstrual-justice-is-a
 const sectionSx = { py: { xs: 6, md: 9 } };
 const submissionEmail = "ourgenderlens0317@gmail.com";
 const webinarReportPdfUrl = "/events/webinar-report-gender-neutral-approach-to-mental-health.pdf#toolbar=0&navpanes=0&scrollbar=1&download=0";
-const upcomingEventFlierUrl = "/events/gendered-futures-registration-flier.jpg";
 const femaleLfprDocxUrl = "/opinions/female-labour-force-participation-in-india.docx";
 const femaleLfprChartUrl = "/opinions/female-labour-force-participation-chart.jpeg";
 const opinions = [
@@ -350,31 +349,48 @@ const volunteerGroups = [
 ];
 const volunteerRoster = [
     {
-        role: "Research",
+        role: "Volunteer",
         names: [
-            "Nishant",
+            "Santhiya",
             "Aastha",
-            "Palak",
-            "Pragya",
-            "Sang",
             "Rishab",
             "Simeon",
-            "Ridhi",
             "Priyadarshan",
-            "Eugene",
+            "Ishita",
+            "Dinesh",
+            "Sruthi",
+            "Dr. Neha (domain experts)",
+            "Dr. Bernadette",
+            "Dr. Nyasha",
+            "Dr. Ipsita",
+            "Shruti",
+            "Poojitha",
+            "Anchal",
+            "Diana",
         ],
     },
-    { role: "Research and Communications", names: ["Samuel"] },
-    { role: "Communications", names: ["Gukan"] },
-    { role: "Senior Volunteer", names: ["Dr. Neha"] },
-    { role: "HR Volunteer", names: ["Akansha"] },
 ];
 const volunteers = volunteerRoster.flatMap((group) => group.names.map((name) => ({ name, role: group.role })));
+const internGroups = [
+    {
+        role: "Research",
+        names: [
+            "Khethavat Pragathi Singh",
+            "GURLEEN KAUR",
+            "Nayanika Karan",
+            "Rishit Bagga",
+            "Sruthi Saravanan",
+        ],
+    },
+    { role: "Programs", names: ["Prapti Swaroop", "Mehak Singh"] },
+    { role: "Social Media", names: ["Chitranshu Tomar", "Sonam Maurya"] },
+];
 const collaborators = [
     "Femme 2 Earth",
-    // 'Addie’s Afrique Foundation',
     "SheCivic India",
-    "Friends of Youth and Children Organisation",
+    "Black Girl Tales",
+    "She Moves",
+    "Women Students Mentorship Association",
 ];
 function formatDate(yyyyMmDd) {
     // Keep it simple: YYYY-MM-DD -> Month DD, YYYY (en-US)
@@ -482,7 +498,7 @@ function AboutPage() {
                                 fontWeight: 700,
                                 textDecorationThickness: "2px",
                                 textUnderlineOffset: "4px",
-                            }, children: "Ishkii Foundation" }), ", focused on using evidence to inform more inclusive and equitable systems. We believe research should move beyond theory and directly contribute to better policies, stronger institutions, and meaningful social impact."] }), _jsx(Typography, { sx: { color: "text.secondary", lineHeight: 1.9, mb: 2 }, children: "We work across climate, technology, education, and health, examining how these sectors affect people in both rural and urban contexts. Our goal is to understand structural challenges, highlight gaps, and contribute to solutions that are practical, sustainable, and grounded in evidence." }), _jsx(Typography, { sx: { color: "text.secondary", lineHeight: 1.9, mb: 2 }, children: "Our work is guided by three core values: Rigorous Research, Promoting Equity amongst Genders, and Inclusivity." }), _jsx(Typography, { sx: { color: "text.secondary", lineHeight: 1.9, mb: 3 }, children: "We apply a gender lens as an analytical framework to ensure that policies, systems, and solutions are designed with fairness and context in mind. We recognize that gender intersects with geography, access, and structural inequality, and we aim to reflect these realities in our research." }), _jsx(Divider, { sx: { my: 3 } }), _jsx(Typography, { variant: "h4", sx: { color: "text.primary", mb: 1.5 }, children: "What We Do" }), _jsx(Typography, { sx: { color: "text.secondary", lineHeight: 1.9, mb: 2 }, children: "We produce a range of research and knowledge outputs, including:" }), _jsx(Stack, { spacing: 1.2, children: whatWeDoItems.map((item) => (_jsxs(Typography, { sx: { color: "text.secondary" }, children: ["\u2022 ", item] }, item))) }), _jsx(Typography, { sx: { color: "text.secondary", lineHeight: 1.9, mt: 3 }, children: "Our content is structured, focused, and peer-reviewed. We follow a collaborative editing process to ensure clarity, coherence, and quality in every publication." }), _jsx(Divider, { sx: { my: 3 } }), _jsx(Typography, { variant: "h4", sx: { color: "text.primary", mb: 1.5 }, children: "Our Approach" }), _jsx(Typography, { sx: { color: "text.secondary", lineHeight: 1.9 }, children: "We meet regularly to develop ideas, discuss research directions, and refine our work. Collaboration and continuous improvement are central to our model. Through consistent engagement and structured review, we aim to maintain high standards in both analysis and writing." }), _jsx(Typography, { sx: { color: "text.secondary", lineHeight: 1.9, mt: 2 }, children: "At Our Gender Lens, we are committed to producing research that is evidence-based, context-aware, and designed to contribute to long-term, inclusive development." }), _jsx(Divider, { sx: { my: 3 } }), _jsx(Typography, { variant: "h4", sx: { color: "text.primary", mb: 1.5 }, children: "Our Team" }), _jsx(Typography, { sx: { color: "text.secondary", lineHeight: 1.9, mb: 2 }, children: "Our work is shaped by researchers, communications contributors, program volunteers, designers, people operations volunteers, and quiet supporters who bring evidence, creativity, and care to every initiative." }), _jsxs(Grid, { container: true, spacing: 2.5, children: [_jsx(Grid, { size: { xs: 12, md: 6 }, children: _jsx(Card, { elevation: 0, sx: {
+                            }, children: "Ishkki Foundation" }), ", focused on using evidence to inform more inclusive and equitable systems. We believe research should move beyond theory and directly contribute to better policies, stronger institutions, and meaningful social impact."] }), _jsx(Typography, { sx: { color: "text.secondary", lineHeight: 1.9, mb: 2 }, children: "We work across climate, technology, education, and health, examining how these sectors affect people in both rural and urban contexts. Our goal is to understand structural challenges, highlight gaps, and contribute to solutions that are practical, sustainable, and grounded in evidence." }), _jsx(Typography, { sx: { color: "text.secondary", lineHeight: 1.9, mb: 2 }, children: "Our work is guided by three core values: Rigorous Research, Promoting Equity amongst Genders, and Inclusivity." }), _jsx(Typography, { sx: { color: "text.secondary", lineHeight: 1.9, mb: 3 }, children: "We apply a gender lens as an analytical framework to ensure that policies, systems, and solutions are designed with fairness and context in mind. We recognize that gender intersects with geography, access, and structural inequality, and we aim to reflect these realities in our research." }), _jsx(Divider, { sx: { my: 3 } }), _jsx(Typography, { variant: "h4", sx: { color: "text.primary", mb: 1.5 }, children: "What We Do" }), _jsx(Typography, { sx: { color: "text.secondary", lineHeight: 1.9, mb: 2 }, children: "We produce a range of research and knowledge outputs, including:" }), _jsx(Stack, { spacing: 1.2, children: whatWeDoItems.map((item) => (_jsxs(Typography, { sx: { color: "text.secondary" }, children: ["\u2022 ", item] }, item))) }), _jsx(Typography, { sx: { color: "text.secondary", lineHeight: 1.9, mt: 3 }, children: "Our content is structured, focused, and peer-reviewed. We follow a collaborative editing process to ensure clarity, coherence, and quality in every publication." }), _jsx(Divider, { sx: { my: 3 } }), _jsx(Typography, { variant: "h4", sx: { color: "text.primary", mb: 1.5 }, children: "Our Approach" }), _jsx(Typography, { sx: { color: "text.secondary", lineHeight: 1.9 }, children: "We meet regularly to develop ideas, discuss research directions, and refine our work. Collaboration and continuous improvement are central to our model. Through consistent engagement and structured review, we aim to maintain high standards in both analysis and writing." }), _jsx(Typography, { sx: { color: "text.secondary", lineHeight: 1.9, mt: 2 }, children: "At Our Gender Lens, we are committed to producing research that is evidence-based, context-aware, and designed to contribute to long-term, inclusive development." }), _jsx(Divider, { sx: { my: 3 } }), _jsx(Typography, { variant: "h4", sx: { color: "text.primary", mb: 1.5 }, children: "Our Team" }), _jsx(Typography, { sx: { color: "text.secondary", lineHeight: 1.9, mb: 2 }, children: "Our work is shaped by researchers, communications contributors, program volunteers, designers, people operations volunteers, and quiet supporters who bring evidence, creativity, and care to every initiative." }), _jsxs(Grid, { container: true, spacing: 2.5, children: [_jsx(Grid, { size: { xs: 12, md: 6 }, children: _jsx(Card, { elevation: 0, sx: {
                                     border: "1px solid",
                                     borderColor: "divider",
                                     borderRadius: 3,
@@ -577,7 +593,12 @@ function PeoplePage() {
                                             bgcolor: "rgba(95,76,128,0.1)",
                                             color: "text.primary",
                                             fontWeight: 700,
-                                        } })] }) }) }, `${volunteer.name}-${volunteer.role}`))) }), _jsx(Divider, { sx: { my: 4 } }), _jsx(Typography, { variant: "h4", sx: { color: "text.primary", mb: 1.5 }, children: "Silent Partners" }), _jsxs(Stack, { spacing: 2, children: [_jsx(Typography, { sx: { color: "text.secondary", lineHeight: 1.85 }, children: "Behind every conversation, campaign, research project, and community initiative at OGL are individuals who contribute quietly yet meaningfully to our journey." }), _jsx(Typography, { sx: { color: "text.secondary", lineHeight: 1.85 }, children: "Our Silent Partners are volunteers, mentors, researchers, professionals, students, and allies who choose to support our work behind the scenes \u2014 through ideas, time, guidance, outreach, documentation, research, strategy, and emotional labour." }), _jsx(Typography, { sx: { color: "text.secondary", lineHeight: 1.85 }, children: "They may not always be visible on stage or social media, but their contributions shape the impact we create every day." }), _jsx(Typography, { sx: { color: "text.secondary", lineHeight: 1.85 }, children: "At OGL, we deeply value collective effort and believe that meaningful change is built not only by voices that are heard loudly, but also by those who work consistently and compassionately in the background." })] })] }) }));
+                                        } })] }) }) }, `${volunteer.name}-${volunteer.role}`))) }), _jsx(Divider, { sx: { my: 4 } }), _jsx(Typography, { variant: "h4", sx: { color: "text.primary", mb: 1.5 }, children: "Interns" }), _jsx(Grid, { container: true, spacing: 2, children: internGroups.map((group) => (_jsx(Grid, { size: { xs: 12, md: 4 }, children: _jsx(Card, { elevation: 0, sx: {
+                                border: "1px solid",
+                                borderColor: "divider",
+                                borderRadius: 3,
+                                height: "100%",
+                            }, children: _jsxs(CardContent, { sx: { p: 2.6 }, children: [_jsx(Typography, { variant: "h6", sx: { color: "text.primary", mb: 1.4, fontWeight: 800 }, children: group.role }), _jsx(Stack, { spacing: 1, children: group.names.map((name) => (_jsx(Typography, { sx: { color: "text.secondary", lineHeight: 1.6 }, children: name }, `${group.role}-${name}`))) })] }) }) }, group.role))) }), _jsx(Divider, { sx: { my: 4 } }), _jsx(Typography, { variant: "h4", sx: { color: "text.primary", mb: 1.5 }, children: "Silent Partners" }), _jsxs(Stack, { spacing: 2, children: [_jsx(Typography, { sx: { color: "text.secondary", lineHeight: 1.85 }, children: "Behind every conversation, campaign, research project, and community initiative at OGL are individuals who contribute quietly yet meaningfully to our journey." }), _jsx(Typography, { sx: { color: "text.secondary", lineHeight: 1.85 }, children: "Our Silent Partners are volunteers, mentors, researchers, professionals, students, and allies who choose to support our work behind the scenes \u2014 through ideas, time, guidance, outreach, documentation, research, strategy, and emotional labour." }), _jsx(Typography, { sx: { color: "text.secondary", lineHeight: 1.85 }, children: "They may not always be visible on stage or social media, but their contributions shape the impact we create every day." }), _jsx(Typography, { sx: { color: "text.secondary", lineHeight: 1.85 }, children: "At OGL, we deeply value collective effort and believe that meaningful change is built not only by voices that are heard loudly, but also by those who work consistently and compassionately in the background." })] })] }) }));
 }
 function BlogsPage() {
     const [blogs, setBlogs] = useState([]);
@@ -607,40 +628,8 @@ function CollaboratorsPage() {
 }
 function EventsPage() {
     const [showWebinarReport, setShowWebinarReport] = useState(false);
-    const [showUpcomingEvent, setShowUpcomingEvent] = useState(false);
     const openWebinarReport = () => setShowWebinarReport(true);
-    const openUpcomingEvent = () => setShowUpcomingEvent(true);
-    const closeUpcomingEvent = () => setShowUpcomingEvent(false);
-    return (_jsx(Box, { sx: { ...sectionSx, bgcolor: "#fff" }, children: _jsxs(Container, { maxWidth: "lg", children: [_jsxs(Box, { sx: { mb: 4 }, children: [_jsx(Typography, { variant: "h3", sx: { color: "text.primary", mb: 1.2 }, children: "Events" }), _jsx(Typography, { sx: { color: "text.secondary", maxWidth: 900, lineHeight: 1.85 }, children: "Reports, reflections, and knowledge outputs from OGL events and public conversations." })] }), _jsx(Card, { elevation: 0, role: "button", tabIndex: 0, onClick: openUpcomingEvent, onKeyDown: (event) => {
-                        if (event.key === "Enter" || event.key === " ") {
-                            event.preventDefault();
-                            openUpcomingEvent();
-                        }
-                    }, sx: {
-                        mb: 3,
-                        border: "1px solid",
-                        borderColor: "primary.main",
-                        borderRadius: 3,
-                        cursor: "pointer",
-                        overflow: "hidden",
-                        bgcolor: "#5F4C80",
-                        color: "#fff",
-                        transition: "transform .2s ease, box-shadow .2s ease",
-                        "&:hover": { transform: "translateY(-2px)", boxShadow: 3 },
-                        "&:focus-visible": {
-                            outline: "3px solid rgba(95,76,128,0.28)",
-                            outlineOffset: 3,
-                        },
-                    }, children: _jsx(CardContent, { sx: { p: { xs: 2.5, sm: 3.2 } }, children: _jsxs(Stack, { direction: { xs: "column", sm: "row" }, spacing: 2, alignItems: { xs: "flex-start", sm: "center" }, justifyContent: "space-between", children: [_jsxs(Box, { children: [_jsx(Chip, { label: "Upcoming Events", size: "small", sx: {
-                                                mb: 1.2,
-                                                bgcolor: "rgba(255,255,255,0.16)",
-                                                color: "#fff",
-                                                fontWeight: 800,
-                                            } }), _jsx(Typography, { variant: "h4", sx: { color: "#fff", fontWeight: 800, lineHeight: 1.2 }, children: "Gendered Futures: Climate Crisis, Inequality & Resilience in the Global South" })] }), _jsx(Typography, { sx: {
-                                        color: "rgba(255,255,255,0.86)",
-                                        fontWeight: 700,
-                                        whiteSpace: { sm: "nowrap" },
-                                    }, children: "View flyer" })] }) }) }), _jsx(Grid, { container: true, spacing: 2.5, children: _jsx(Grid, { size: { xs: 12, md: 6 }, children: _jsx(Card, { elevation: 0, role: "button", tabIndex: 0, onClick: openWebinarReport, onKeyDown: (event) => {
+    return (_jsx(Box, { sx: { ...sectionSx, bgcolor: "#fff" }, children: _jsxs(Container, { maxWidth: "lg", children: [_jsxs(Box, { sx: { mb: 4 }, children: [_jsx(Typography, { variant: "h3", sx: { color: "text.primary", mb: 1.2 }, children: "Events" }), _jsx(Typography, { sx: { color: "text.secondary", maxWidth: 900, lineHeight: 1.85 }, children: "Reports, reflections, and knowledge outputs from OGL events and public conversations." })] }), _jsx(Grid, { container: true, spacing: 2.5, children: _jsx(Grid, { size: { xs: 12, md: 6 }, children: _jsx(Card, { elevation: 0, role: "button", tabIndex: 0, onClick: openWebinarReport, onKeyDown: (event) => {
                                 if (event.key === "Enter" || event.key === " ") {
                                     event.preventDefault();
                                     openWebinarReport();
@@ -677,29 +666,7 @@ function EventsPage() {
                                     width: "100%",
                                     height: "100%",
                                     border: 0,
-                                } }) })] })), _jsx(Dialog, { open: showUpcomingEvent, onClose: closeUpcomingEvent, maxWidth: false, PaperProps: {
-                        sx: {
-                            width: { xs: "94vw", md: "82vw" },
-                            maxWidth: 1100,
-                            maxHeight: "92vh",
-                            borderRadius: 3,
-                            overflow: "hidden",
-                        },
-                    }, children: _jsxs(DialogContent, { sx: { p: 0, position: "relative", bgcolor: "#201844" }, children: [_jsx(IconButton, { "aria-label": "Close upcoming event flyer", onClick: closeUpcomingEvent, sx: {
-                                    position: "absolute",
-                                    top: 10,
-                                    right: 10,
-                                    zIndex: 2,
-                                    bgcolor: "rgba(255,255,255,0.92)",
-                                    color: "text.primary",
-                                    "&:hover": { bgcolor: "#fff" },
-                                }, children: "X" }), _jsx(Box, { component: "img", src: upcomingEventFlierUrl, alt: "Registrations are open for Gendered Futures: Climate Crisis, Inequality and Resilience in the Global South", sx: {
-                                    display: "block",
-                                    width: "100%",
-                                    maxHeight: "92vh",
-                                    objectFit: "contain",
-                                    bgcolor: "#201844",
-                                } })] }) })] }) }));
+                                } }) })] }))] }) }));
 }
 function BlogPostPage({ slug }) {
     const [blogs, setBlogs] = useState([]);
